@@ -8,7 +8,9 @@ Rails.application.config.assets.version = '1.0'
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.paths << Rails.root.join('vendor')
+Rails.application.config.assets.paths << Rails.root.join('public')
 Rails.application.config.assets.paths << Rails.root.join('lib')
+
 
 
 # Precompile additional assets.
