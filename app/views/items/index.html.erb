@@ -898,6 +898,15 @@
         </div>
     </footer>
 
-</body>
+<%= link_to "Sign in", new_user_registration_path %>
+<%= link_to "Log in", new_user_session_path %>
+<%= link_to "Log out", destroy_user_session_path , method: :delete %>
+<%= link_to "Password oublié?", new_user_password_path %>
 
+</body>
 </html>
+
+
+
+
+
