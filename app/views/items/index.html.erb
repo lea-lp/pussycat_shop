@@ -4,4 +4,5 @@
   <h2><%=item.title%></h2>
   <p><%=item.description%></p>
   <img src="<%= item.image_url %>">
+  <%= link_to "détails", item_path(item)%>
 <%end%>
