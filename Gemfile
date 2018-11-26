@@ -39,6 +39,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #to seed my project
 gem 'faker'
 
+#to seed using a csv file or URLs
+gem 'csv'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

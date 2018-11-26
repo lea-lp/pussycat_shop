@@ -1,2 +1,7 @@
 <h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<%@items.each do |item|%>
+  <hr>
+  <h2><%=item.title%></h2>
+  <p><%=item.description%></p>
+  <img src="<%= item.image_url %>">
+<%end%>
