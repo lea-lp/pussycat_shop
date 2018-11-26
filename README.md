@@ -1,3 +1,3 @@
 # PUSSYCAT SHOP
 
-> Pussycat Team 
+> Pussycat Team ...
