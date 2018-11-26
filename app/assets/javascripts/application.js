@@ -13,4 +13,13 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+
+//= require jquery.min
+//= require bootstrap.bundle.min
+//= require in-view.min
+//= require tweenmax.min
+//= require wavify.min
+//= require swiper.min
+//= require theme.min
+
 //= require_tree .
