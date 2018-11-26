@@ -9,79 +9,94 @@
         <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
             <div class="container">
                 <a class="navbar-brand mr-lg-5" href="../index.html">
-                    <%= image_tag "cat-logo.png", alt: "Image placeholder", style: "height: 70px" %> Pussy Cat Shop
+                    <%= image_tag "cat-logo.png", alt: "Image placeholder", style: "height: 60px" %> Pussy Cat Shop
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
+                <div id="nav">
+                  <ul>
+                    
+                    <!-- ............................USER IN.......................... -->
+                    <% if user_signed_in? %>
 
-                <div class="collapse navbar-collapse" id="navbar-main-collapse">
-                    <ul class="navbar-nav align-items-lg-center">
-                        <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
-                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-arrow py-0">
-                                <div class="list-group">
-                                    <a href="../pages/pages-landing.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/browser-window.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Landing Pages</h6>
-                                                <p class="mb-0">A great point to start from.</p>
-                                            </div>
+                        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+                            <ul class="navbar-nav align-items-lg-center">
+                                <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+                                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-arrow py-0">
+                                        <div class="list-group">
+                                            <a href="../pages/pages-landing.html" class="list-group-item list-group-item-action">
+                                                <div class="media d-flex align-items-center">
+                                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/browser-window.svg" class="img-saturate" style="width: 50px;">
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-1">My cart.</h6>
+                                                        <p class="mb-0">The best of the best.</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="../pages/pages-secondary.html" class="list-group-item list-group-item-action">
+                                                <div class="media d-flex align-items-center">
+                                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/ios-photos.svg" class="img-saturate" style="width: 50px;">
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-1">Offres promotionnelles</h6>
+                                                        <p class="mb-0">Tentes on sait jamais.</p>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                    <a href="../pages/pages-secondary.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/ios-photos.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Secondary Pages</h6>
-                                                <p class="mb-0">Build your website with these demos.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="../pages/pages-account.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/maintenance.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Account Pages</h6>
-                                                <p class="mb-0">Account management made easy.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="../pages/pages-shop.html" class="list-group-item list-group-item-action">
-                                        <div class="media d-flex align-items-center">
-                                            <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" class="img-saturate" style="width: 50px;">
-                                            <div class="media-body ml-3">
-                                                <h6 class="mb-1">Shop Pages</h6>
-                                                <p class="mb-0">Explore the full ecommerce website flow.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../docs/alerts.html" role="button">Components</a>
-                        </li>
-                    </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#footer" role="button">Contact</a>
+                                </li>
+                            </ul>
 
-                    <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../docs/introduction.html" target="_blank">Docs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../docs/changelog.html" target="_blank">Changelog</a>
-                        </li>
-                        <li class="nav-item mr-0">
-                            <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="nav-link d-lg-none">Purchase now</a>
-                            <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
-                                <span class="btn-inner--text">Purchase now</span>
-                            </a>
-                        </li>
-                    </ul>
+                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                                <li class="nav-item mr-0"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link d-lg-none" %>
+                                     <a href="<%= destroy_user_session_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex" data-method="DELETE">
+                                        <span class="btn-inner--text">Log Out</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
+                    <!-- ............................USER OUT.......................... -->
+
+                    <% else %>
+
+                        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+    
+
+                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+
+                                <li class="nav-item"><%= link_to "Mot de passe oublié ?", new_user_password_path, class: "nav-link" %>
+                                </li>
+
+                                <li class="nav-item"><%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+                                </li>
+
+                                <li class="nav-item mr-0"><%= link_to "Sign up", new_user_registration_path, class: "nav-link d-lg-none" %>
+                                     <a href="<%= new_user_registration_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                                        <span class="btn-inner--text">Sign Up</span>
+                                    </a>
+                                </li>
+
+
+                                <!-- <li class="nav-item mr-0">
+                                    <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="nav-link d-lg-none">Purchase now</a>
+                                    <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                                        <span class="btn-inner--text">Purchase now</span>
+                                    </a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    <% end %>
+                  </ul>
                 </div>
+
             </div>
         </nav>
 
@@ -269,7 +284,7 @@
     </main>
 
 
-    <footer class="footer footer-light bg-white">
+    <footer class="footer footer-light bg-white" id="footer">
         <div class="container">
             <div class="row pt-md">
                 <div class="col-lg-4 mb-5 mb-lg-0">
@@ -347,9 +362,3 @@
             </div>
         </div>
     </footer>
-
-
-<%= link_to "Sign in", new_user_registration_path %>
-<%= link_to "Log in", new_user_session_path %>
-<%= link_to "Log out", destroy_user_session_path , method: :delete %>
-<%= link_to "Password oublié?", new_user_password_path %>
