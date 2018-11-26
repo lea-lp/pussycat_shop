@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+
  *= require all.min
  *= require swiper.min
  *= require animate.min
@@ -19,3 +20,34 @@
  *= require_tree .
  *= require_self
  */
+
+/* cette partie de css est provisoire pour tester le devise */
+
+/*#nav {
+  width: 100%;
+  float: left;
+  margin: 0 0 1em 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ccc;  }
+#nav ul {
+  list-style: none;
+  width: 800px;
+  margin: 0 auto;
+  padding: 0; }
+#nav li {
+  float: left; }
+#nav li a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #069;
+  border-right: 1px solid #ccc; }
+#nav li:first-child a {
+  border-left: 1px solid #ccc; }
+#nav li a:hover {
+  color: #c00;
+  background-color: #fff; }
+*/
+  /* fin du css pour devise */

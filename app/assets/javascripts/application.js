@@ -12,9 +12,11 @@
 //
 //= require rails-ujs
 //= require activestorage
+
 //= require jquery3
 
 //= require jquery.min
+//= require all.min
 //= require bootstrap.bundle.min
 //= require in-view.min
 //= require tweenmax.min
