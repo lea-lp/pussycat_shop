@@ -215,12 +215,9 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
-<<<<<<< HEAD
   csv
   faker
-=======
   devise
->>>>>>> b7522b8e389a0bb3fcc15651649d9be421d765e6
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
