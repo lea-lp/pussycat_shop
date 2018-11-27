@@ -1,8 +1,326 @@
-<h1>Items#show</h1>
-<h3>Titre: <%=@item.title%></h3>
-<p>Description: <%=@item.description%></p>
-<img src="<%= @item.image_url %>">
 
-<%= link_to "retourner à l'index", root_path%>
+<header class="header-transparent" id="header-main">
+
+        <!-- Search -->
+
+        <!-- Topbar -->
+       
+        <!-- Main navbar -->
+
+        <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
+            <div class="container">
+                <a class="navbar-brand mr-lg-5" href="../index.html">
+                    <%= image_tag "cat-logo.png", alt: "Image placeholder", style: "height: 60px" %> Pussy Cat Shop
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div id="nav">
+                  <ul>
+                    
+                    <!-- ............................USER IN.......................... -->
+                    <% if user_signed_in? %>
+
+                        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+                            <ul class="navbar-nav align-items-lg-center">
+                                <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+                                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-arrow py-0">
+                                        <div class="list-group">
+                                            <a href="../pages/pages-landing.html" class="list-group-item list-group-item-action">
+                                                <div class="media d-flex align-items-center">
+                                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/browser-window.svg" class="img-saturate" style="width: 50px;">
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-1">My cart.</h6>
+                                                        <p class="mb-0">The best of the best.</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="../pages/pages-secondary.html" class="list-group-item list-group-item-action">
+                                                <div class="media d-flex align-items-center">
+                                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/ios-photos.svg" class="img-saturate" style="width: 50px;">
+                                                    <div class="media-body ml-3">
+                                                        <h6 class="mb-1">Offres promotionnelles</h6>
+                                                        <p class="mb-0">Tentes on sait jamais.</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#footer" role="button">Contact</a>
+                                </li>
+                            </ul>
+
+                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                                <li class="nav-item mr-0"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link d-lg-none" %>
+                                     <a href="<%= destroy_user_session_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex" data-method="DELETE">
+                                        <span class="btn-inner--text">Log Out</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    <!-- ............................USER OUT.......................... -->
+
+                    <% else %>
+
+                        <div class="collapse navbar-collapse" id="navbar-main-collapse">
+    
+
+                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+
+                                <li class="nav-item"><%= link_to "Mot de passe oublié ?", new_user_password_path, class: "nav-link" %>
+                                </li>
+
+                                <li class="nav-item"><%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+                                </li>
+
+                                <li class="nav-item mr-0"><%= link_to "Sign up", new_user_registration_path, class: "nav-link d-lg-none" %>
+                                     <a href="<%= new_user_registration_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                                        <span class="btn-inner--text">Sign Up</span>
+                                    </a>
+                                </li>
+
+
+                                <!-- <li class="nav-item mr-0">
+                                    <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="nav-link d-lg-none">Purchase now</a>
+                                    <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                                        <span class="btn-inner--text">Purchase now</span>
+                                    </a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    <% end %>
+                  </ul>
+                </div>
+
+            </div>
+        </nav>
+
+    </header>
+
+
+        <header class="slice pt-lg pb-4 bg-gradient-warning d-flex align-items-end">
+        </header>
+
+    
+        <section class="slice slice-lg" id="sct-products">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6">
+
+                        <!-- Product gallery -->
+                        <div class="mb-5">
+                            <a href="">
+                                <img src="<%= @item.image_url %>" style="max-width: 550px; max-height: 400px;" class="img-fluid rounded shadow shadow-lg--hover">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="pl-lg-4">
+                
+                            <!-- Product title -->
+                            <h1>Hi, I'm <%=@item.title%> !</h1>
+
+                            <!-- Product description -->
+                            <div class="mt-4">
+                                <small class="text-dark font-weight-bold d-block mb-2">Description:</small>
+                                <p class="text-sm lh-150"><%=@item.description%></p>
+                            </div>
+
+                            
+                            <!-- Rating stars -->
+                            <p style="width: 170px"> Cute 
+                                <span class="static-rating static-rating-sm" style="float: right;">
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <% if rand(0..2) == 0 %>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <% elsif rand(0..1) == 0%>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star"></i>
+                                    <% else %>
+                                    <i class="star fas fa-star"></i>
+                                    <i class="star fas fa-star"></i>
+                                    <% end %>
+
+                                </span>
+                            </p>
+                            <p style="width: 170px"> Crazy 
+                                <span class="static-rating static-rating-sm" style="float: right;">
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star"></i>
+                                    <i class="star fas fa-star"></i>
+                                </span>
+                            </p>
+
+                            <!-- Quantity -->
+                            <div class="mt-4">
+                                <br>
+                                <div class="d-flex">
+                                    <h3 class="d-block font-weight-bold text-dark mb-2" style="margin-top: 10px; margin-right: 10px;"><%=@item.price.to_i%>,00€</h3>
+                                    <button type="button" class="btn btn-primary ml-3">Add to cart</button>
+                                </div>
+                            </div>
+
+                            <!-- Product info -->
+                        </form>
+                    </div>
+                </div>
+                <div>
+                        <small class="d-block font-weight-bold text-dark">Maintaining</small>
+                        <ul class="list-unstyled list-icon">
+                            <li class="text-sm py-1">
+                                <i class="fas fa-tshirt mr-3"></i>Natural fur, quality guarenteed since 1875
+                            </li>
+                            <li class="text-sm py-1">
+                                <i class="fas fa-air-freshener mr-3"></i>Machine wash up to 30&deg;/86&deg;F gentle cycle (no for real, don't wash your cat dude)
+                            </li>
+                            <li class="text-sm py-1">
+                                <i class="fas fa-charging-station mr-3"></i>Iron up to 110&deg;C/230&deg;F (but you can iron it up hahaha)
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </section>
+
+
+
+        <section class="slice slice-lg delimiter-top" id="sct-suggested-products">
+            <div class="container">
+                <div class="mb-md text-center">
+                    <h5>Suggested products</h5>
+                    <div class="fluid-paragraph text-center mt-2">
+                        <p class="lead lh-180">Check out these special cats that we think you might like</p>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="row">
+
+                        <% @sug_items.each do |item|%>
+                        <div class="col-lg-3 col-sm-6 col-sm-6 mb-5">
+                            <div class="card card-product no-border shadow shadow--hover">
+                                <div class="card-image">
+                                    <a href="<%= item_path(item.id) %>">
+                                        <img src="<%= item.image_url %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
+                                    </a>
+        
+                                    <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
+        
+                                </div>
+        
+                                <div class="card-body pt-0 text-center">
+                                    <a href="shop-product.html" class="card-title"><%=item.title%></a>
+                                    <span class="card-price"><%=item.price.to_i%>,00€</span> 
+                                    <div class="product-colors mt-3">
+                                        <a href="#" style="background-color: #59ad46;" data-toggle="tooltip" data-original-title="Green"></a>
+                                        <a href="#" style="background-color: #04050a;" data-toggle="tooltip" data-original-title="Black"></a>
+                                        <a href="#" style="background-color: #62aedd;" data-toggle="tooltip" data-original-title="Blueish"></a>
+                                        <a href="#" style="background-color: #e84385;" data-toggle="tooltip" data-original-title="Pink"></a>
+                                    </div>
+                                    <%= link_to "détails", item_path(item)%>
+                                </div>
+                            </div>
+                        </div>
+                    <%end%>
+
+
+    </main>
+
+
+    <footer class="footer footer-light bg-white">
+        <div class="container">
+            <div class="row pt-md">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <a href="../index.html">
+                        <img src="../assets/img/brand/dark.png" alt="Footer logo" style="height: 70px;">
+                    </a>
+                    <p class="text-sm">A unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams.</p>
+                </div>
+                <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
+                    <h6 class="heading mb-3">Account</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="../pages/account-profile.html">Profile</a>
+                        </li>
+                        <li><a href="../pages/account-settings.html">Settings</a>
+                        </li>
+                        <li><a href="../pages/account-billing.html">Billing</a>
+                        </li>
+                        <li><a href="../pages/account-notifications.html">Notifications</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
+                    <h6 class="heading mb-3">About</h6>
+                    <ul class="list-unstyled text-small">
+                        <li><a href="#">Services</a>
+                        </li>
+                        <li><a href="#">Contact</a>
+                        </li>
+                        <li><a href="#">Careers</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-sm-4 mb-5 mb-lg-0">
+                    <h6 class="heading mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Terms</a>
+                        </li>
+                        <li><a href="#">Privacy</a>
+                        </li>
+                        <li><a href="#">Support</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
+                <div class="col-md-6">
+                    <div class="copyright text-sm font-weight-bold text-center text-md-left">
+                        &copy; 2018 <a href="https://webpixels.io/" class="font-weight-bold" target="_blank">Webpixels</a>. All rights reserved.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://dribbble.com/webpixels" target="_blank">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="https://instagram.com/webpixelsofficial" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/webpixels" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://facebook.com/webpixels" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
 

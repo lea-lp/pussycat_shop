@@ -10,14 +10,20 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- 
+
+ *= require all.min
+ *= require swiper.min
+ *= require animate.min
+ *= require theme.min
+ *= require font-awesome
+
  *= require_tree .
  *= require_self
  */
 
 /* cette partie de css est provisoire pour tester le devise */
 
-#nav {
+/*#nav {
   width: 100%;
   float: left;
   margin: 0 0 1em 0;
@@ -43,5 +49,5 @@
 #nav li a:hover {
   color: #c00;
   background-color: #fff; }
-
+*/
   /* fin du css pour devise */
