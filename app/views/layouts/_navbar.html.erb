@@ -48,6 +48,13 @@
                             </ul>
 
                             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+<!-- BOUTON PANIER EN HAUT A DROITE -->
+                                <li class="nav-item mr-0">
+                                  <a href="<%= cart_show_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
+                                    <span class="btn-inner--text">Panier</span>
+                                  </a>
+                                </li>
+
                                 <li class="nav-item mr-0"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link d-lg-none" %>
                                      <a href="<%= destroy_user_session_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex" data-method="DELETE">
                                         <span class="btn-inner--text">Log Out</span>

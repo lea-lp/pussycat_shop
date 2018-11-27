@@ -97,15 +97,21 @@
                             <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
 
                         </div>
-
-                        <div class="card-body pt-0 text-center">
-                            <a href="shop-product.html" class="card-title"><%=item.title%></a>
-                            <span class="card-price"><%=item.price.to_i%>,00€</span> 
-                            <div class="product-colors mt-3">
-                                <a href="#" style="background-color: #59ad46;" data-toggle="tooltip" data-original-title="Green"></a>
-                                <a href="#" style="background-color: #04050a;" data-toggle="tooltip" data-original-title="Black"></a>
-                                <a href="#" style="background-color: #62aedd;" data-toggle="tooltip" data-original-title="Blueish"></a>
-                                <a href="#" style="background-color: #e84385;" data-toggle="tooltip" data-original-title="Pink"></a>
+                            <div class="card-body pt-0 text-center">
+                                <a href="shop-product.html" class="card-title"><%=item.title%></a>
+                                <span class="card-price"><%=item.price.to_i%>,00€</span> 
+                                <div class="product-colors mt-3">
+                                    <a href="#" style="background-color: #59ad46;" data-toggle="tooltip" data-original-title="Green"></a>
+                                    <a href="#" style="background-color: #04050a;" data-toggle="tooltip" data-original-title="Black"></a>
+                                    <a href="#" style="background-color: #62aedd;" data-toggle="tooltip" data-original-title="Blueish"></a>
+                                    <a href="#" style="background-color: #e84385;" data-toggle="tooltip" data-original-title="Pink"></a>
+                                </div>
+                                <%= link_to "détails", item_path(item)%><br>
+<!-- NOUvEAU BOUTON "AJOUT AU PANIER" -->
+                                <%if user_signed_in?%>
+                                  <%= link_to "ajout panier", edit_item_cart_path(item, current_user.cart)%>
+                                <%end%>
+<!-- (FIN) NOUvEAU BOUTON "AJOUT AU PANIER" -->
                             </div>
                             <%= link_to "détails", item_path(item)%>
                         </div>

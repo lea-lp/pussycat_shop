@@ -1,0 +1,26 @@
+<h1>Carts#show</h1>
+
+ <table>
+  <tr>
+    <th>#</th>
+    <th>Titre de la photo</th>
+    <th>Prix</th>
+  </tr>
+  <%sum = 0%>
+  <%@items.each_with_index do |item,i|%>
+    <tr>
+      <td><%=i+1%></td>
+      <td><%=item.title%></td>
+      <td><%=item.price%> €</td>
+      <td><%=link_to "supprimer", item_cart_path(item, @cart), method: :delete%></td>
+    </tr>
+    <%sum += item.price%>
+  <%end%>
+  <tr>
+    <td></td>
+    <td>TOTAL = </td>
+    <td><%=sum%> €</td>
+  </tr>
+</table> 
+
+<%= link_to "retourner à l'index", root_path%>
