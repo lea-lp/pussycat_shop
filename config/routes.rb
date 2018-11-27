@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/profile', to: 'user_profiles#show', as: 'profile'
   root to: 'items#index'
   resources :items do
     resources :carts, only: [:edit, :destroy]
