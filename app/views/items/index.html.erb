@@ -10,6 +10,17 @@
   </ul>
 </div>
 
+<div>
+  <ul>
+
+    <% if user_signed_in? %>
+    <li><%= link_to "Log out", destroy_user_session_path , method: :delete %></li>
+    <% else %>
+    <li>Vous devez être inscris pour voir les items</li>
+    <% end %>
+  </ul>
+</div>
+
 
 
 
@@ -28,6 +39,8 @@
     <p><%=item.description%></p>
     <img src="<%= item.image_url %>">
     <%= link_to "détails", item_path(item)%>
+    <%= link_to "Ajouter au panier", panier_path(item)%>
+
   <%end%>
 
 
