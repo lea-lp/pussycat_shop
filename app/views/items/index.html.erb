@@ -1,190 +1,89 @@
-    <header class="header-transparent" id="header-main">
-       
-        <!-- Main navbar -->
+<%= render "layouts/navbar" %>
 
-        <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark sticky" id="navbar-main">
-            <div class="container">
-                <a class="navbar-brand mr-lg-5" href="../index.html">
-                    <%= image_tag "cat-logo.png", alt: "Image placeholder", style: "height: 60px" %> Pussy Cat Shop
-                </a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                    
-                    <!-- ............................USER IN.......................... -->
-                    <% if user_signed_in? %>
-
-                        <div class="collapse navbar-collapse" id="navbar-main-collapse">
-                            <ul class="navbar-nav align-items-lg-center">
-                                <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
-                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-                                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-arrow py-0">
-                                        <div class="list-group">
-                                            <a href="../pages/pages-landing.html" class="list-group-item list-group-item-action">
-                                                <div class="media d-flex align-items-center">
-                                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/browser-window.svg" class="img-saturate" style="width: 50px;">
-                                                    <div class="media-body ml-3">
-                                                        <h6 class="mb-1">My cart.</h6>
-                                                        <p class="mb-0">The best of the best.</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="../pages/pages-secondary.html" class="list-group-item list-group-item-action">
-                                                <div class="media d-flex align-items-center">
-                                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/ios-photos.svg" class="img-saturate" style="width: 50px;">
-                                                    <div class="media-body ml-3">
-                                                        <h6 class="mb-1">Offres promotionnelles</h6>
-                                                        <p class="mb-0">Tentes on sait jamais.</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#footer" role="button">Contact</a>
-                                </li>
-                            </ul>
-
-                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-<!-- BOUTON PANIER EN HAUT A DROITE -->
-                                <li class="nav-item mr-0">
-                                  <a href="<%= cart_show_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
-                                    <span class="btn-inner--text">Panier</span>
-                                  </a>
-                                </li>
-                                <li class="nav-item mr-0">
-                                     <a href="<%= destroy_user_session_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex" data-method="DELETE">
-                                        <span class="btn-inner--text">Log Out</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    <!-- ............................USER OUT.......................... -->
-
-                    <% else %>
-
-                        <div class="collapse navbar-collapse" id="navbar-main-collapse">
-    
-
-                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-
-                                <li class="nav-item"><%= link_to "Mot de passe oublié ?", new_user_password_path, class: "nav-link" %>
-                                </li>
-
-                                <li class="nav-item"><%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-                                </li>
-
-                                <li class="nav-item mr-0"><%= link_to "Sign up", new_user_registration_path, class: "nav-link d-lg-none" %>
-                                     <a href="<%= new_user_registration_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
-                                        <span class="btn-inner--text">Sign Up</span>
-                                    </a>
-                                </li>
-
-
-                                <!-- <li class="nav-item mr-0">
-                                    <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="nav-link d-lg-none">Purchase now</a>
-                                    <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
-                                        <span class="btn-inner--text">Purchase now</span>
-                                    </a>
-                                </li> -->
-                            </ul>
-                        </div>
-                    <% end %>
-                </div>
-
-            </div>
-        </nav>
-
-    </header>
-
-    <main>
-
-        <section class="slice slice-lg bg-gradient-warning">
-            <div class="position-absolute bottom-0 col-md-9 col-lg-9 col-xl-8 d-none d-md-block">
-                <%= image_tag "catPNG.png", alt: "Image placeholder", class: "img-fluid" %>
-            </div>
-            <div class="container pt-lg">
-                <div class="row justify-content-end">
-                    <div class="col-md-6 col-lg-5 text-center text-lg-left">
-                        <div class="">
-                            <h2 class="text-white my-4">
-                        <span class="display-4 font-weight-light">Best images.</span>
-                        <span class="d-block">Must have <strong class="font-weight-light">accessories.</strong></span>
-                    </h2>
-                            <p class="lead text-white">Beautiful unique images stock photos. We have about (204,238 files) stock photos of CATS in HD high resolution jpg images format.</p>
-                            <div class="mt-5">
-                                <a href="#sct-products" class="btn btn-white btn-circle btn-translate--hover btn-icon d-none d-xl-inline-block scroll-me">
-                                    <span class="btn-inner--text">Go shopping</span>
-                                </a>
-                            </div>
+<main>
+    <section class="slice slice-lg bg-gradient-warning">
+        <div class="position-absolute bottom-0 col-md-9 col-lg-9 col-xl-8 d-none d-md-block">
+            <%= image_tag "catPNG.png", alt: "Image placeholder", class: "img-fluid" %>
+        </div>
+        <div class="container pt-lg">
+            <div class="row justify-content-end">
+                <div class="col-md-6 col-lg-5 text-center text-lg-left">
+                    <div class="">
+                        <h2 class="text-white my-4">
+                    <span class="display-4 font-weight-light">Best images.</span>
+                    <span class="d-block">Must have <strong class="font-weight-light">accessories.</strong></span>
+                </h2>
+                        <p class="lead text-white">Beautiful unique images stock photos. We have about (204,238 files) stock photos of CATS in HD high resolution jpg images format.</p>
+                        <div class="mt-5">
+                            <a href="#sct-products" class="btn btn-white btn-circle btn-translate--hover btn-icon d-none d-xl-inline-block scroll-me">
+                                <span class="btn-inner--text">Go shopping</span>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="row row-grid mt-lg d-none d-lg-flex">
-                    <div class="col-lg-4">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <div class="d-flex align-items-start">
-                                    <div class="icon icon-shape icon-orange rounded-circle">
-                                        <i class="fas fa-shipping-fast"></i>
-                                    </div>
-                                    <div class="icon-text px-4">
-                                        <h5>Fast sending</h5>
-                                        <p class="mb-0">All you have to do is to register for a customer account with your e-mail.</p>
-                                    </div>
+            </div>
+            <div class="row row-grid mt-lg d-none d-lg-flex">
+                <div class="col-lg-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="icon icon-shape icon-orange rounded-circle">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <div class="icon-text px-4">
+                                    <h5>Fast sending</h5>
+                                    <p class="mb-0">All you have to do is to register for a customer account with your e-mail.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <div class="d-flex align-items-start">
-                                    <div class="icon icon-shape icon-blue rounded-circle">
-                                        <i class="fas fa-credit-card"></i>
-                                    </div>
-                                    <div class="icon-text px-4">
-                                        <h5>Online payment</h5>
-                                        <p class="mb-0">Thanks to our friends from Stripe you'll be able to pay online and secured.</p>
-                                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="icon icon-shape icon-blue rounded-circle">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div class="icon-text px-4">
+                                    <h5>Online payment</h5>
+                                    <p class="mb-0">Thanks to our friends from Stripe you'll be able to pay online and secured.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <div class="d-flex align-items-start">
-                                    <div class="icon icon-shape icon-pink rounded-circle">
-                                        <i class="fas fa-hand-holding-usd"></i>
-                                    </div>
-                                    <div class="icon-text px-4">
-                                        <h5>High Value</h5>
-                                        <p class="mb-0">One day, if your collection doesn't fit your taste, just sell them.</p>
-                                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="icon icon-shape icon-pink rounded-circle">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <div class="icon-text px-4">
+                                    <h5>High Value</h5>
+                                    <p class="mb-0">One day, if your collection doesn't fit your taste, just sell them.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
-                <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
-                    <defs></defs>
-                    <path d="" class="shape-fill-white" />
-                </svg>
-            </div>
-        </section>
+        </div>
+        <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
+            <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
+                <defs></defs>
+                <path d="" class="shape-fill-white" />
+            </svg>
+        </div>
+    </section>
 
-        <section class="slice slice-lg delimiter-top" id="sct-products">
-            <div class="container">
-                <div class="mb-5 text-center">
-                    <h3 class="h6">Latest products</h3>
-                </div>
-                <div class="row">
+    <section class="slice slice-lg delimiter-top" id="sct-products">
+        <div class="container">
+            <div class="mb-5 text-center">
+                <h3 class="h6">Latest products</h3>
+            </div>
+            <div class="row">
 
 
                 <%@items.each do |item|%>
@@ -198,7 +97,6 @@
                                 <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
 
                             </div>
-
                             <div class="card-body pt-0 text-center">
                                 <a href="shop-product.html" class="card-title"><%=item.title%></a>
                                 <span class="card-price"><%=item.price.to_i%>,00€</span> 
@@ -219,126 +117,127 @@
                     </div>
                 <%end%>
             </div>
-            <div class="text-center">
-                <a href="shop-products.html" class="btn btn-sm btn-dark btn-circle">See all products</a>
-            </div>
-        </section>
+        </div>
+        <div class="text-center">
+            <a href="shop-products.html" class="btn btn-sm btn-dark btn-circle">See all products</a>
+        </div>
+    </section>
 
-        <section class="slice slice-xl bg-cover bg-size--cover justify-content-end">
-            <div class="shape-container" data-shape-style="wavify" data-shape-position="top" data-shape-orientation="inverse">
-               
-            </div>
-            <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
-                <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
-                    <defs></defs>
-                    <path d="" class="shape-fill-white" />
-                </svg>
-            </div>
-        </section>
+    <section class="slice slice-xl bg-cover bg-size--cover justify-content-end">
+        <div class="shape-container" data-shape-style="wavify" data-shape-position="top" data-shape-orientation="inverse">
+           
+        </div>
+        <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
+            <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
+                <defs></defs>
+                <path d="" class="shape-fill-white" />
+            </svg>
+        </div>
+    </section>
 
-        <section class="slice slice-lg bg-gradient-warning">
-            <div class="position-absolute bottom-0 col-lg-6 col-xl-5 d-none d-lg-block">
-                <%= image_tag "catPNG.png", alt: "Image placeholder", class: "img-fluid" %>
-            </div>
-            <div class="container">
-                <div class="row justify-content-end">
-                    <div class="col-lg-6 col-xl-7 text-center text-lg-right">
-                        <div class="mb-5">
-                            <h1 class="text-white">Subscribe for weekly news</h1>
-                            <p class="lead text-white mt-2">You get all Bootstrap components fully customized. Besides, you receive another numerous plugins out of the box and ready to use.</p>
-                        </div>
-                        <form>
-                            <div class="input-group input-group-lg mb-3">
-                                <input type="text" class="form-control" placeholder="Enter your email address" aria-label="Recipient's username">
-                                <div class="input-group-append">
-                                    <button class="btn btn-dark" type="button">Subcribe now</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-    </main>
-
-
-    <footer class="footer footer-light bg-white" id="footer">
+    <section class="slice slice-lg bg-gradient-warning">
+        <div class="position-absolute bottom-0 col-lg-6 col-xl-5 d-none d-lg-block">
+            <%= image_tag "catPNG.png", alt: "Image placeholder", class: "img-fluid" %>
+        </div>
         <div class="container">
-            <div class="row pt-md">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <a href="../index.html">
-                        <img src="../assets/img/brand/dark.png" alt="Footer logo" style="height: 70px;">
-                    </a>
-                    <p class="text-sm">Perfect files for the perfect gift ...</p>
-                </div>
-                <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
-                    <h6 class="heading mb-3">Account</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="../pages/account-profile.html">Profile</a>
-                        </li>
-                        <li><a href="../pages/account-settings.html">Settings</a>
-                        </li>
-                        <li><a href="../pages/account-billing.html">Billing</a>
-                        </li>
-                        <li><a href="../pages/account-notifications.html">Notifications</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
-                    <h6 class="heading mb-3">About</h6>
-                    <ul class="list-unstyled text-small">
-                        <li><a href="#">Services</a>
-                        </li>
-                        <li><a href="#">Contact</a>
-                        </li>
-                        <li><a href="#">Careers</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-sm-4 mb-5 mb-lg-0">
-                    <h6 class="heading mb-3">Company</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Terms</a>
-                        </li>
-                        <li><a href="#">Privacy</a>
-                        </li>
-                        <li><a href="#">Support</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
-                <div class="col-md-6">
-                    <div class="copyright text-sm font-weight-bold text-center text-md-left">
-                        &copy; 2018 <a href="https://webpixels.io/" class="font-weight-bold" target="_blank">Webpixels</a>. All rights reserved.
+            <div class="row justify-content-end">
+                <div class="col-lg-6 col-xl-7 text-center text-lg-right">
+                    <div class="mb-5">
+                        <h1 class="text-white">Subscribe for weekly news</h1>
+                        <p class="lead text-white mt-2">You get all Bootstrap components fully customized. Besides, you receive another numerous plugins out of the box and ready to use.</p>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://dribbble.com/webpixels" target="_blank">
-                                <i class="fab fa-dribbble"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="https://instagram.com/webpixelsofficial" target="_blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/webpixels" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://facebook.com/webpixels" target="_blank">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    <form>
+                        <div class="input-group input-group-lg mb-3">
+                            <input type="text" class="form-control" placeholder="Enter your email address" aria-label="Recipient's username">
+                            <div class="input-group-append">
+                                <button class="btn btn-dark" type="button">Subcribe now</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
+
+
+</main>
+
+
+<footer class="footer footer-light bg-white" id="footer">
+    <div class="container">
+        <div class="row pt-md">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <a href="../index.html">
+                    <img src="../assets/img/brand/dark.png" alt="Footer logo" style="height: 70px;">
+                </a>
+                <p class="text-sm">Perfect files for the perfect gift ...</p>
+            </div>
+            <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
+                <h6 class="heading mb-3">Account</h6>
+                <ul class="list-unstyled">
+                    <li><a href="../pages/account-profile.html">Profile</a>
+                    </li>
+                    <li><a href="../pages/account-settings.html">Settings</a>
+                    </li>
+                    <li><a href="../pages/account-billing.html">Billing</a>
+                    </li>
+                    <li><a href="../pages/account-notifications.html">Notifications</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
+                <h6 class="heading mb-3">About</h6>
+                <ul class="list-unstyled text-small">
+                    <li><a href="#">Services</a>
+                    </li>
+                    <li><a href="#">Contact</a>
+                    </li>
+                    <li><a href="#">Careers</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-sm-4 mb-5 mb-lg-0">
+                <h6 class="heading mb-3">Company</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#">Terms</a>
+                    </li>
+                    <li><a href="#">Privacy</a>
+                    </li>
+                    <li><a href="#">Support</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
+            <div class="col-md-6">
+                <div class="copyright text-sm font-weight-bold text-center text-md-left">
+                    &copy; 2018 <a href="https://webpixels.io/" class="font-weight-bold" target="_blank">Webpixels</a>. All rights reserved.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://dribbble.com/webpixels" target="_blank">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="https://instagram.com/webpixelsofficial" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/webpixels" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://facebook.com/webpixels" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
