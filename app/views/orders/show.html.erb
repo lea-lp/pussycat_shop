@@ -1,6 +1,6 @@
-<h1>Carts#show</h1>
+<h1>Show du Order</h1>
 
- <table>
+<table>
   <tr>
     <th>#</th>
     <th>Titre de la photo</th>
@@ -12,7 +12,6 @@
       <td><%=i+1%></td>
       <td><%=item.title%></td>
       <td><%=item.price%> €</td>
-      <td><%=link_to "supprimer", item_cart_path(item, @cart), method: :delete%></td>
     </tr>
     <%sum += item.price%>
   <%end%>
@@ -22,7 +21,5 @@
     <td><%=sum%> €</td>
   </tr>
 </table>
-
-<%=link_to "Passer commande", orders_path, method: :post%><br>
 
 <%= link_to "retourner à l'index", root_path%>

@@ -21,8 +21,6 @@
  *= require_self
  */
 
-
-
 .fa-user-circle {
   width: 35px !important; 
   height: 35px !important;;
@@ -43,3 +41,4 @@
 a:hover, .nav-link:hover {
     color: black;
 }
+
