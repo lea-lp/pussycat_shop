@@ -45,3 +45,9 @@ nav a:hover, .nav-link:hover {
 a:hover {
   color: rgba(226, 222, 222, 0.644);
 }
+#button-index {
+  padding: 1px;
+  width: 150px;
+  background-color: #2E294E;
+  opacity: 0.6;
+}

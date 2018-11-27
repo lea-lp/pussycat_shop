@@ -1,28 +1,97 @@
-<h1>Carts#show</h1>
+<main>
+    <header class="header-account-page bg-gradient-cart d-flex align-items-end">
+        <div class="container">
+            <div class="row">
+                <div class=" col-lg-12">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <span class="h2 mb-0 text-white d-block">Votre Panier.</span>
+                            <span class="text-white">Résumé de vos achats sur notre site.</span>
+                        </div>
+                    </div>
+                    <!-- Checkout navigation -->
+                    <div class="d-flex">
+                        <div class="btn-group btn-group-nav shadow" role="group" aria-label="Basic example">
+                            <div class="btn-group" role="group">
+                                <a href="#" class="btn btn-secondary btn-icon active">
+                                    <span class="btn-inner--icon"><i class="fas fa-shopping-cart"></i></span>
+                                    <span class="btn-inner--text d-none d-md-inline-block">Panier</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
- <table>
-  <tr>
-    <th>#</th>
-    <th>Titre de la photo</th>
-    <th>Prix</th>
-  </tr>
-  <%sum = 0%>
-  <%@items.each_with_index do |item,i|%>
-    <tr>
-      <td><%=i+1%></td>
-      <td><%=item.title%></td>
-      <td><%=item.price%> €</td>
-      <td><%=link_to "supprimer", item_cart_path(@cart, item), method: :delete%></td>
-    </tr>
-    <%sum += item.price%>
-  <%end%>
-  <tr>
-    <td></td>
-    <td>TOTAL = </td>
-    <td><%=sum%> €</td>
-  </tr>
-</table>
+    <section class="slice slice-lg">
+        <div class="container">
+            <!-- Shopping cart -->
+            <div class="table-responsive">
+                <table class="table align-items-center">
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
 
-<%=link_to "Passer commande", new_charge_path%><br>
+                    <tbody>
+                      <%sum = 0%>
+                      <%@items.each_with_index do |item,i|%>
+                        <tr>
+                          <td>
+                            <div class="media align-items-center">
+                              <img alt="cat image <%= item.title %>" src="<%= item.image_url %>" class="mr-3" style="width: 80px;">
+                              <div class="media-body">
+                                <div class="lh-100">
+                                  <span class="text-dark font-weight-bold mb-0"><%=item.title%></span>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <span class="font-weight-bold"><%=item.price.to_i%>,00€</span>
+                          </td>
+                          <td>
+                            <input type="text" class="form-control form-control-sm text-center" style="width: 80px;" value="1">
+                          </td>
+                          <td>
+                              <span class="font-weight-bold text-dark">$129 USD????</span>
+                          </td>
+                          <td class="text-right">
+                              <a href="<%= item_cart_path(item, @cart) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE">
+                                  <i class="fas fa-trash-alt"></i>
+                              </a>
+                          </td>
+                        </tr>
+                      <%sum += item.price%>
+                      <%end%>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Cart information -->
+            <div class="mt-5 pt-5 delimiter-top">
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-lg-4 text-center">
+                        <h5 class="mb-0">Total: <%=sum%> €</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<%= link_to "retourner à l'index", root_path%>
+    <section class="slice bg-gradient-primary">
+        <span class="tongue tongue-top">
+    <i class="fas fa-angle-up"></i>
+</span>
+        <div class="container text-center">
+            <h6 class="text-white">N'hésitez pas à retourner sur notre site pour acheter nos merveilleux chats</h6>
+            <a href="<%= new_charge_path %>" class="btn btn-white btn-circle mt-4 method="POST">Validation avant paiement</a>
+        </div>
+    </section>
+</main>
