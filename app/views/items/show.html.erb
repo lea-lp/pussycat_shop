@@ -140,8 +140,17 @@
                                     <i class="star fas fa-star voted"></i>
                                     <i class="star fas fa-star voted"></i>
                                     <i class="star fas fa-star voted"></i>
+                                    <% if rand(0..2) == 0 %>
                                     <i class="star fas fa-star voted"></i>
                                     <i class="star fas fa-star voted"></i>
+                                    <% elsif rand(0..1) == 0%>
+                                    <i class="star fas fa-star voted"></i>
+                                    <i class="star fas fa-star"></i>
+                                    <% else %>
+                                    <i class="star fas fa-star"></i>
+                                    <i class="star fas fa-star"></i>
+                                    <% end %>
+
                                 </span>
                             </p>
                             <p style="width: 170px"> Crazy 
