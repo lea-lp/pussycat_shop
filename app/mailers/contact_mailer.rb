@@ -1,12 +1,12 @@
 class ContactMailer < ApplicationMailer
 
-  def contact
-
-    mail(to: 'xxx@gmail.com', subject:'sujet de test')
+  def info_order(order)
+    @order = order
+    mail(to: 'kasskq@gmail.com', subject:'sujet de test')
   end
 
-  def order
-    mail(to: 'xxx@gmail.com', subject:'sujet de payement')
+  def order_confirmation()
+    mail(to: 'kasskq@gmail.com', subject:'sujet de payement')
   end
 
 
