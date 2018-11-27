@@ -12,6 +12,7 @@
       <td><%=i+1%></td>
       <td><%=item.title%></td>
       <td><%=item.price%> €</td>
+      <td><%=link_to "supprimer", item_cart_path(item, @cart), method: :delete%></td>
     </tr>
     <%sum += item.price%>
   <%end%>
