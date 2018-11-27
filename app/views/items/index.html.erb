@@ -97,7 +97,7 @@
                                 <a href="shop-product.html" class="card-title"><%=item.title%></a>
                                 <span class="card-price"><%=item.price.to_i%>,00€</span>
                                 <%if user_signed_in?%>
-                                <a href="<%= edit_item_cart_path(item, current_user.cart)%> " class="btn btn-primary btn-sm btn-circle" id="button-index">Ajouter au panier</a><br>
+                                <a href="<%= item_cart_path(current_user.cart, item)%> " class="btn btn-primary btn-sm btn-circle" id="button-index">Ajouter au panier</a><br>
                                 <%end%> 
                                 <a href="<%= item_path(item) %>">Détails</a>
                             </div>
