@@ -12,7 +12,7 @@
       <td><%=i+1%></td>
       <td><%=item.title%></td>
       <td><%=item.price%> €</td>
-      <td><%=link_to "supprimer", item_cart_path(item, @cart), method: :delete%></td>
+      <td><%=link_to "supprimer", item_cart_path(@cart, item), method: :delete%></td>
     </tr>
     <%sum += item.price%>
   <%end%>
@@ -23,6 +23,6 @@
   </tr>
 </table>
 
-<%=link_to "Passer commande", orders_path, method: :post%><br>
+<%=link_to "Passer commande", new_charge_path%><br>
 
 <%= link_to "retourner à l'index", root_path%>
