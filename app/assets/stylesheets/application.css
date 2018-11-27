@@ -23,12 +23,21 @@
 
 
 
+.fa-user-circle {
+  width: 35px !important; 
+  height: 35px !important;;
+}
+
 .navbar {
   background: linear-gradient(80deg,#ff9500 0,#ff6200 100%)!important;
 }
 
 .nav-link, a {
   color: white;
+}
+
+.dropdown-menu {
+  width: 20px;
 }
 
 a:hover, .nav-link:hover {

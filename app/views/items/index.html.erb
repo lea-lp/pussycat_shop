@@ -86,17 +86,17 @@
             <div class="row">
 
 
-            <%@items.each do |item|%>
-                <div class="col-lg-3 col-sm-6 col-sm-6 mb-5">
-                    <div class="card card-product no-border shadow shadow--hover">
-                        <div class="card-image">
-                            <a href="<%= item_path(item.id) %>">
-                                <img src="<%= item.image_url %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
-                            </a>
+                <%@items.each do |item|%>
+                    <div class="col-lg-3 col-sm-6 col-sm-6 mb-5">
+                        <div class="card card-product no-border shadow shadow--hover">
+                            <div class="card-image">
+                                <a href="<%= item_path(item.id) %>">
+                                    <img src="<%= item.image_url %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
+                                </a>
 
-                            <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
+                                <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
 
-                        </div>
+                            </div>
                             <div class="card-body pt-0 text-center">
                                 <a href="shop-product.html" class="card-title"><%=item.title%></a>
                                 <span class="card-price"><%=item.price.to_i%>,00€</span> 
@@ -113,11 +113,10 @@
                                 <%end%>
 <!-- (FIN) NOUvEAU BOUTON "AJOUT AU PANIER" -->
                             </div>
-                            <%= link_to "détails", item_path(item)%>
                         </div>
                     </div>
-                </div>
-            <%end%>
+                <%end%>
+            </div>
         </div>
         <div class="text-center">
             <a href="shop-products.html" class="btn btn-sm btn-dark btn-circle">See all products</a>

@@ -16,49 +16,45 @@
                     <% if user_signed_in? %>
 
                         <div class="collapse navbar-collapse" id="navbar-main-collapse">
-                            <ul class="navbar-nav align-items-lg-center">
-                                <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
-                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-                                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-arrow py-0">
+
+                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+<!-- BOUTON PANIER EN HAUT A DROITE -->
+                                <li class="nav-item mr-0 px-2">
+                                  <a href="<%= cart_show_path %>" class="btn btn-sm btn-dark btn-circle">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span class="btn-inner--text">Panier</span>
+                                  </a>
+                                </li>
+                                <li> </li>
+
+
+                                <li class="nav-item mr-0"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link d-lg-none" %>
+                                     
+                                        
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item dropdown dropdown-animate " data-toggle="hover">
+                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
                                         <div class="list-group">
-                                            <a href="../pages/pages-landing.html" class="list-group-item list-group-item-action">
+                                            <a href="<%= destroy_user_session_path %>" class="list-group-item list-group-item-action" data-method="DELETE">
                                                 <div class="media d-flex align-items-center">
-                                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/browser-window.svg" class="img-saturate" style="width: 50px;">
                                                     <div class="media-body ml-3">
-                                                        <h6 class="mb-1">My cart.</h6>
-                                                        <p class="mb-0">The best of the best.</p>
+                                                        <h6 class="mb-1">Log out</h6>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="../pages/pages-secondary.html" class="list-group-item list-group-item-action">
                                                 <div class="media d-flex align-items-center">
-                                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/ios-photos.svg" class="img-saturate" style="width: 50px;">
                                                     <div class="media-body ml-3">
-                                                        <h6 class="mb-1">Offres promotionnelles</h6>
-                                                        <p class="mb-0">Tentes on sait jamais.</p>
+                                                        <h6 class="mb-1">Profil</h6>
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>
                                     </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#footer" role="button">Contact</a>
-                                </li>
-                            </ul>
-
-                            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-<!-- BOUTON PANIER EN HAUT A DROITE -->
-                                <li class="nav-item mr-0">
-                                  <a href="<%= cart_show_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
-                                    <span class="btn-inner--text">Panier</span>
-                                  </a>
-                                </li>
-
-                                <li class="nav-item mr-0"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link d-lg-none" %>
-                                     <a href="<%= destroy_user_session_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex" data-method="DELETE">
-                                        <span class="btn-inner--text">Log Out</span>
-                                    </a>
                                 </li>
                             </ul>
                         </div>
