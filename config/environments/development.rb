@@ -58,4 +58,45 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Maildev test, needed only for some tests.
+  
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address:              'localhost',
+  #   port:                 1025,
+  # }
+
+
+#Added per active admin install instructions
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+
+#These settings are for the sending out email for active admin and consequently the   devise mailer
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.smtp_settings = 
+{
+
+  :address            => 'smtp.gmail.com',
+  :port               => 587,
+  :domain             => 'gmail.com', #you can also use google.com
+  :authentication     => :plain,
+  :user_name          => 'team.montpellier.thp@gmail.com',
+  :password           => 'xxxxxxxxxxx'
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  
 end
