@@ -1,5 +1,3 @@
-<%= render "layouts/navbar" %>
-
 <main>
     <section class="slice slice-lg bg-gradient-warning">
         <div class="position-absolute bottom-0 col-md-9 col-lg-9 col-xl-8 d-none d-md-block">
@@ -10,9 +8,9 @@
                 <div class="col-md-6 col-lg-5 text-center text-lg-left">
                     <div class="">
                         <h2 class="text-white my-4">
-                    <span class="display-4 font-weight-light">Best images.</span>
-                    <span class="d-block">Must have <strong class="font-weight-light">accessories.</strong></span>
-                </h2>
+                            <span class="display-4 font-weight-light">Best images.</span>
+                            <span class="d-block">Must have <strong class="font-weight-light">accessories.</strong></span>
+                        </h2>
                         <p class="lead text-white">Beautiful unique images stock photos. We have about (204,238 files) stock photos of CATS in HD high resolution jpg images format.</p>
                         <div class="mt-5">
                             <a href="#sct-products" class="btn btn-white btn-circle btn-translate--hover btn-icon d-none d-xl-inline-block scroll-me">
@@ -91,27 +89,17 @@
                         <div class="card card-product no-border shadow shadow--hover">
                             <div class="card-image">
                                 <a href="<%= item_path(item.id) %>">
-                                    <img src="<%= item.image_url %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
+                                <img src="<%= item.image_url %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
                                 </a>
-
                                 <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
-
                             </div>
                             <div class="card-body pt-0 text-center">
                                 <a href="shop-product.html" class="card-title"><%=item.title%></a>
-                                <span class="card-price"><%=item.price.to_i%>,00€</span> 
-                                <div class="product-colors mt-3">
-                                    <a href="#" style="background-color: #59ad46;" data-toggle="tooltip" data-original-title="Green"></a>
-                                    <a href="#" style="background-color: #04050a;" data-toggle="tooltip" data-original-title="Black"></a>
-                                    <a href="#" style="background-color: #62aedd;" data-toggle="tooltip" data-original-title="Blueish"></a>
-                                    <a href="#" style="background-color: #e84385;" data-toggle="tooltip" data-original-title="Pink"></a>
-                                </div>
-                                <%= link_to "détails", item_path(item)%><br>
-<!-- NOUvEAU BOUTON "AJOUT AU PANIER" -->
+                                <span class="card-price"><%=item.price.to_i%>,00€</span>
                                 <%if user_signed_in?%>
-                                  <%= link_to "ajout panier", edit_item_cart_path(item, current_user.cart)%>
-                                <%end%>
-<!-- (FIN) NOUvEAU BOUTON "AJOUT AU PANIER" -->
+                                <a href="<%= item_cart_path(current_user.cart, item)%> " class="btn btn-primary btn-sm btn-circle" id="button-index">Ajouter au panier</a><br>
+                                <%end%> 
+                                <a href="<%= item_path(item) %>">Détails</a>
                             </div>
                         </div>
                     </div>
@@ -143,101 +131,11 @@
             <div class="row justify-content-end">
                 <div class="col-lg-6 col-xl-7 text-center text-lg-right">
                     <div class="mb-5">
-                        <h1 class="text-white">Subscribe for weekly news</h1>
+                        <h1 class="text-white">Subscribe and you'll receive weekly news</h1>
                         <p class="lead text-white mt-2">You get all Bootstrap components fully customized. Besides, you receive another numerous plugins out of the box and ready to use.</p>
                     </div>
-                    <form>
-                        <div class="input-group input-group-lg mb-3">
-                            <input type="text" class="form-control" placeholder="Enter your email address" aria-label="Recipient's username">
-                            <div class="input-group-append">
-                                <button class="btn btn-dark" type="button">Subcribe now</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
     </section>
-
-
 </main>
-
-
-<footer class="footer footer-light bg-white" id="footer">
-    <div class="container">
-        <div class="row pt-md">
-            <div class="col-lg-4 mb-5 mb-lg-0">
-                <a href="../index.html">
-                    <img src="../assets/img/brand/dark.png" alt="Footer logo" style="height: 70px;">
-                </a>
-                <p class="text-sm">Perfect files for the perfect gift ...</p>
-            </div>
-            <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
-                <h6 class="heading mb-3">Account</h6>
-                <ul class="list-unstyled">
-                    <li><a href="../pages/account-profile.html">Profile</a>
-                    </li>
-                    <li><a href="../pages/account-settings.html">Settings</a>
-                    </li>
-                    <li><a href="../pages/account-billing.html">Billing</a>
-                    </li>
-                    <li><a href="../pages/account-notifications.html">Notifications</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
-                <h6 class="heading mb-3">About</h6>
-                <ul class="list-unstyled text-small">
-                    <li><a href="#">Services</a>
-                    </li>
-                    <li><a href="#">Contact</a>
-                    </li>
-                    <li><a href="#">Careers</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-sm-4 mb-5 mb-lg-0">
-                <h6 class="heading mb-3">Company</h6>
-                <ul class="list-unstyled">
-                    <li><a href="#">Terms</a>
-                    </li>
-                    <li><a href="#">Privacy</a>
-                    </li>
-                    <li><a href="#">Support</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
-            <div class="col-md-6">
-                <div class="copyright text-sm font-weight-bold text-center text-md-left">
-                    &copy; 2018 <a href="https://webpixels.io/" class="font-weight-bold" target="_blank">Webpixels</a>. All rights reserved.
-                </div>
-            </div>
-            <div class="col-md-6">
-                <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://dribbble.com/webpixels" target="_blank">
-                            <i class="fab fa-dribbble"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="https://instagram.com/webpixelsofficial" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/webpixels" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://facebook.com/webpixels" target="_blank">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>

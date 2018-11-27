@@ -1,0 +1,24 @@
+<h1>Confirmation de paiement</h1>
+<h2>Merci! Vous avez payé <strong><%=@order.total_price%> €</strong></h2>
+ <br>
+ <p>Récapitulatif de votre commande numéro <%=@order.id%></p>
+ <table>
+  <tr>
+    <th>Titre de la photo</th>
+    <th>Prix</th>
+  </tr>
+  <%@order.items.each do |item|%>
+    <tr>
+      <td><%=item.title%></td>
+      <td><%=item.price%> €</td>
+    </tr>
+  <%end%>
+  <tr>
+    <td></td>
+    <td>TOTAL PAYE= </td>
+    <td><%=@order.total_price%> €</td>
+  </tr>
+</table>
+
+
+<%= link_to "retourner à l'index", root_path%>
