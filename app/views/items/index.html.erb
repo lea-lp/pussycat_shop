@@ -211,7 +211,7 @@
                                 <%= link_to "détails", item_path(item)%><br>
 <!-- NOUvEAU BOUTON "AJOUT AU PANIER" -->
                                 <%if user_signed_in?%>
-                                  <%= link_to "ajout panier", edit_item_cart_path(item, current_user.cart)%>
+                                  <%= link_to "ajout panier", item_cart_path(current_user.cart, item)%>
                                 <%end%>
 <!-- (FIN) NOUvEAU BOUTON "AJOUT AU PANIER" -->
                             </div>
