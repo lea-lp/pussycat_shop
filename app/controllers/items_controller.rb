@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
     @items = Item.all.order("created_at asc")
     if user_signed_in?
       current_user.cart ||= Cart.create(user_id: current_user.id)
+      current_user.save
     end
   end
 
