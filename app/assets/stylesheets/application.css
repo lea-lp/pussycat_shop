@@ -26,11 +26,11 @@
   height: 35px !important;;
 }
 
-.navbar {
+.navbar, .bg-gradient-cart {
   background: linear-gradient(80deg,#ff9500 0,#ff6200 100%)!important;
 }
 
-.nav-link, a {
+nav a, a {
   color: white;
 }
 
@@ -38,7 +38,10 @@
   width: 20px;
 }
 
-a:hover, .nav-link:hover {
+nav a:hover, .nav-link:hover {
     color: black;
 }
 
+a:hover {
+  color: rgba(226, 222, 222, 0.644);
+}

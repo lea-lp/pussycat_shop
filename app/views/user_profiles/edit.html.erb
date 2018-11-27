@@ -1,2 +1,327 @@
-<h1>UserProfiles#edit</h1>
-<p>Find me in app/views/user_profiles/edit.html.erb</p>
+<main>
+
+
+        <header class="header-account-page bg-gradient-cart d-flex align-items-end">
+            <div class="container">
+                <div class="row">
+                    <div class=" col-lg-12">
+                        <!-- Salute + Small stats -->
+                        <div class="row align-items-center mb-4">
+                            <div class="col-md-5 mb-4 mb-md-0">
+                                <span class="h2 mb-0 text-white d-block">Hi there !</span>
+                            </div>
+                            <div class="col-auto flex-fill">
+                                <ul class="list-inline row justify-content-lg-end mb-0">
+                                    <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                        <span class="badge badge-dot text-white">
+                                    <i class="bg-green"></i>Achat effectués
+                                    <a class="d-sm-block h5 text-white font-weight-bold pl-2" href="<%= root_path %>">
+                                            <%= current_user.orders.count %>
+                                            <small class="far fa-angle-up text-primary"></small>
+                                        </a>
+                                </span>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Account navigation -->
+                        <div class="d-flex">
+                            <a href="account-profile-public.html" class="btn btn-icon btn-group-nav shadow btn-secondary">
+                                <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
+                                <span class="btn-inner--text d-none d-md-inline-block">My Profile</span>
+                            </a>
+                            <div class="btn-group btn-group-nav shadow ml-auto" role="group" aria-label="Basic example">
+                                <div class="btn-group" role="group">
+                                    <button id="btn-group-boards" type="button" class="btn btn-secondary btn-icon dropdown-toggle" data-toggle="dropdown" data-offset="0,8" aria-haspopup="true" aria-expanded="false">
+                                        <span class="btn-inner--icon"><i class="fas fa-chart-line"></i></span>
+                                        <span class="btn-inner--text d-none d-sm-inline-block">Boards</span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" aria-labelledby="btn-group-boards">
+                                        <a class="dropdown-item" href="account-overview.html">Overview</a>
+                                        <a class="dropdown-item" href="account-projects.html">Projects</a>
+                                        <a class="dropdown-item" href="account-tasks.html">Tasks</a>
+                                        <a class="dropdown-item" href="account-connections.html">Connections</a>
+                                    </div>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button id="btn-group-settings" type="button" class="btn btn-secondary btn-icon dropdown-toggle" data-toggle="dropdown" data-offset="0,8" aria-haspopup="true" aria-expanded="false">
+                                        <span class="btn-inner--icon"><i class="fas fa-sliders-h"></i></span>
+                                        <span class="btn-inner--text d-none d-sm-inline-block">Settings</span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" aria-labelledby="btn-group-settings">
+                                        <a class="dropdown-item" href="account-profile.html">Profile</a>
+                                        <a class="dropdown-item" href="account-settings.html">Settings</a>
+                                        <a class="dropdown-item" href="account-billing.html">Billing</a>
+                                        <a class="dropdown-item" href="account-notifications.html">Notifications</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+        <section class="slice">
+            <div class="container">
+                <div class="row row-grid">
+                    <div class="col-lg-3">
+
+                        <div data-toggle="sticky" data-sticky-offset="100" data-negative-margin=".card-profile-cover">
+
+                            <div class="card">
+                                <div class="card-header py-3">
+                                    <span class="h6">Settings</span>
+                                </div>
+                                <div class="list-group list-group-sm list-group-flush">
+                                    <a href="account-profile.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                        <div>
+                                            <i class="fas fa-user-circle mr-2"></i>
+                                            <span>Profile</span>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-angle-right"></i>
+                                        </div>
+                                    </a>
+                                    <a href="account-settings.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                        <div>
+                                            <i class="fas fa-cog mr-2"></i>
+                                            <span>Settings</span>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-angle-right"></i>
+                                        </div>
+                                    </a>
+                                    <a href="account-billing.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                        <div>
+                                            <i class="fas fa-credit-card mr-2"></i>
+                                            <span>Billing</span>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-angle-right"></i>
+                                        </div>
+                                    </a>
+                                    <a href="account-notifications.html" class="list-group-item list-group-item-action d-flex justify-content-between">
+                                        <div>
+                                            <i class="fas fa-bell mr-2"></i>
+                                            <span>Notifications</span>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-angle-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-9">
+                        <!-- Change avatar -->
+
+                        <div class="card bg-gradient-warning border-0 shadow mb-4">
+                            <div class="card-body py-3 bg-gradient-primary">
+                                <div class="row row-grid align-items-center">
+                                    <div class="col-lg-8">
+                                        <div class="media align-items-center">
+                                            <a href="#" class="avatar avatar-lg rounded-circle mr-3">
+                                                <%= image_tag "cat_2.jpg"%>
+                                            </a>
+                                            <div class="media-body">
+                                                <h5 class="text-white mb-0"><%= current_user.email %></h5>
+                                                <div>
+                                                    <form>
+                                                        <input type="file" name="file-1[]" id="file-1" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple />
+                                                        <label for="file-1">
+                                                            <span class="text-white">Change avatar</span>
+                                                        </label>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto flex-fill mt-4 mt-sm-0 text-sm-right d-none d-lg-block">
+                                        <a href="<%= root_path %>" class="btn btn-sm btn-white btn-circle btn-icon shadow">
+                                            <span class="btn-inner--icon"><i class="fas fa-fire"></i></span>
+                                            <span class="btn-inner--text">See all cats</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form>
+                            <!-- General -->
+
+                            <div class="page-inner-header mb-4">
+                                <h5 class="mb-1">General information</h5>
+
+                                <p class="text-muted mb-0">You can help us, by filling your data, create you a much better experience using our website.</p>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">First name</label>
+                                        <input class="form-control" type="text" placeholder="Enter your first name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Last name</label>
+                                        <input class="form-control" type="text" placeholder="Also your last name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Birthday</label>
+                                        <input type="text" class="form-control" data-toggle="date" placeholder="Select your birth date">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Gender</label>
+                                        <select class="form-control" data-toggle="select" placeholder="You gender">
+                                            <option value="1">Female</option>
+                                            <option value="2">Male</option>
+                                            <option value="2">Rather not say</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Email</label>
+                                        <input class="form-control" type="email" placeholder="name@exmaple.com">
+                                        <small class="form-text text-muted mt-2">This is the main email address that we'll send notifications to. <a href="account-notifications.html">Manage you notifications</a> in order to receive only the thing that matter to you most.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Phone</label>
+                                        <input class="form-control" type="text" placeholder="+40-777 245 549">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Address -->
+                            <div class="pt-5 mt-5 delimiter-top">
+
+                                <div class="page-inner-header mb-4">
+                                    <h5 class="mb-1">Address details</h5>
+
+                                    <p class="text-muted mb-0">Fill in your address info for upcoming orders or payments.</p>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Address</label>
+                                            <input class="form-control" type="text" placeholder="Enter your home address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">City</label>
+                                            <input class="form-control" type="text" placeholder="City">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Country</label>
+                                            <select class="form-control" data-toggle="select" title="Country" data-live-search="true" data-live-search-placeholder="Country">
+                                                <option>Romania</option>
+                                                <option>United Stated</option>
+                                                <option>France</option>
+                                                <option>Greece</option>
+                                                <option>Italy</option>
+                                                <option>Norway</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Description -->
+                            <div class="pt-5 mt-5 delimiter-top">
+
+                                <div class="page-inner-header mb-4">
+                                    <h5 class="mb-1">About me</h5>
+
+                                    <p class="text-muted mb-0">Use this field to let others know you better.</p>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Bio</label>
+                                                <textarea class="form-control" placeholder="Tell us a few words about yourself" rows="3"></textarea>
+                                                <small class="form-text text-muted mt-2">You can @mention other users and organizations to link to them.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Skills -->
+                            <div class="pt-5 mt-5 delimiter-top">
+
+                                <div class="page-inner-header mb-4">
+                                    <h5 class="mb-1">Skills</h5>
+
+                                    <p class="text-muted mb-0">Show off you skills using our tags input control.</p>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label class="sr-only">Skills</label>
+                                            <input type="text" class="form-control" value="HTML, CSS3, Bootstrap, Photoshop, VueJS" data-toggle="tags" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-5 mt-5 delimiter-top">
+                                <button type="button" class="btn btn-sm btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-link">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to action -->
+
+        <section class="slice slice-lg bg-primary">
+
+            <span class="tongue tongue-top"><i class="fas fa-angle-up"></i></span>
+
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-8 text-center">
+                        <h3 class="font-weight-400 text-white">I am ready to start a new project with <span class="font-weight-700">Purpose</span> UI Kit.</h3>
+                        <div class="mt-5">
+                            <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-white btn-circle btn-translate--hover px-4">Purchase now<span class="badge badge-pill badge-danger text-sm">$49 USD</span></a>
+                            <a href="mailto:support@webpixels.io" class="btn btn-link text-white">Have an issue?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>

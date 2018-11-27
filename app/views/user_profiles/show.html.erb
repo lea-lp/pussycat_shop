@@ -1,361 +1,455 @@
-<h1>UserProfiles#show</h1>
-<p>Find me in app/views/user_profiles/show.html.erb</p>
 
 
 
+    <main>
+    
+    
+            <section class="pt-5 pt-lg-0 bg-secondary">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 mb-5">
+    
+                            <div data-toggle="sticky" data-sticky-offset="100" data-negative-margin=".card-profile-cover">
+                                <div class="card card-profile border-0 shadow  text-center">
+                                    <div class="card-profile-cover">
+                                            <%= image_tag "cat_2.jpg", class: "card-img-top", style: "filter: blur(0.6rem); height: 258px;" %>
+                                    </div>
+                                    <a href="#">
+                                            <%= image_tag "cat_2.jpg", class: "card-profile-image avatar shadow"%>
+                                    </a>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <h5 class="mb-0"><%= current_user.email %></h5>
+                                            <span class="text-muted">Membre depuis le <%= current_user.created_at.strftime("%d/%m/%Y") %></span>
+                                        </div>
+                                        <div class="pt-4 mt-4 delimiter-top">
+                                            <div class="btn-group shadow rounded-circle">
+                                                <button class="btn btn-sm btn-primary btn-circle btn-icon">
+                                                    <a href="<%= edit_profile_path %>">
+                                                        <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
+                                                        <span class="btn-inner--text">Edit</span>
+                                                    </a>
+                                                </button>
+                                                <button class="btn btn-sm btn-dark btn-circle btn-icon">
+                                                        <a data-confirm="Are you sure?" data-method="delete" href="/users" rel="nofollow">
+                                                        <span class="btn-inner--text">Delete</span>
+                                                        <span class="btn-inner--icon"><i class="fas fa-cross"></i></span>
+                                                    </a>
+                                                </button>
 
-<main>
 
-
-
-
-
-
-
-
-
-
-
-
-        <header class="header-account-page bg-gradient-primary d-flex align-items-end">
-            <div class="container">
-                <div class="row">
-                    <div class=" col-lg-12">
-                        <!-- Salute + Small stats -->
-                        <div class="row align-items-center mb-4">
-                            <div class="col-md-5 mb-4 mb-md-0">
-                                <span class="h2 mb-0 text-white d-block">Morning Heather</span>
-                                <span class="text-light">Have a nice day!</span>
-                            </div>
-                            <div class="col-auto flex-fill">
-                                <ul class="list-inline row justify-content-lg-end mb-0">
-                                    <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
-                                        <span class="badge badge-dot text-white">
-                                    <i class="bg-green"></i>Sales
-                                </span>
-                                        <a class="d-sm-block h5 text-white font-weight-bold pl-2" href="#">
-                                    20.5%
-                                    <small class="far fa-angle-up text-success"></small>
-                                </a>
-                                    </li>
-                                    <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
-                                        <span class="badge badge-dot text-white">
-                                    <i class="bg-orange"></i>Tasks
-                                </span>
-                                        <a class="d-sm-block h5 text-white font-weight-bold pl-2" href="#">
-                                    5.7%
-                                    <small class="far fa-angle-up text-warning"></small>
-                                </a>
-                                    </li>
-                                    <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
-                                        <span class="badge badge-dot text-white">
-                                    <i class="bg-red"></i>Sales
-                                </span>
-                                        <a class="d-sm-block h5 text-white font-weight-bold pl-2" href="#">
-                                    -3.24%
-                                    <small class="far fa-angle-down text-danger"></small>
-                                </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Account navigation -->
-                        <div class="d-flex">
-                            <a href="account-profile-public.html" class="btn btn-icon btn-group-nav shadow btn-secondary">
-                                <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
-                                <span class="btn-inner--text d-none d-md-inline-block">My Profile</span>
-                            </a>
-                            <div class="btn-group btn-group-nav shadow ml-auto" role="group" aria-label="Basic example">
-                                <div class="btn-group" role="group">
-                                    <button id="btn-group-boards" type="button" class="btn btn-secondary btn-icon dropdown-toggle" data-toggle="dropdown" data-offset="0,8" aria-haspopup="true" aria-expanded="false">
-                                        <span class="btn-inner--icon"><i class="fas fa-chart-line"></i></span>
-                                        <span class="btn-inner--text d-none d-sm-inline-block">Boards</span>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" aria-labelledby="btn-group-boards">
-                                        <a class="dropdown-item" href="account-overview.html">Overview</a>
-                                        <a class="dropdown-item" href="account-projects.html">Projects</a>
-                                        <a class="dropdown-item" href="account-tasks.html">Tasks</a>
-                                        <a class="dropdown-item" href="account-connections.html">Connections</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="btn-group" role="group">
-                                    <button id="btn-group-settings" type="button" class="btn btn-secondary btn-icon dropdown-toggle" data-toggle="dropdown" data-offset="0,8" aria-haspopup="true" aria-expanded="false">
-                                        <span class="btn-inner--icon"><i class="fas fa-sliders-h"></i></span>
-                                        <span class="btn-inner--text d-none d-sm-inline-block">Settings</span>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" aria-labelledby="btn-group-settings">
-                                        <a class="dropdown-item" href="account-profile.html">Profile</a>
-                                        <a class="dropdown-item" href="account-settings.html">Settings</a>
-                                        <a class="dropdown-item" href="account-billing.html">Billing</a>
-                                        <a class="dropdown-item" href="account-notifications.html">Notifications</a>
+    
+                            </div>
+    
+                        </div>
+                        <div class="col-md-8 mt-lg-5 mb-5">
+                            <!-- Page title -->
+    
+                            <div class="page-header mb-4">
+    
+                                <div class="row align-items-center">
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <a href="#" class="h6 mb-0"><i class="fas fa-angle-left mr-3"></i>Settings</a>
+                                    </div>
+                                    <div class="col-md-6 text-md-right">
+    
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-
-
-        <section class="slice">
-            <div class="container">
-                <div class="row row-grid">
-                    <div class="col-lg-3">
-
-                        <div data-toggle="sticky" data-sticky-offset="100" data-negative-margin=".card-profile-cover">
-
+                            <br>
+                            <!-- Timeline -->
                             <div class="card">
-                                <div class="card-header py-3">
-                                    <span class="h6">Settings</span>
+                                <div class="card-header pt-4 pb-2 border-0">
+                                    <div class="d-flex align-items-center">
+                                        <a href="#" class="avatar rounded-circle shadow">
+                                            <img alt="Image placeholder" src="../assets/img/prv/team-2-800x800.jpg">
+                                        </a>
+                                        <div class="avatar-content">
+                                            <h6 class="mb-0">Bettie Mavis</h6>
+                                            <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>3 hrs ago</small> 
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="list-group list-group-sm list-group-flush">
-                                    <a href="account-profile.html" class="list-group-item list-group-item-action d-flex justify-content-between">
-                                        <div>
-                                            <i class="fas fa-user-circle mr-2"></i>
-                                            <span>Profile</span>
-                                        </div>
-                                        <div>
-                                            <i class="fas fa-angle-right"></i>
-                                        </div>
-                                    </a>
-                                    <a href="account-settings.html" class="list-group-item list-group-item-action d-flex justify-content-between">
-                                        <div>
-                                            <i class="fas fa-cog mr-2"></i>
-                                            <span>Settings</span>
-                                        </div>
-                                        <div>
-                                            <i class="fas fa-angle-right"></i>
-                                        </div>
-                                    </a>
-                                    <a href="account-billing.html" class="list-group-item list-group-item-action d-flex justify-content-between">
-                                        <div>
-                                            <i class="fas fa-credit-card mr-2"></i>
-                                            <span>Billing</span>
-                                        </div>
-                                        <div>
-                                            <i class="fas fa-angle-right"></i>
-                                        </div>
-                                    </a>
-                                    <a href="account-notifications.html" class="list-group-item list-group-item-action d-flex justify-content-between">
-                                        <div>
-                                            <i class="fas fa-bell mr-2"></i>
-                                            <span>Notifications</span>
-                                        </div>
-                                        <div>
-                                            <i class="fas fa-angle-right"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-lg-9">
-                        <!-- Change avatar -->
-
-                        <div class="card bg-gradient-warning border-0 shadow mb-4">
-                            <div class="card-body py-3">
-                                <div class="row row-grid align-items-center">
-                                    <div class="col-lg-8">
-                                        <div class="media align-items-center">
-                                            <a href="#" class="avatar avatar-lg rounded-circle mr-3">
-                                                <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg">
-                                            </a>
-                                            <div class="media-body">
-                                                <h5 class="text-white mb-0">Heather Wright</h5>
-                                                <div>
-                                                    <form>
-                                                        <input type="file" name="file-1[]" id="file-1" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple />
-                                                        <label for="file-1">
-                                                            <span class="text-white">Change avatar</span>
-                                                        </label>
-                                                    </form>
+                                <div class="card-body">
+                                    <p>Personal profiles are the perfect way for you to grab their attention and persuade recruiters to continue reading your CV because you’re telling them from the off exactly why they should hire you. Of course, you’ll need
+                                        to know how to write an effective statement first, but we’ll get on to that in a bit.</p>
+                                    <!-- Badges -->
+                                    <div class="d-lg-flex">
+                                        <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
+                                            <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
+                                            <div class="media-body pl-2">
+                                                <span class="h6">10 Skills</span>
+                                            </div>
+                                        </a>
+                                        <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0">
+                                            <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/natural-user-interface-1.svg" style="width: 36px;">
+                                            <div class="media-body pl-2">
+                                                <span class="h6">57 Endorsements</span>
+                                            </div>
+                                        </a>
+                                        <a class="media d-flex align-items-center mb-3 mb-lg-0">
+                                            <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/collect.svg" style="width: 36px;">
+                                            <div class="media-body pl-2">
+                                                <span class="h6">7 Accomplishments</span>
+                                            </div>
+                                        </a>
+                                    </div>
+    
+                                    <div class="pt-5 mt-5 delimiter-top">
+                                        <!-- Resume timeline -->
+                                        <h6><i class="fas fa-user mr-2 mb-4"></i>Experience</h6>
+    
+                                        <div class="timeline timeline-one-side" data-timeline-content="axis">
+                                            <div class="timeline-block">
+                                                <span class="timeline-step border-info"></span>
+                                                <div class="timeline-content">
+                                                    <small class="text-muted font-weight-bold">2016 - present</small>
+                                                    <h6>Web Developer at Webpixels</h6>
+                                                    <p class="text-sm lh-160">When we strive to become better than we are everything around us becomes better too. This is a wider card with supporting text below.</p>
+                                                    <div>
+                                                        <span class="badge badge-warning mr-2 mb-2">Bootstrap</span>
+                                                        <span class="badge badge-warning mr-2 mb-2">UI/UX</span>
+                                                        <span class="badge badge-warning mr-2 mb-2">Market Strategy</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-block">
+                                                <span class="timeline-step timeline-step-sm border-info"></span>
+                                                <div class="timeline-content">
+                                                    <small class="text-muted font-weight-bold">2014 - 2016</small>
+                                                    <h6>Front Designer at Google</h6>
+                                                    <p class="text-sm lh-160">When we strive to become better than we are everything around us becomes better too. This is a wider card with supporting text below.</p>
+                                                    <div>
+                                                        <span class="badge badge-warning mr-2 mb-2">HTML5</span>
+                                                        <span class="badge badge-warning mr-2 mb-2">CSS3</span>
+                                                        <span class="badge badge-warning mr-2 mb-2">Responsive Design</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-block">
+                                                <span class="timeline-step timeline-step-sm border-info"></span>
+                                                <div class="timeline-content">
+                                                    <small class="text-muted font-weight-bold">2013 - 2014</small>
+                                                    <h6>Internship at Apple</h6>
+                                                    <p class="text-sm lh-160">When we strive to become better than we are everything around us becomes better too. This is a wider card with supporting text below.</p>
+                                                    <div>
+                                                        <span class="badge badge-warning mr-2 mb-2">Product Design</span>
+                                                        <span class="badge badge-warning mr-2 mb-2">Development</span>
+                                                        <span class="badge badge-warning mr-2 mb-2">Market Strategy</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+    
                                     </div>
-                                    <div class="col-auto flex-fill mt-4 mt-sm-0 text-sm-right d-none d-lg-block">
-                                        <a href="#" class="btn btn-sm btn-white btn-circle btn-icon shadow">
-                                            <span class="btn-inner--icon"><i class="fas fa-fire"></i></span>
-                                            <span class="btn-inner--text">Upgrade to Pro</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <form>
-                            <!-- General -->
-
-                            <div class="page-inner-header mb-4">
-                                <h5 class="mb-1">General information</h5>
-
-                                <p class="text-muted mb-0">You can help us, by filling your data, create you a much better experience using our website.</p>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">First name</label>
-                                        <input class="form-control" type="text" placeholder="Enter your first name">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Last name</label>
-                                        <input class="form-control" type="text" placeholder="Also your last name">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Birthday</label>
-                                        <input type="text" class="form-control" data-toggle="date" placeholder="Select your birth date">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Gender</label>
-                                        <select class="form-control" data-toggle="select" placeholder="You gender">
-                                            <option value="1">Female</option>
-                                            <option value="2">Male</option>
-                                            <option value="2">Rather not say</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Email</label>
-                                        <input class="form-control" type="email" placeholder="name@exmaple.com">
-                                        <small class="form-text text-muted mt-2">This is the main email address that we'll send notifications to. <a href="account-notifications.html">Manage you notifications</a> in order to receive only the thing that matter to you most.</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Phone</label>
-                                        <input class="form-control" type="text" placeholder="+40-777 245 549">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Address -->
-                            <div class="pt-5 mt-5 delimiter-top">
-
-                                <div class="page-inner-header mb-4">
-                                    <h5 class="mb-1">Address details</h5>
-
-                                    <p class="text-muted mb-0">Fill in your address info for upcoming orders or payments.</p>
-
-                                </div>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Address</label>
-                                            <input class="form-control" type="text" placeholder="Enter your home address">
+                                    <div class="pt-5 mt-5 delimiter-top">
+                                        <!-- Interests -->
+                                        <h6><i class="fas fa-user mr-2 mb-4"></i>Skills</h6>
+                                        <div>
+                                            <span class="badge badge-lg badge-info mr-2 mb-2">Web Design</span>
+                                            <span class="badge badge-lg badge-info mr-2 mb-2">Development</span>
+                                            <span class="badge badge-lg badge-info mr-2 mb-2">UI/UX</span>
+                                            <span class="badge badge-lg badge-info mr-2 mb-2">Bootstrap 4</span>
+                                            <span class="badge badge-lg badge-info mr-2 mb-2">User Experience</span>
+                                            <span class="badge badge-lg badge-info mr-2 mb-2">Psychology</span>
+                                            <span class="badge badge-lg badge-info mr-2 mb-2">Photoshop</span>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label">City</label>
-                                            <input class="form-control" type="text" placeholder="City">
+                                    <div class="pt-5 mt-5 delimiter-top">
+                                        <!-- Endorsements -->
+                                        <h6><i class="fas fa-user mr-2"></i>Endorsements</h6>
+                                        <div class="row">
+                                            <div class="col-lg-4 mt-4">
+    
+    
+                                                <div class="card bg-secondary shadow-sm border-0">
+                                                    <div class="media align-items-center p-3">
+                                                        <a href="#" class="avatar rounded-circle mr-2">
+                                                            <img alt="Image placeholder" src="../assets/img/prv/team-1-800x800.jpg">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h6 class="text-sm mb-0">Charly Jordan</h6>
+    
+                                                            <span class="static-rating static-rating-sm">
+        
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star"></i>
+        
+    </span>
+    
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                            <div class="col-lg-4 mt-4">
+    
+    
+                                                <div class="card bg-secondary shadow-sm border-0">
+                                                    <div class="media align-items-center p-3">
+                                                        <a href="#" class="avatar rounded-circle mr-2">
+                                                            <img alt="Image placeholder" src="../assets/img/prv/team-2-800x800.jpg">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h6 class="text-sm mb-0">Alexi Ren</h6>
+    
+                                                            <span class="static-rating static-rating-sm">
+        
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star-half voted"></i>
+        
+    </span>
+    
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                            <div class="col-lg-4 mt-4">
+    
+    
+                                                <div class="card bg-secondary shadow-sm border-0">
+                                                    <div class="media align-items-center p-3">
+                                                        <a href="#" class="avatar rounded-circle mr-2">
+                                                            <img alt="Image placeholder" src="../assets/img/prv/team-3-800x800.jpg">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h6 class="text-sm mb-0">John Maverick</h6>
+    
+                                                            <span class="static-rating static-rating-sm">
+        
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        
+    </span>
+    
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Country</label>
-                                            <select class="form-control" data-toggle="select" title="Country" data-live-search="true" data-live-search-placeholder="Country">
-                                                <option>Romania</option>
-                                                <option>United Stated</option>
-                                                <option>France</option>
-                                                <option>Greece</option>
-                                                <option>Italy</option>
-                                                <option>Norway</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Description -->
-                            <div class="pt-5 mt-5 delimiter-top">
-
-                                <div class="page-inner-header mb-4">
-                                    <h5 class="mb-1">About me</h5>
-
-                                    <p class="text-muted mb-0">Use this field to let others know you better.</p>
-
-                                </div>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Bio</label>
-                                                <textarea class="form-control" placeholder="Tell us a few words about yourself" rows="3"></textarea>
-                                                <small class="form-text text-muted mt-2">You can @mention other users and organizations to link to them.</small>
+                                        <div class="row">
+                                            <div class="col-lg-4 mt-4">
+    
+    
+                                                <div class="card bg-secondary shadow-sm border-0">
+                                                    <div class="media align-items-center p-3">
+                                                        <a href="#" class="avatar rounded-circle mr-2">
+                                                            <img alt="Image placeholder" src="../assets/img/prv/team-4-800x800.jpg">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h6 class="text-sm mb-0">Charly Jordan</h6>
+    
+                                                            <span class="static-rating static-rating-sm">
+        
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star"></i>
+        
+    </span>
+    
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                            <div class="col-lg-4 mt-4">
+    
+    
+                                                <div class="card bg-secondary shadow-sm border-0">
+                                                    <div class="media align-items-center p-3">
+                                                        <a href="#" class="avatar rounded-circle mr-2">
+                                                            <img alt="Image placeholder" src="../assets/img/prv/team-5-800x800.jpg">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h6 class="text-sm mb-0">Alexi Ren</h6>
+    
+                                                            <span class="static-rating static-rating-sm">
+        
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star-half voted"></i>
+        
+    </span>
+    
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                            <div class="col-lg-4 mt-4">
+    
+    
+                                                <div class="card bg-secondary shadow-sm border-0">
+                                                    <div class="media align-items-center p-3">
+                                                        <a href="#" class="avatar rounded-circle mr-2">
+                                                            <img alt="Image placeholder" src="../assets/img/prv/team-6-800x800.jpg">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h6 class="text-sm mb-0">John Maverick</h6>
+    
+                                                            <span class="static-rating static-rating-sm">
+        
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        <i class="star fas fa-star voted"></i>
+        
+    </span>
+    
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Skills -->
-                            <div class="pt-5 mt-5 delimiter-top">
-
-                                <div class="page-inner-header mb-4">
-                                    <h5 class="mb-1">Skills</h5>
-
-                                    <p class="text-muted mb-0">Show off you skills using our tags input control.</p>
-
+    
+                            <!-- Post -->
+                            <div class="card mt-4">
+                                <div class="card-header pt-4 pb-2 border-0">
+                                    <div class="d-flex align-items-center">
+                                        <a href="#" class="avatar rounded-circle shadow">
+                                            <img alt="Image placeholder" src="../assets/img/prv/team-2-800x800.jpg">
+                                        </a>
+                                        <div class="avatar-content">
+                                            <h6 class="mb-0">Bettie Mavis</h6>
+                                            <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>3 hrs ago</small> 
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label class="sr-only">Skills</label>
-                                            <input type="text" class="form-control" value="HTML, CSS3, Bootstrap, Photoshop, VueJS" data-toggle="tags" />
+                                <div class="card-body">
+                                    <p>Personal profiles are the perfect way for you to grab their attention and persuade recruiters to continue reading your CV because you’re telling them from the off exactly why they should hire you. Of course, you’ll need
+                                        to know how to write an effective statement first, but we’ll get on to that in a bit.</p>
+                                    <a href="../assets/img/prv/img-4-800x600.jpg" data-fancybox>
+                                        <img alt="Image placeholder" src="../assets/img/prv/img-4-800x600.jpg" class="img-fluid rounded">
+                                    </a>
+                                    <div class="row align-items-center my-3 pb-3 border-bottom">
+                                        <div class="col-sm-6">
+                                            <div class="icon-actions">
+                                                <a href="#" class="love active">
+                                                    <i class="fas fa-heart"></i>
+                                                    <span class="text-muted">150 likes</span>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="fas fa-comment"></i>
+                                                    <span class="text-muted">20 comments</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 d-none d-sm-block">
+                                            <div class="d-flex align-items-center justify-content-sm-end">
+                                                <small class="pr-2 font-weight-bold">Seen by</small>
+                                                <div class="avatar-group">
+                                                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexis Ren">
+                                                        <img alt="Image placeholder" src="../assets/img/prv/thumb-1.jpg" class="rounded-circle">
+                                                    </a>
+                                                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Michael Jhonson">
+                                                        <img alt="Image placeholder" src="../assets/img/prv/thumb-2.jpg" class="rounded-circle">
+                                                    </a>
+                                                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Daniel Lewis">
+                                                        <img alt="Image placeholder" src="../assets/img/prv/thumb-3.jpg" class="rounded-circle">
+                                                    </a>
+                                                </div>
+                                                <small class="pl-2 font-weight-bold">and 30+ more</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Comments -->
+                                    <div class="mb-3">
+                                        <div class="media media-comment">
+                                            <img alt="Image placeholder" class="rounded-circle shadow mr-4" src="../assets/img/prv/team-2-800x800.jpg" style="width: 64px;">
+                                            <div class="media-body">
+                                                <div class="media-text-bubble left-top">
+                                                    <h6 class="mt-0">Alexis Ren</h6>
+                                                    <p class="text-sm lh-160">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+                                                    <div class="icon-actions">
+                                                        <a href="#" class="love active">
+                                                            <i class="fas fa-heart"></i>
+                                                            <span class="text-muted">10 likes</span>
+                                                        </a>
+                                                        <a href="#">
+                                                            <i class="fas fa-comment"></i>
+                                                            <span class="text-muted">1 reply</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="media media-comment">
+                                            <img alt="Image placeholder" class="rounded-circle shadow mr-4" src="../assets/img/prv/team-3-800x800.jpg" style="width: 64px;">
+                                            <div class="media-body">
+                                                <div class="media-text-bubble left-top">
+                                                    <h6 class="mt-0">Tom Cruise</h6>
+                                                    <p class="text-sm lh-160">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+                                                    <div class="icon-actions">
+                                                        <a href="#" class="love active">
+                                                            <i class="fas fa-heart"></i>
+                                                            <span class="text-muted">20 likes</span>
+                                                        </a>
+                                                        <a href="#">
+                                                            <i class="fas fa-comment"></i>
+                                                            <span class="text-muted">3 replies</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="media media-comment">
+                                            <img alt="Image placeholder" class="rounded-circle shadow mr-4" src="../assets/img/prv/team-1-800x800.jpg" style="width: 64px;">
+                                            <div class="media-body">
+                                                <form>
+                                                    <textarea class="form-control" placeholder="Write your comment" rows="1"></textarea>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="pt-5 mt-5 delimiter-top">
-                                <button type="button" class="btn btn-sm btn-primary">Save changes</button>
-                                <button type="button" class="btn btn-link">Cancel</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to action -->
-
-        <section class="slice slice-lg bg-primary">
-
-            <span class="tongue tongue-top"><i class="fas fa-angle-up"></i></span>
-
-            <div class="container">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-lg-8 text-center">
-                        <h3 class="font-weight-400 text-white">I am ready to start a new project with <span class="font-weight-700">Purpose</span> UI Kit.</h3>
-                        <div class="mt-5">
-                            <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-white btn-circle btn-translate--hover px-4">Purchase now<span class="badge badge-pill badge-danger text-sm">$49 USD</span></a>
-                            <a href="mailto:support@webpixels.io" class="btn btn-link text-white">Have an issue?</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-
-    </main>
+            </section>
+    
+            <!-- Call to action -->
+    
+            <section class="slice slice-lg bg-primary">
+    
+                <span class="tongue tongue-top tongue-secondary"><i class="fas fa-angle-up"></i></span>
+    
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-8 text-center">
+                            <h3 class="font-weight-400 text-white">Thank you to shop with us ! <span class="font-weight-700">Purpose</span> UI Kit.</h3>
+                            <div class="mt-5">
+                                <a href="https://themes.getbootstrap.com/product/purpose-website-ui-kit/" target="_blank" class="btn btn-white btn-circle btn-translate--hover px-4">Purchase now<span class="badge badge-pill badge-danger text-sm">$49 USD</span></a>
+                                <a href="mailto:support@webpixels.io" class="btn btn-link text-white">Have an issue?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+        </main>
+    

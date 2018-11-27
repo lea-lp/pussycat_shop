@@ -1,8 +1,7 @@
 class UserProfilesController < ApplicationController
   def show
-    p "*" * 50
-    p params
-    p "*" * 50
+    @user = current_user
+    @orders = @user.orders
   end
 
   def edit
