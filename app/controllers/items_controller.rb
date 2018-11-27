@@ -12,8 +12,9 @@ class ItemsController < ApplicationController
     @items = Item.all
 
     @sug_items = []
-    4.times do 
-    random_cat = Item.find(rand(@items.first.id..@items.last.id))
+    rand_array_cat = (Item.first.id..Item.last.id).to_a.shuffle
+    4.times do |i|
+     random_cat = Item.find(rand_array_cat[i])
     @sug_items << random_cat
     end 
   end
