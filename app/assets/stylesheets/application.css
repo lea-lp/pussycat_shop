@@ -14,7 +14,7 @@
  *= require all.min
  *= require swiper.min
  *= require animate.min
- *= require theme
+ *= require theme.min
  *= require font-awesome
 
  *= require_tree .

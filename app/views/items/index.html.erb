@@ -1,12 +1,8 @@
     <header class="header-transparent" id="header-main">
-
-        <!-- Search -->
-
-        <!-- Topbar -->
        
         <!-- Main navbar -->
 
-        <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
+        <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark sticky" id="navbar-main">
             <div class="container">
                 <a class="navbar-brand mr-lg-5" href="../index.html">
                     <%= image_tag "cat-logo.png", alt: "Image placeholder", style: "height: 60px" %> Pussy Cat Shop
@@ -15,9 +11,6 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
-                <div id="nav">
-                  <ul>
                     
                     <!-- ............................USER IN.......................... -->
                     <% if user_signed_in? %>
@@ -94,7 +87,6 @@
                             </ul>
                         </div>
                     <% end %>
-                  </ul>
                 </div>
 
             </div>
@@ -113,10 +105,10 @@
                     <div class="col-md-6 col-lg-5 text-center text-lg-left">
                         <div class="">
                             <h2 class="text-white my-4">
-                        <span class="display-4 font-weight-light">Mid-Summer</span>
-                        <span class="d-block">Must have <strong class="font-weight-light">accessories</strong></span>
+                        <span class="display-4 font-weight-light">Best images.</span>
+                        <span class="d-block">Must have <strong class="font-weight-light">accessories.</strong></span>
                     </h2>
-                            <p class="lead text-white">A unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams.</p>
+                            <p class="lead text-white">Beautiful unique images stock photos. We have about (204,238 files) stock photos of CATS in HD high resolution jpg images format.</p>
                             <div class="mt-5">
                                 <a href="#sct-products" class="btn btn-white btn-circle btn-translate--hover btn-icon d-none d-xl-inline-block scroll-me">
                                     <span class="btn-inner--text">Go shopping</span>
@@ -134,8 +126,8 @@
                                         <i class="fas fa-shipping-fast"></i>
                                     </div>
                                     <div class="icon-text px-4">
-                                        <h5>Fast shipping</h5>
-                                        <p class="mb-0">All you have to do is to bring your passion. We take care of the rest.</p>
+                                        <h5>Fast sending</h5>
+                                        <p class="mb-0">All you have to do is to register for a customer account with your e-mail.</p>
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +142,7 @@
                                     </div>
                                     <div class="icon-text px-4">
                                         <h5>Online payment</h5>
-                                        <p class="mb-0">All you have to do is to bring your passion. We take care of the rest.</p>
+                                        <p class="mb-0">Thanks to our friends from Stripe you'll be able to pay online and secured.</p>
                                     </div>
                                 </div>
                             </div>
@@ -164,8 +156,8 @@
                                         <i class="fas fa-hand-holding-usd"></i>
                                     </div>
                                     <div class="icon-text px-4">
-                                        <h5>Refund guarantee</h5>
-                                        <p class="mb-0">All you have to do is to bring your passion. We take care of the rest.</p>
+                                        <h5>High Value</h5>
+                                        <p class="mb-0">One day, if your collection doesn't fit your taste, just sell them.</p>
                                     </div>
                                 </div>
                             </div>
@@ -221,32 +213,9 @@
             </div>
         </section>
 
-        <section class="slice slice-xl bg-cover bg-size--cover" style="background-image: url('../assets/img/backgrounds/img-15.jpg');">
+        <section class="slice slice-xl bg-cover bg-size--cover justify-content-end">
             <div class="shape-container" data-shape-style="wavify" data-shape-position="top" data-shape-orientation="inverse">
                
-            </div>
-            <div class="container py-xl">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <h2 class="h1 text-white">Join the biggest wave of</h2>
-                        <h2 class="h1 text-white d-block"><small>%</small> <strong>SALES</strong> <small>%</small></h2>
-                        <p class="lead text-white mt-4">There is only that moment and the incredible certainty that everything under the sun has been written by one hand only.</p>
-
-                        <small class="font-weight-bolder text-white mt-5">Select category:</small>
-                        <div class="mt-2">
-                            <button type="button" class="btn btn-secondary btn-icon-only" data-toggle="tooltip" data-placement="bottom" data-original-title="Basics">
-                                <span class="btn-inner--icon"><i class="fas fa-tshirt"></i></span>
-                            </button>
-                            <button type="button" class="btn btn-secondary btn-icon-only" data-toggle="tooltip" data-placement="bottom" data-original-title="Shoes">
-                                <span class="btn-inner--icon"><i class="fas fa-shoe-prints"></i></span>
-                            </button>
-                            <button type="button" class="btn btn-secondary btn-icon-only" data-toggle="tooltip" data-placement="bottom" data-original-title="Dresses">
-                                <span class="btn-inner--icon"><i class="fas fa-female"></i></span>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
             </div>
             <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
                 <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
@@ -262,7 +231,7 @@
             </div>
             <div class="container">
                 <div class="row justify-content-end">
-                    <div class="col-lg-6 col-xl-7 text-center text-lg-left">
+                    <div class="col-lg-6 col-xl-7 text-center text-lg-right">
                         <div class="mb-5">
                             <h1 class="text-white">Subscribe for weekly news</h1>
                             <p class="lead text-white mt-2">You get all Bootstrap components fully customized. Besides, you receive another numerous plugins out of the box and ready to use.</p>
@@ -291,7 +260,7 @@
                     <a href="../index.html">
                         <img src="../assets/img/brand/dark.png" alt="Footer logo" style="height: 70px;">
                     </a>
-                    <p class="text-sm">A unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams.</p>
+                    <p class="text-sm">Perfect files for the perfect gift ...</p>
                 </div>
                 <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
                     <h6 class="heading mb-3">Account</h6>
