@@ -1,7 +1,7 @@
 Item.all.destroy_all
 array_csv = CSV.read("db/seeds.csv")
 
-20.times do |i|
+27.times do |i|
   cat = Item.new
   cat.title = Faker::Cat.unique.name
   cat.description = "This cat is a "+Faker::Cat.breed+" from the following registry: "+Faker::Cat.registry+". " +Faker::Lorem.paragraph(4)
