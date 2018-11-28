@@ -1,52 +1,32 @@
-<footer class="footer footer-light bg-white" id="footer">
-        <div class="container">
+<footer>
+        <div class="container" >
             <div class="row pt-md">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <a href="../index.html">
-                        <img src="../assets/img/brand/dark.png" alt="Footer logo" style="height: 70px;">
-                    </a>
-                    <p class="text-sm">Perfect files for the perfect gift ...</p>
-                </div>
-                <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
-                    <h6 class="heading mb-3">Account</h6>
+                <a href="<%= root_path %>" style="height: 100px; margin-top: 20px">
+                    <%= image_tag "cat-logo-dark.png", :alt => "cat-logo", style: "height: 90px;" -%>
+                </a>
+                <div class="col-lg-2" style="padding-top: 40px; margin-left: 150px; margin-right: 50px">
+                    <h6 class="heading mb-3"><a href="<%= profile_path %>">Profil</a></h6>
                     <ul class="list-unstyled">
-                        <li><a href="../pages/account-profile.html">Profile</a>
-                        </li>
-                        <li><a href="../pages/account-settings.html">Settings</a>
-                        </li>
-                        <li><a href="../pages/account-billing.html">Billing</a>
-                        </li>
-                        <li><a href="../pages/account-notifications.html">Notifications</a>
-                        </li>
+                        <li><a href="<%= profile_path %>">Ma page</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
-                    <h6 class="heading mb-3">About</h6>
-                    <ul class="list-unstyled text-small">
-                        <li><a href="#">Services</a>
-                        </li>
-                        <li><a href="#">Contact</a>
-                        </li>
-                        <li><a href="#">Careers</a>
-                        </li>
+                <div class="col-lg-2" style="padding-top: 40px; margin-right: 90px">
+                    <h6 class="heading mb-3"><a href="<%= edit_user_registration_path %>">Paramètres</a></h6>
+                    <ul class="list-unstyled">
+                        <li><a href="<%= edit_user_registration_path %>">Éditer mon profil</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-sm-4 mb-5 mb-lg-0">
-                    <h6 class="heading mb-3">Company</h6>
+                <div class="col-lg-2" style="padding-top: 40px">
+                    <h6 class="heading mb-3"><a href="<%= cart_show_path %>">Mon panier</a></h6>
                     <ul class="list-unstyled">
-                        <li><a href="#">Terms</a>
-                        </li>
-                        <li><a href="#">Privacy</a>
-                        </li>
-                        <li><a href="#">Support</a>
-                        </li>
+                        <li><a href="<%= cart_show_path %>">Mes commandes</a></li>
                     </ul>
                 </div>
             </div>
             <div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
                 <div class="col-md-6">
                     <div class="copyright text-sm font-weight-bold text-center text-md-left">
-                        &copy; 2018 <a href="https://webpixels.io/" class="font-weight-bold" target="_blank">Webpixels</a>. All rights reserved.
+                        <strong>THP Team MONTPELLIER</strong>  &copy; 2018 <a href="https://webpixels.io/" class="font-weight-bold" target="_blank">Webpixels</a>. All rights reserved.
                     </div>
                 </div>
                 <div class="col-md-6">

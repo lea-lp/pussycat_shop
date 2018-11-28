@@ -3,8 +3,6 @@ footer {
 }
 
 .footer {
-    padding-top: 3rem;
-
     .list-unstyled li a {
         display: inline-block;
         padding: .125rem 0;
@@ -70,7 +68,6 @@ footer {
 .footer-rotate {
     position: relative;
     margin-top: -26rem;
-    padding-top: 26rem;
     overflow: hidden;
 
     &:before {

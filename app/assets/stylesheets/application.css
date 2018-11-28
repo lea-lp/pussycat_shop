@@ -78,3 +78,15 @@ a:hover {
    background-image: url('img/backgrounds/img-bg-circles.svg');
 
 }
+
+.position-absolute {
+  margin-bottom: -7px !important;
+}
+
+footer {
+  margin-top: -40px;
+}
+
+footer a {
+  color: grey
+}
