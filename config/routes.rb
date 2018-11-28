@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'items#index'
   get "/carts/:cart_id/items/:item_id", to: "carts#add", as: :item_cart
+  post "/carts/:cart_id/items/:item_id", to: "carts#change_quantity", as: :item_quantity
   delete "/carts/:cart_id/items/:item_id", to: "carts#destroy"
 
   resources :items, except: [:create, :new]

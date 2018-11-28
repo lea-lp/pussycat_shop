@@ -8,4 +8,15 @@ class Item < ApplicationRecord
   has_many :carts, through: :cart_lists
   has_and_belongs_to_many :orders
 
+  def get_quantity(cart)
+    list = self.cart_lists.find_by(cart: cart, item: self)
+    return list.quantity
+  end
+
+  def set_quantity(cart, num)
+    list = self.cart_lists.find_by(cart: cart, item: self)
+    list.quantity = num
+    list.save
+  end
+
 end
