@@ -65,12 +65,16 @@
                             <div class="d-flex align-items-center" style="width: 800px; display: flex; justify-content: space-between;">
                                 <div class="avatar-content">
                                     <h6 class="mb-0">Historique des achats</h6>
-                                    <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>Dernière commande le <%= @last_order.created_at.strftime("%d/%m/%Y") %> à <%= @last_order.created_at.strftime("%H:%M") %> </small> 
+                                    <%if @last_order%>
+                                        <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>Dernière commande le <%= @last_order.created_at.strftime("%d/%m/%Y") %> à <%= @last_order.created_at.strftime("%H:%M") %> </small> 
+                                    <%else%>
+                                        <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>aucune commande (pour le moment! :) )</small> 
+                                    <%end%>
                                 </div>
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0" style=" float: right">
                                     <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
                                     <div class="media-body pl-2">
-                                        <span class="h6"><%= @orders.count %> Commandes au total</span>
+                                        <span class="h6"><%= @orders.count %> Commande(s) au total</span>
                                     </div>
                                 </a>
                             </div>
@@ -79,67 +83,64 @@
                             <div class=" mt-5">
                                 <!-- Resume timeline -->
                                 <h5><i class="fas fa-user mr-2 mb-4"></i>Timeline de vos commandes</h5>
+                                <% if @orders.count >0%>
 
-                                <%@orders.each_with_index do |order,i|%>
-                                <p>Commande n°<%= order.id %></p>
-                                <div class="timeline timeline-one-side" data-timeline-content="axis">
-                                    <div class="timeline-block">
-                                        <% order.items.each do |item| %>
-                                        <div class="timeline-content">
-                                            <h6><%=item.title%></h6>
-                                            <p class="text-sm lh-160"><%=item.description%>.</p>
+                                    <%@orders.each_with_index do |order,i|%>
+                                    <p>Commande <strong>n°<%= order.id %></strong> de <strong><%=order.total_price%> €</strong>, effectuée le <strong><%= order.created_at.strftime("%d/%m/%Y") %></strong> </p>
+                                    <div class="timeline timeline-one-side" data-timeline-content="axis">
+                                        <div class="timeline-block">
+                                            <% order.items.each do |item| %>
+                                            <div class="timeline-content">
+                                                <h6><%=item.title%> (acheté en <%=item.order_lists.find_by(order: order, item: item).quantity%> exemplaire(s))</h6>
+                                                <p class="text-sm lh-160"><%=item.description%>.</p>
+                                            </div>
+                                            <%end%>
                                         </div>
-                                        <%end%>
                                     </div>
-                                </div>
+                                    <%end%>
+                                    <p>La prochaine à suivre :)</p>
+                                <%else%>
+                                    <p>Aucune commande</p>
                                 <%end%>
-                                <p>La prochaine à suivre :)</p>
                             </div>
-                            <div class="pt-5 mt-5 delimiter-top">
-                                <!-- Endorsements -->
-                                <h6><i class="fas fa-user mr-2"></i>Les photos de votre dernière commande</h6>
-                                <div class="row">
-                                    <% @last_order.items.each do |item| %>
-                                    <div class="col-lg-4 mt-4">
-                                        <div class="card bg-secondary shadow-sm border-0">
-                                            <div class="media align-items-center p-3">
-                                                <a href="#" class="avatar rounded-circle mr-2">
-                                                    <img alt="Image placeholder " style="width: 50px; height: 50px;" src="<%= item.image_url %>">
-                                                </a>
-                                                <div class="media-body" >
-                                                    <h6 class="text-sm mb-0"><%= item.title %></h6>
+                            <% if @orders.count >0%> 
+                                <div class="pt-5 mt-5 delimiter-top">
+                                    <!-- Endorsements -->
+                                    <h6><i class="fas fa-user mr-2"></i>Les photos de votre dernière commande</h6>
+                                    <div class="row">
+                                        <% @last_order.items.each do |item| %>
+                                        <div class="col-lg-4 mt-4">
+                                            <div class="card bg-secondary shadow-sm border-0">
+                                                <div class="media align-items-center p-3">
+                                                    <a href="#" class="avatar rounded-circle mr-2">
+                                                        <img alt="Image placeholder " style="width: 50px; height: 50px;" src="<%= item.image_url %>">
+                                                    </a>
+                                                    <div class="media-body" >
+                                                        <h6 class="text-sm mb-0"><%= item.title %></h6>
 
-                                                        <span class="static-rating static-rating-sm"
-                                                            <i class="star fas fa-star voted"></i>
-                                                            <i class="star fas fa-star voted"></i>
-                                                            <i class="star fas fa-star voted"></i>
-                                                            <% if rand(0..2) == 0 %>
-                                                            <i class="star fas fa-star voted"></i>
-                                                            <i class="star fas fa-star voted"></i>
-                                                            <% elsif rand(0..1) == 0%>
-                                                            <i class="star fas fa-star voted"></i>
-                                                            <i class="star fas fa-star"></i>
-                                                            <% else %>
-                                                            <i class="star fas fa-star"></i>
-                                                            <i class="star fas fa-star"></i>
-                                                            <% end %>
-                                                        </span>
+                                                            <span class="static-rating static-rating-sm"
+                                                                <i class="star fas fa-star voted"></i>
+                                                                <i class="star fas fa-star voted"></i>
+                                                                <i class="star fas fa-star voted"></i>
+                                                                <% if rand(0..2) == 0 %>
+                                                                <i class="star fas fa-star voted"></i>
+                                                                <i class="star fas fa-star voted"></i>
+                                                                <% elsif rand(0..1) == 0%>
+                                                                <i class="star fas fa-star voted"></i>
+                                                                <i class="star fas fa-star"></i>
+                                                                <% else %>
+                                                                <i class="star fas fa-star"></i>
+                                                                <i class="star fas fa-star"></i>
+                                                                <% end %>
+                                                            </span>
+                                                    </div>
                                                 </div>
->>>>>>> development
                                             </div>
                                         </div>
-                                    </div>
-                                    <% end %>
-                                </div>
-                                <div class="media media-comment">
-                                    <img alt="Image placeholder" class="rounded-circle shadow mr-4" src="../assets/img/prv/team-1-800x800.jpg" style="width: 64px;">
-                                    <div class="media-body">
-                                        <form>
-                                            <textarea class="form-control" placeholder="Write your comment" rows="1"></textarea>
-                                        </form>
+                                        <% end %>
                                     </div>
                                 </div>
-                            </div>
+                            <%end%>
                         </div>
                     </div>
                 </div>
