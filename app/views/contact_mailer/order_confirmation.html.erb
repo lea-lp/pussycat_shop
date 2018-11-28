@@ -3,10 +3,11 @@
 
     <p>Des photos uniques de qualité, délivrées par des professionnels de la photographie. Chats organiques, 100% locaux et kasher.</p>
 
-    <strong>Votre commande du <%= @order.created_at.strftime("%d/%m/%Y") %></strong>
+    <strong>Votre commande du <%= @order.created_at.strftime("%d/%m/%Y") %></strong><br><br>
 
     <% @order.items.each do |item| %>
-        <%= item.image_url %>
+        <%= item.title %> <br>
+        <%= item.image_url %> <br><br><br>
     <% end %> 
 
 <br><br>

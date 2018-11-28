@@ -10,4 +10,4 @@ class ContactMailer < ApplicationMailer
     mail(to: @order.user.email, subject:"Confirmation de votre commande n° #{@order.id}" )
   end
 
-end
+end 

@@ -40,7 +40,7 @@
                                             <span class="h6">Résumé</span>
                                         </div>
                                         <div class="col-6 text-right">
-                                            <span class="badge badge-md badge-pill badge-info"><%= @cart.items.length %> produits</span>
+                                            <span class="badge badge-md badge-pill badge-info"><%= @cart.items.length %> photos différentes</span>
                                         </div>
                                     </div>
                                 </div>
@@ -54,13 +54,13 @@
                                                     <div class="text-limit lh-100">
                                                         <small class="text-dark font-weight-bold mb-0"><%=item.title%></small>
                                                     </div>
-                                                    <small class="text-muted">2?????? x</small>
-                                                    <small class="text-muted"><%=item.price.to_i%>,00€</small>
+                                                    <small class="text-muted"><%= item.get_quantity(@cart) %> x</small>
+                                                    <small class="text-muted"><%= item.price %> €</small>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-4 text-right lh-100">
-                                            <small class="text-dark">$46.00??????????????</small>
+                                            <small class="text-dark"><%=item.get_quantity(@cart)*item.price%> €</small>
                                         </div>
                                     </div>
                                     <%end%>
@@ -71,7 +71,7 @@
                                             <small class="text-uppercase text-dark font-weight-bold">Total:</small>
                                         </div>
                                         <div class="col-4 text-right">
-                                            <span class="text-sm text-dark font-weight-bold"><%= @sum.to_i %>,00€</span>
+                                            <span class="text-sm text-dark font-weight-bold"><%= @total_price %> €</span>
                                         </div>
                                     </div>
 
@@ -95,24 +95,25 @@
                 <div class="row justify-content-center align-items-center">
                     <div class="col-lg-8 text-center">
                         <h3 class="font-weight-400 text-white">
-                        <%= form_tag charges_path do %>   
+                         <span class="font-weight-700">    
+                                <label class="text-black amount">
+                                  <span>Montant à payer: <%=@total_price%> €</span>
+                                </label></h3>
+                        <div class="mt-5">
+                            <%= form_tag charges_path do %>   
                             <% if flash[:error].present? %>
                               <div id="error_explanation">
                                 <p><%= flash[:error] %></p>
                               </div>
-                            <% end %> <span class="font-weight-700">    
-                                <label class="text-black amount">
-                                  <span>Montant à payer: <%=@total_price.to_i%>,00€ </span>
-                                </label></h3>
-                        <div class="mt-5">
+                            <% end %>
                             <script 
                                 src="https://checkout.stripe.com/checkout.js" class= "stripe-button"
                                 data-description="Payer mon panier"
                                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                                 data-amount="<%=@total_price*100%>"
                                 data-locale="auto"
-                                data-currency="eur"="<%=current_user.email%>"
-                                data-email ="<%=current_user.email%>"> Payer mon panier
+                                data-currency="eur"
+                                data-email ="<%=current_user.email%>">
                             </script>
                         </div>
                         <% end %> 
@@ -120,7 +121,4 @@
                 </div>
             </div>
         </section>
-
-
-
     </main>
