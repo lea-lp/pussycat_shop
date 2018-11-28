@@ -4,7 +4,8 @@ class Item < ApplicationRecord
   validates :description, length: { in: 0..500 }
   validates :price, numericality: true
   validates :price, numericality: { greater_than: 0}
-  has_and_belongs_to_many :carts
+  has_many :cart_lists
+  has_many :carts, through: :cart_lists
   has_and_belongs_to_many :orders
 
 end

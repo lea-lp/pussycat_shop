@@ -1,13 +1,4 @@
-<!-- remplir ici le message correspondant au mail admin, manque les liens(?) vers infos tel que user email etc -->
-<!-- + format text a faire -->
+<h1> On a eu une commande! </h1>
 
-<td class="header" bgcolor="#c7d8a7">
-Hello!
-</td>
-<p> Bonjour <%= @order.user.email %> </p>
-
-<p>
-
-message from contact  
-
-</p>
+<p>elle provient de <%=@order.user.email%></p>
+<h1>On vient de se faire <%=@order.total_price%> euros mon gars!!!!</h1>
