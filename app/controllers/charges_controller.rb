@@ -27,6 +27,11 @@ class ChargesController < ApplicationController
     @order.items << @cart.items
     @cart.items = []
 
+    #envoi des emails une fois la commande créée
+    ContactMailer.order_confirmation(@order).deliver_now
+    ContactMailer.info_order(@order).deliver_now
+
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
