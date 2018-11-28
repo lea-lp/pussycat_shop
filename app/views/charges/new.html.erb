@@ -1,22 +1,126 @@
-<h1>Bienvenue sur la page de paiement</h1>
+    <main>
+        <header class="header-account-page bg-gradient-cart d-flex align-items-end">
+            <div class="container">
+                <div class="row">
+                    <div class=" col-lg-12">
+                        <div class="row align-items-center mb-4">
+                            <div class="col-md-5 mb-4 mb-md-0">
+                                <span class="h2 mb-0 text-white d-block">Vous avez validé votre panier.</span>
+                                <span class="text-light">Résumé de la commande.</span>
+                            </div>
+                        </div>
+                        <!-- Checkout navigation -->
+                        <div class="d-flex">
+                            <div class="btn-group btn-group-nav shadow" role="group" aria-label="Basic example">
+                                <div class="btn-group" role="group">
+                                    <a href="shop-checkout-payment.html" class="btn btn-secondary btn-icon active">
+                                        <span class="btn-inner--icon"><i class="fas fa-credit-card"></i></span>
+                                        <span class="btn-inner--text d-none d-md-inline-block">Paiement</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Montant à payer: <%=@total_price%> € </span>
-    </label>
-  </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Payer mon panier"
-          data-amount="<%=@total_price*100%>"
-          data-locale="auto"
-          data-currency="eur"="<%=current_user.email%>"
-          data-email ="<%=current_user.email%>"></script>
-<% end %>
+
+        <section class="slice">
+            <div class="container">
+                <div class="row row-grid">
+                    <div class="col-lg-6 offset-3">
+                        <div data-toggle="sticky" data-sticky-offset="100">
+
+                            <div class="card" id="card-summary">
+                                <div class="card-header py-3">
+                                    <div class="row align-items-center">
+                                        <div class="col-6">
+                                            <span class="h6">Résumé</span>
+                                        </div>
+                                        <div class="col-6 text-right">
+                                            <span class="badge badge-md badge-pill badge-info"><%= @cart.items.length %> produits</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+
+                                <%@cart.items.each_with_index do |item,i|%>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="media align-items-center">
+                                                <div class="media-body">
+                                                    <div class="text-limit lh-100">
+                                                        <small class="text-dark font-weight-bold mb-0"><%=item.title%></small>
+                                                    </div>
+                                                    <small class="text-muted">2?????? x</small>
+                                                    <small class="text-muted"><%=item.price.to_i%>,00€</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-right lh-100">
+                                            <small class="text-dark">$46.00??????????????</small>
+                                        </div>
+                                    </div>
+                                    <%end%>
+
+                                    <!-- Total -->
+                                    <div class="row mt-3 pt-3 border-top">
+                                        <div class="col-8 text-right">
+                                            <small class="text-uppercase text-dark font-weight-bold">Total:</small>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <span class="text-sm text-dark font-weight-bold"><%= @sum.to_i %>,00€</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to action -->
+
+        <section class="slice slice-lg bg-primary">
+
+            <span class="tongue tongue-top"><i class="fas fa-angle-up"></i></span>
+
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-8 text-center">
+                        <h3 class="font-weight-400 text-white">
+                        <%= form_tag charges_path do %>   
+                            <% if flash[:error].present? %>
+                              <div id="error_explanation">
+                                <p><%= flash[:error] %></p>
+                              </div>
+                            <% end %> <span class="font-weight-700">    
+                                <label class="text-black amount">
+                                  <span>Montant à payer: <%=@total_price.to_i%>,00€ </span>
+                                </label></h3>
+                        <div class="mt-5">
+                            <script 
+                                src="https://checkout.stripe.com/checkout.js" class= "stripe-button"
+                                data-description="Payer mon panier"
+                                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                data-amount="<%=@total_price*100%>"
+                                data-locale="auto"
+                                data-currency="eur"="<%=current_user.email%>"
+                                data-email ="<%=current_user.email%>"> Payer mon panier
+                            </script>
+                        </div>
+                        <% end %> 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
