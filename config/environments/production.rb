@@ -117,8 +117,8 @@ ActionMailer::Base.smtp_settings =
   :port               => 587,
   :domain             => 'gmail.com', #you can also use google.com
   :authentication     => :plain,
-  :user_name          => 'team.montpellier.thp@gmail.com',
-  :password           => 'azertypoiuyt'
+  :user_name          => Rails.application.credentials.MAILER_user_name,
+  :password           => Rails.application.credentials.MAILER_password
 }
 
 
