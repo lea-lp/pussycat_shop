@@ -95,16 +95,17 @@
                 <div class="row justify-content-center align-items-center">
                     <div class="col-lg-8 text-center">
                         <h3 class="font-weight-400 text-white">
-                        <%= form_tag charges_path do %>   
-                            <% if flash[:error].present? %>
-                              <div id="error_explanation">
-                                <p><%= flash[:error] %></p>
-                              </div>
-                            <% end %> <span class="font-weight-700">    
+                         <span class="font-weight-700">    
                                 <label class="text-black amount">
                                   <span>Montant à payer: <%=@total_price%> €</span>
                                 </label></h3>
                         <div class="mt-5">
+                            <%= form_tag charges_path do %>   
+                            <% if flash[:error].present? %>
+                              <div id="error_explanation">
+                                <p><%= flash[:error] %></p>
+                              </div>
+                            <% end %>
                             <script 
                                 src="https://checkout.stripe.com/checkout.js" class= "stripe-button"
                                 data-description="Payer mon panier"
@@ -120,7 +121,4 @@
                 </div>
             </div>
         </section>
-
-
-
     </main>
