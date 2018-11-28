@@ -48,7 +48,7 @@ nav a, a, .btn-group a {
 }
 
 nav a:hover, .nav-link:hover {
-    color: black;
+    color: rgba(0, 0, 0, 0.664);
 }
 
 a:hover {
@@ -72,4 +72,9 @@ a:hover {
 
 #button-link {
   color: white;
+}
+
+#payment-done {
+   background-image: url('img/backgrounds/img-bg-circles.svg');
+
 }

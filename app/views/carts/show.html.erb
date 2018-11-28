@@ -25,6 +25,9 @@
         </div>
     </header>
 
+    <% if @items.count > 0 %>
+
+
     <section class="slice slice-lg">
         <div class="container">
             <!-- Shopping cart -->
@@ -95,7 +98,45 @@
 </span>
         <div class="container text-center">
             <h6 class="text-white">N'hésitez pas à retourner sur notre site pour acheter nos merveilleux chats</h6>
-            <a href="<%= new_charge_path %>" class="btn btn-white btn-circle mt-4 method="POST">Validation avant paiement</a>
+            <a href="<%= new_charge_path %>" class="btn btn-white btn-circle mt-4" method="POST">Validation avant paiement</a>
         </div>
     </section>
+
+    <% else %>
+
+    <section class="bg-darker">
+            <div class="spotlight overflow-hidden bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('../assets/img/cat_8.jpg'); background-position: center center; height: 520px; box-shadow: inset 0px 0px 40px 7px #000000;" data-separator-orientation="bottom">
+                <span class="mask bg-gradient-dark opacity-5"></span>
+                <div class="spotlight-holder">
+                    <div class="container py-xl d-flex align-items-center">
+                        <div class="col pt-md pt-lg-0">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 text-center">
+                                    <h6 class="font-weight-700 text-uppercase text-white ls-2 mb-md">Votre panier est vide !</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+
+
+    <section class="slice bg-gradient-primary">
+        <span class="tongue tongue-top">
+    <i class="fas fa-angle-up"></i>
+</span>
+        <div class="container text-center">
+            <h6 class="text-white">Des images exclusives en HD, n'attendez plus !</h6>
+            <a href="<%= root_path %>" class="btn btn-white btn-circle mt-4">Tous les chats</a>
+        </div>
+    </section>
+
+
+
+
+    <% end %>
+
 </main>

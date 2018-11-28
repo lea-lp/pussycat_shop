@@ -72,7 +72,7 @@
                                     <%end%>
                                 </div>
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0" style=" float: right">
-                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/svg/in-progress.svg" style="width: 36px;">
+                                    <%= image_tag( "img/icons/dusk/svg/" + "in-progress.svg", :alt => "Image placeholder", style: "width: 36px;") -%>
                                     <div class="media-body pl-2">
                                         <span class="h6"><%= @orders.count %> Commande(s) au total</span>
                                     </div>
@@ -118,7 +118,7 @@
                                                     <div class="media-body" >
                                                         <h6 class="text-sm mb-0"><%= item.title %></h6>
 
-                                                            <span class="static-rating static-rating-sm"
+                                                            <span class="static-rating static-rating-sm">
                                                                 <i class="star fas fa-star voted"></i>
                                                                 <i class="star fas fa-star voted"></i>
                                                                 <i class="star fas fa-star voted"></i>
@@ -140,6 +140,7 @@
                                         <% end %>
                                     </div>
                                 </div>
+                            <%end%>
                             </div>
                         </div>
                     </div>
