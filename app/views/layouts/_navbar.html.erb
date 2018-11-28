@@ -4,7 +4,7 @@
 
         <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent sticky" id="navbar-main">
             <div class="container">
-                <a class="navbar-brand mr-lg-5" href="/">
+                <a class="navbar-brand mr-lg-5" href="<%= root_path %>">
                     <%= image_tag "cat-logo.png", alt: "Image placeholder", style: "height: 60px" %> Pussy Cat Shop
                 </a>
 
@@ -28,19 +28,19 @@
                                 
                                 <li class="nav-item dropdown dropdown-animate " data-toggle="hover">
                                     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-arrow">
+                                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow">
                                         <div class="list-group">
-                                            <a href="<%= destroy_user_session_path %>" class="list-group-item list-group-item-action" data-method="DELETE">
+                                            <a href="<%= profile_path %>" class="list-group-item list-group-item-action">
                                                 <div class="media d-flex align-items-center">
                                                     <div class="media-body ml-3">
-                                                        <h6 class="mb-1">Log out</h6>
+                                                        <h6 class="mb-1">Profile</h6>
                                                     </div>
                                                 </div>
                                             </a>
-                                            <a href="../pages/pages-secondary.html" class="list-group-item list-group-item-action">
+                                            <a href="<%= destroy_user_session_path %>" class="list-group-item list-group-item-action" data-method="DELETE">
                                                 <div class="media d-flex align-items-center">
                                                     <div class="media-body ml-3">
-                                                        <h6 class="mb-1">Profil</h6>
+                                                        <h6 class="mb-1"><strong>Log out</strong></h6>
                                                     </div>
                                                 </div>
                                             </a>

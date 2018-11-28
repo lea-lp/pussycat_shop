@@ -31,22 +31,45 @@
   background: linear-gradient(80deg,#ff9500 0,#ff6200 100%)!important;
 }
 
-nav a {
+nav a, a, .btn-group a {
   color: white;
+}
+
+.card-body a {
+  color: rgb(31, 29, 29);
+}
+
+.card-body a:hover {
+  color: rgb(95, 91, 91);
 }
 
 .dropdown-menu {
   width: 20px;
 }
 
-a:hover, .nav-link:hover {
+nav a:hover, .nav-link:hover {
     color: black;
 }
 
+a:hover {
+  color: rgba(226, 222, 222, 0.644);
+}
 #button-index {
+  color: white;
   padding: 1px;
   width: 150px;
   background-color: #2E294E;
   opacity: 0.6;
 }
 
+#button-index:hover {
+  color: rgb(155, 147, 147);
+  padding: 1px;
+  width: 150px;
+  background-color: #2E294E;
+  opacity: 0.6;
+}
+
+#button-link {
+  color: white;
+}
