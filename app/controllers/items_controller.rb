@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  
   def index
     @items = Item.all.order("created_at asc")
     if user_signed_in?
