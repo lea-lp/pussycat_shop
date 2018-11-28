@@ -26,7 +26,12 @@ class ChargesController < ApplicationController
     #création d'un order une fois le paiement effectué
     @order = Order.create(user_id: current_user.id, total_price: @amount/100)
     @order.items << @cart.items
-    @cart.items = []
+
+    # transfert des quantités vers les orders
+    @order.items.each do |item|
+      @order.order_lists.find_by(item: item).update(quantity: item.get_quantity(@cart))
+      @cart.items.delete(item) #suppression de la cart_list
+    end
 
     #envoi des emails une fois la commande créée
     ContactMailer.order_confirmation(@order).deliver_later

@@ -28,7 +28,11 @@ class CartsController < ApplicationController
   end
 
   def change_quantity
-    @item.set_quantity(@cart, params[:quantity])
+    quantity = params[:quantity].to_i
+    if quantity <= 0
+      quantity = 1
+    end
+    @item.set_quantity(@cart, quantity)
     redirect_to cart_show_path
   end
 
