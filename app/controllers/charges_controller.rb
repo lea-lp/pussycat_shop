@@ -2,7 +2,7 @@ class ChargesController < ApplicationController
 
   def new
     @cart = current_user.cart
-    get_total_price(@cart)
+    @sum = get_total_price(@cart)
   end
 
   def create
