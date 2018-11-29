@@ -113,7 +113,7 @@
                             <div class="card card-product no-border shadow shadow--hover">
                                 <div class="card-image">
                                     <a href="<%= item_path(item) %>">
-                                        <img src="<%= item.image_url %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
+                                        <img src="<%= item.image_url %>" alt="<%= item.title %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
                                     </a>
         
                                     <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
@@ -144,7 +144,7 @@
             <div class="row pt-md">
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <a href="../index.html">
-                        <img src="../assets/img/brand/dark.png" alt="Footer logo" style="height: 70px;">
+                        <%= image_tag( "img/brand/" + "dark.png", :alt => "Footer logo", style: "height: 70px") -%>
                     </a>
                     <p class="text-sm">A unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams.</p>
                 </div>

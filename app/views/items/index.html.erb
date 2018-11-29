@@ -2,20 +2,20 @@
 <main>
     <section class="slice slice-lg bg-gradient-warning">
         <div class="position-absolute bottom-0 col-md-9 col-lg-9 col-xl-8 d-none d-md-block">
-            <%= image_tag "catPNG.png", alt: "Image placeholder", class: "img-fluid" %>
+            <%= image_tag "catPNG.png", alt: "black cat land-page", class: "img-fluid" %>
         </div>
         <div class="container pt-lg">
             <div class="row justify-content-end">
                 <div class="col-md-6 col-lg-5 text-center text-lg-left">
                     <div class="">
                         <h2 class="text-white my-4">
-                            <span class="display-4 font-weight-light">Best images.</span>
-                            <span class="d-block">Must have <strong class="font-weight-light">accessories.</strong></span>
+                            <span class="display-4 font-weight-light">Exclusif.</span>
+                            <span class="d-block">Images inédites <strong>full HD.</strong></span>
                         </h2>
-                        <p class="lead text-white">Beautiful unique images stock photos. We have about (204,238 files) stock photos of CATS in HD high resolution jpg images format.</p>
+                        <p class="lead text-white">Simple et rapide. Près de 27 images de chats à découvrir. Photographes montpelliérains, chats 100% bios <a href="https://fr.wikipedia.org/wiki/In%C3%A9die">(nourris au prana)</a>.</p>
                         <div class="mt-5">
                             <a href="#sct-products" class="btn btn-white btn-circle btn-translate--hover btn-icon d-none d-xl-inline-block scroll-me">
-                                <span class="btn-inner--text">Go shopping</span>
+                                <span class="btn-inner--text">Explorer</span>
                             </a>
                         </div>
                     </div>
@@ -30,8 +30,8 @@
                                     <i class="fas fa-shipping-fast"></i>
                                 </div>
                                 <div class="icon-text px-4">
-                                    <h5>Fast sending</h5>
-                                    <p class="mb-0">All you have to do is to register for a customer account with your e-mail.</p>
+                                    <h5>Instantané</h5>
+                                    <p class="mb-0">Envoi d'email automatique dès votre achat terminé avec les liens en HD</p>
                                 </div>
                             </div>
                         </div>
@@ -45,8 +45,8 @@
                                     <i class="fas fa-credit-card"></i>
                                 </div>
                                 <div class="icon-text px-4">
-                                    <h5>Online payment</h5>
-                                    <p class="mb-0">Thanks to our friends from Stripe you'll be able to pay online and secured.</p>
+                                    <h5>Paiement sécurisé</h5>
+                                    <p class="mb-0">Grâce à Stripe, vous disposez d'une interface de paiement sans risque</p>
                                 </div>
                             </div>
                         </div>
@@ -60,8 +60,8 @@
                                     <i class="fas fa-hand-holding-usd"></i>
                                 </div>
                                 <div class="icon-text px-4">
-                                    <h5>High Value</h5>
-                                    <p class="mb-0">One day, if your collection doesn't fit your taste, just sell them.</p>
+                                    <h5>Votre projet</h5>
+                                    <p class="mb-0">Avec nos produits, nous vous garantissons un succès de carrière imminent </p>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
     <section class="slice slice-lg delimiter-top" id="sct-products">
         <div class="container">
             <div class="mb-5 text-center">
-                <h3 class="h6">Latest products</h3>
+                <h3 class="h6">Nos derniers produits</h3>
             </div>
             <div class="row">
 
@@ -90,7 +90,7 @@
                         <div class="card card-product no-border shadow shadow--hover">
                             <div class="card-image">
                                 <a href="<%= item_path(item) %>">
-                                <img src="<%= item.image_url %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
+                                <img src="<%= item.image_url %>" alt="<%= item.title %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
                                 </a>
                                 <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
                             </div>
@@ -107,36 +107,29 @@
                 <%end%>
             </div>
         </div>
-        <div class="text-center">
+
+        <!-- ..................ALL PRODUCTS BUTTON................. -->
+        <!-- <div class="text-center">
             <a href="shop-products.html" class="btn btn-sm btn-dark btn-circle">See all products</a>
-        </div>
+        </div> -->
+
     </section>
 
-    <section class="slice slice-xl bg-cover bg-size--cover justify-content-end">
-        <div class="shape-container" data-shape-style="wavify" data-shape-position="top" data-shape-orientation="inverse">
-           
-        </div>
-        <div class="shape-container" data-shape-style="wavify" data-shape-position="bottom">
-            <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="shape-fill-white" data-toggle="wavify">
-                <defs></defs>
-                <path d="" class="shape-fill-white" />
-            </svg>
-        </div>
-    </section>
-
-    <section class="slice slice-lg bg-gradient-warning">
+    <section class="slice slice-lg bg-gradient-danger">
         <div class="position-absolute bottom-0 col-lg-6 col-xl-5 d-none d-lg-block">
-            <%= image_tag "catPNG.png", alt: "Image placeholder", class: "img-fluid" %>
+            <%= image_tag "catPNG.png", alt: "black cat", class: "img-fluid", style: "height: 600px;" %>
         </div>
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-lg-6 col-xl-7 text-center text-lg-right">
                     <div class="mb-5">
-                        <h1 class="text-white">Subscribe and you'll receive weekly news</h1>
-                        <p class="lead text-white mt-2">You get all Bootstrap components fully customized. Besides, you receive another numerous plugins out of the box and ready to use.</p>
+                        <h1 class="text-white">Alors, y sont pas mignons ??</h1>
+                        <p class="lead text-white mt-2">Pour profiter pleinement des services, <a href="<%= new_user_session_path %>"><strong>connectez vous</strong></a> ou <a href="<%= new_user_registration_path %>"><strong>devenez membre </strong></a>.</p>
                     </div>
                 </div>
             </div>
+            <br>
         </div>
+        <%= image_tag("img/backgrounds/" + "clouds-bottom.png", alt: "clouds", style: "margin-bottom: -110px") %>
     </section>
 </main>
