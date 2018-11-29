@@ -1,222 +1,136 @@
-<%= render "layouts/navbar" %> <br><br>
+<br><br><br>
+<section class="slice slice-lg" id="sct-products">
+    <div class="container">
+        <div class="row">
 
-        <section class="slice slice-lg" id="sct-products">
-            <div class="container">
-                <div class="row">
+            <div class="col-lg-6">
 
-                    <div class="col-lg-6">
-
-                        <!-- Product gallery -->
-                        <div class="mb-5">
-                            <a href="">
-                                <img src="<%= @item.image_url %>" style="max-width: 550px; max-height: 400px;" class="img-fluid rounded shadow shadow-lg--hover">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <form class="pl-lg-4">
-                
-                            <!-- Product title -->
-                            <h1>Hi, I'm <%=@item.title%> !</h1>
-
-                            <!-- Product description -->
-                            <div class="mt-4">
-                                <small class="text-dark font-weight-bold d-block mb-2">Description:</small>
-                                <p class="text-sm lh-150"><%=@item.description%></p>
-                            </div>
-
-                            
-                            <!-- Rating stars -->
-                            <p style="width: 170px"> Cute 
-                                <span class="static-rating static-rating-sm" style="float: right;">
-                                    <i class="star fas fa-star voted"></i>
-                                    <i class="star fas fa-star voted"></i>
-                                    <i class="star fas fa-star voted"></i>
-                                    <% if rand(0..2) == 0 %>
-                                    <i class="star fas fa-star voted"></i>
-                                    <i class="star fas fa-star voted"></i>
-                                    <% elsif rand(0..1) == 0%>
-                                    <i class="star fas fa-star voted"></i>
-                                    <i class="star fas fa-star"></i>
-                                    <% else %>
-                                    <i class="star fas fa-star"></i>
-                                    <i class="star fas fa-star"></i>
-                                    <% end %>
-
-                                </span>
-                            </p>
-                            <p style="width: 170px"> Crazy 
-                                <span class="static-rating static-rating-sm" style="float: right;">
-                                    <i class="star fas fa-star voted"></i>
-                                    <i class="star fas fa-star voted"></i>
-                                    <i class="star fas fa-star voted"></i>
-                                    <i class="star fas fa-star"></i>
-                                    <i class="star fas fa-star"></i>
-                                </span>
-                            </p>
-
-                            <!-- Quantity -->
-                            <div class="mt-4">
-                                <br>
-                                <div class="d-flex">
-                                    <h3 class="d-block font-weight-bold text-dark mb-2" style="margin-top: 10px; margin-right: 10px;"><%=@item.price.to_i%>,00€</h3>
-<!-- AJOUT DE LA FONCTIONNALITE D'AJOUT AU PANIER  -->
-                                    <%if user_signed_in?%>
-                                        <%= link_to "Ajout au panier", item_cart_path(current_user.cart, @item), class: "btn btn-primary ml-3"%>
-                                    <%end%>
-<!-- (FIN) AJOUT DE LA FONCTIONNALITE D'AJOUT AU PANIER  -->
-                                </div>
-                            </div>
-
-                            <!-- Product info -->
-                        </form>
-                    </div>
-                </div>
-                <div>
-                        <small class="d-block font-weight-bold text-dark">Maintaining</small>
-                        <ul class="list-unstyled list-icon">
-                            <li class="text-sm py-1">
-                                <i class="fas fa-tshirt mr-3"></i>Natural fur, quality guarenteed since 1875
-                            </li>
-                            <li class="text-sm py-1">
-                                <i class="fas fa-air-freshener mr-3"></i>Machine wash up to 30&deg;/86&deg;F gentle cycle (no for real, don't wash your cat dude)
-                            </li>
-                            <li class="text-sm py-1">
-                                <i class="fas fa-charging-station mr-3"></i>Iron up to 110&deg;C/230&deg;F (but you can iron it up hahaha)
-                            </li>
-                        </ul>
-                    </div>
-            </div>
-        </section>
-
-
-
-        <section class="slice slice-lg delimiter-top" id="sct-suggested-products">
-            <div class="container">
-                <div class="mb-md text-center">
-                    <h5>Suggested products</h5>
-                    <div class="fluid-paragraph text-center mt-2">
-                        <p class="lead lh-180">Check out these special cats that we think you might like</p>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-                <div class="row">
-
-                        <% @sug_items.each do |item|%>
-                        <div class="col-lg-3 col-sm-6 col-sm-6 mb-5">
-                            <div class="card card-product no-border shadow shadow--hover">
-                                <div class="card-image">
-                                    <a href="<%= item_path(item) %>">
-                                        <img src="<%= item.image_url %>" alt="<%= item.title %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
-                                    </a>
-        
-                                    <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
-        
-                                </div>
-        
-                                <div class="card-body pt-0 text-center">
-                                    <a href="shop-product.html" class="card-title"><%=item.title%></a>
-                                    <span class="card-price"><%=item.price.to_i%>,00€</span> 
-                                    <div class="product-colors mt-3">
-                                        <a href="#" style="background-color: #59ad46;" data-toggle="tooltip" data-original-title="Green"></a>
-                                        <a href="#" style="background-color: #04050a;" data-toggle="tooltip" data-original-title="Black"></a>
-                                        <a href="#" style="background-color: #62aedd;" data-toggle="tooltip" data-original-title="Blueish"></a>
-                                        <a href="#" style="background-color: #e84385;" data-toggle="tooltip" data-original-title="Pink"></a>
-                                    </div>
-                                    <%= link_to "détails", item_path(item)%>
-                                </div>
-                            </div>
-                        </div>
-                    <%end%>
-
-
-    </main>
-
-
-    <footer class="footer footer-light bg-white">
-        <div class="container">
-            <div class="row pt-md">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <a href="../index.html">
-                        <%= image_tag( "img/brand/" + "dark.png", :alt => "Footer logo", style: "height: 70px") -%>
+                <!-- Product gallery -->
+                <div class="mb-5">
+                    <a href="">
+                        <img src="<%= @item.image_url %>" style="max-width: 550px; max-height: 400px;" class="img-fluid rounded shadow shadow-lg--hover">
                     </a>
-                    <p class="text-sm">A unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams.</p>
-                </div>
-                <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
-                    <h6 class="heading mb-3">Account</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="../pages/account-profile.html">Profile</a>
-                        </li>
-                        <li><a href="../pages/account-settings.html">Settings</a>
-                        </li>
-                        <li><a href="../pages/account-billing.html">Billing</a>
-                        </li>
-                        <li><a href="../pages/account-notifications.html">Notifications</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
-                    <h6 class="heading mb-3">About</h6>
-                    <ul class="list-unstyled text-small">
-                        <li><a href="#">Services</a>
-                        </li>
-                        <li><a href="#">Contact</a>
-                        </li>
-                        <li><a href="#">Careers</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-sm-4 mb-5 mb-lg-0">
-                    <h6 class="heading mb-3">Company</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Terms</a>
-                        </li>
-                        <li><a href="#">Privacy</a>
-                        </li>
-                        <li><a href="#">Support</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
-            <div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top">
-                <div class="col-md-6">
-                    <div class="copyright text-sm font-weight-bold text-center text-md-left">
-                        &copy; 2018 <a href="https://webpixels.io/" class="font-weight-bold" target="_blank">Webpixels</a>. All rights reserved.
+            <div class="col-lg-6">
+                <form class="pl-lg-4">
+
+                    <!-- Product title -->
+                    <h1>Hi, I'm
+                        <%=@item.title%> !</h1>
+
+                    <!-- Product description -->
+                    <div class="mt-4">
+                        <small class="text-dark font-weight-bold d-block mb-2">Description:</small>
+                        <p class="text-sm lh-150">
+                            <%=@item.description%>
+                        </p>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://dribbble.com/webpixels" target="_blank">
-                                <i class="fab fa-dribbble"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="https://instagram.com/webpixelsofficial" target="_blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/webpixels" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://facebook.com/webpixels" target="_blank">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+
+
+                    <!-- Rating stars -->
+                    <p style="width: 170px"> Cute
+                        <span class="static-rating static-rating-sm" style="float: right;">
+                            <i class="star fas fa-star voted"></i>
+                            <i class="star fas fa-star voted"></i>
+                            <i class="star fas fa-star voted"></i>
+                            <% if rand(0..2) == 0 %>
+                            <i class="star fas fa-star voted"></i>
+                            <i class="star fas fa-star voted"></i>
+                            <% elsif rand(0..1) == 0%>
+                            <i class="star fas fa-star voted"></i>
+                            <i class="star fas fa-star"></i>
+                            <% else %>
+                            <i class="star fas fa-star"></i>
+                            <i class="star fas fa-star"></i>
+                            <% end %>
+
+                        </span>
+                    </p>
+                    <p style="width: 170px"> Crazy
+                        <span class="static-rating static-rating-sm" style="float: right;">
+                            <i class="star fas fa-star voted"></i>
+                            <i class="star fas fa-star voted"></i>
+                            <i class="star fas fa-star voted"></i>
+                            <i class="star fas fa-star"></i>
+                            <i class="star fas fa-star"></i>
+                        </span>
+                    </p>
+
+                    <!-- Quantity -->
+                    <div class="mt-4">
+                        <br>
+                        <div class="d-flex">
+                            <h3 class="d-block font-weight-bold text-dark mb-2" style="margin-top: 10px; margin-right: 10px;">
+                                <%=@item.price.to_i%>,00€</h3>
+                            <!-- AJOUT DE LA FONCTIONNALITE D'AJOUT AU PANIER  -->
+                            <%if user_signed_in?%>
+                            <%= link_to "Ajout au panier", item_cart_path(current_user.cart, @item), class: "btn btn-primary ml-3"%>
+                            <%end%>
+                            <!-- (FIN) AJOUT DE LA FONCTIONNALITE D'AJOUT AU PANIER  -->
+                        </div>
+                    </div>
+
+                    <!-- Product info -->
+                </form>
             </div>
         </div>
-    </footer>
+        <div>
+            <small class="d-block font-weight-bold text-dark">Maintaining</small>
+            <ul class="list-unstyled list-icon">
+                <li class="text-sm py-1">
+                    <i class="fas fa-tshirt mr-3"></i>Natural fur, quality guarenteed since 1875
+                </li>
+                <li class="text-sm py-1">
+                    <i class="fas fa-air-freshener mr-3"></i>Machine wash up to 30&deg;/86&deg;F gentle cycle (no for
+                    real, don't wash your cat dude)
+                </li>
+                <li class="text-sm py-1">
+                    <i class="fas fa-charging-station mr-3"></i>Iron up to 110&deg;C/230&deg;F (but you can iron it up
+                    hahaha)
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
 
 
 
+<section>
+    <div class="container">
+        <div class="mb-md text-center">
+            <h5>Suggested products</h5>
+            <div class="fluid-paragraph text-center mt-2">
+                <p class="lead lh-180">Check out these special cats that we think you might like</p>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <% @sug_items.each do |item|%>
+            <div class="col-lg-3 col-sm-6 col-sm-6 mb-5">
+                <div class="card card-product no-border shadow shadow--hover">
+                    <div class="card-image">
+                        <a href="<%= item_path(item) %>">
+                            <img src="<%= item.image_url %>" alt="<%= item.title %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
+                        </a>
+
+                        <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
+
+                    </div>
+
+                    <div class="card-body pt-0 text-center">
+                        <a href="shop-product.html" class="card-title">
+                            <%=item.title%></a>
+                        <span class="card-price">
+                            <%=item.price.to_i%>,00€</span>
+                        <%= link_to "détails", item_path(item)%>
+                    </div>
+                </div>
+            </div>
+            <%end%>
+        <%= image_tag("img/backgrounds/" + "clouds-bottom.png", alt: "clouds", style: "margin-bottom: -110px") %>
+
+        </section>
+        <br><br><br>
