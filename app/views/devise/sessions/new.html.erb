@@ -8,7 +8,7 @@
                 <div class="col-md-8 col-lg-6">
 
                     <div class="text-center mb-5">
-                        <h6 class="h3">Log in</h6>
+                        <h6 class="h3">Se connecter</h6>
                         <p class="text-muted mb-0">Winter is coming, cats too...</p>
                     </div>
                     <span class="clearfix"></span>
@@ -16,17 +16,17 @@
                     <%= devise_error_messages! %>
 
                         <div class="form-group">
-                            <label class="form-control-label">Email address</label>
+                            <label class="form-control-label">Adresse email</label>
                             <div class="input-group input-group-transparent">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email", placeholder: "example@gmail.com" %>
+                                <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email", placeholder: "exemple@gmail.com" %>
                             </div>
                         </div>
 
                         <div class="form-group mb-4">
-                            <label class="form-control-label">Password</label>
+                            <label class="form-control-label">Mot de passe</label>
                             <% if @minimum_password_length %>
                             <em>(<%= @minimum_password_length %> characters minimum)</em>
                             <% end %><br />
@@ -53,21 +53,21 @@
                                 <div><%= f.submit "Log in", class: "btn btn-primary mb-3 mb-sm-0" %></div>
                             </div>
                             <div class="col-sm-5 text-sm-right">
-                                <span class="small d-sm-block d-md-inline">New user ?</span>
+                                <span class="small d-sm-block d-md-inline">Nouvel utilisateur ?</span>
                                 <%= render "devise/shared/links" %>
                             </div>
 
                         </div>
                       <% end %>
                       <br><br>
-                      <%= link_to "<< Home page", root_path %>
+                      <%= link_to "<< Page d'accueil", root_path %>
                 </div>
 
             </div>
+            <!-- <%= image_tag("img/backgrounds/" + "clouds-bottom.png", alt: "clouds", style: "width: 100%") %> -->
 
         </div>
 
     </div>
-    <%= image_tag("img/backgrounds/" + "clouds-bottom.png", alt: "clouds") %>
 
 </main>
