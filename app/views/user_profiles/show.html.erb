@@ -66,7 +66,7 @@
                                 <div class="avatar-content">
                                     <h6 class="mb-0">Historique des achats</h6>
                                     <%if @last_order%>
-                                        <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>Dernière commande le <%= @last_order.created_at.strftime("%d/%m/%Y") %> à <%= @last_order.created_at.strftime("%H:%M") %> </small> 
+                                        <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>Dernière commande le <%= @last_order.created_at.strftime("%d/%m/%Y") %> à <%= @last_order.created_at.strftime("%H:%M") %> (UTC) </small> 
                                     <%else%>
                                         <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>aucune commande (pour le moment! :) )</small> 
                                     <%end%>
