@@ -1,5 +1,5 @@
 <main>
-    <header class="header-account-page bg-gradient-cart d-flex align-items-end">
+    <header class="header-account-page bg-gradient-cart d-flex align-items-end" style="height: 250px">
         <div class="container">
             <div class="row">
                 <div class=" col-lg-12">
@@ -55,13 +55,17 @@
                             </div>
                           </td>
                           <td>
-                            <span class="font-weight-bold"><%=item.price.to_i%>,00€</span>
+                            <span class="font-weight-bold"><%=item.price%> €</span>
                           </td>
                           <td>
-                            <input type="text" class="form-control form-control-sm text-center" style="width: 80px;" value="1">
+                            <form action=<%=item_quantity_url(@cart, item)%> method="post" style="display: flex;">
+                              <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+                              <input type="number" name="quantity" class="form-control form-control-sm text-center" style="width: 80px;" value="<%=item.get_quantity(@cart)%>">
+                              <input type="submit" name="commit" value="rafraîchir" class="btn btn-primary" style="padding: 1px;">
+                            </form>
                           </td>
                           <td>
-                              <span class="font-weight-bold text-dark">$129 USD????</span>
+                              <span class="font-weight-bold text-dark"><%= total_per_line = item.get_quantity(@cart)*item.price%> €</span>
                           </td>
                           <td class="text-right">
                               <a href="<%= item_cart_path(@cart, item) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE">
@@ -69,7 +73,7 @@
                               </a>
                           </td>
                         </tr>
-                      <%sum += item.price%>
+                      <%sum += total_per_line%>
                       <%end%>
                     </tbody>
                 </table>

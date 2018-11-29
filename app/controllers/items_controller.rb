@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  
   def index
     @items = Item.all.order("created_at asc")
     if user_signed_in?
@@ -9,13 +10,12 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @items = Item.all
 
     @sug_items = []
     rand_array_cat = (Item.first.id..Item.last.id).to_a.shuffle
     4.times do |i|
-     random_cat = Item.find(rand_array_cat[i])
-    @sug_items << random_cat
+      random_cat = Item.find_by_id(rand_array_cat[i])
+      @sug_items << random_cat
     end 
   end
 

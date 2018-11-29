@@ -1,6 +1,27 @@
-<!-- remplir ici le message correspondant au mail de paiement, manque les liens(?) vers infos tel que user email etc -->
-<!-- + format texte à faire -->
+​<h3>Merci de nous avoir fait confiance <%= @order.user.email %> !</h3>
 
-<h1> On a eu une commande! </h1>
 
-<p>elle provient de <%=@order.user.email%></p>
+    <p>Des photos uniques de qualité, délivrées par des professionnels de la photographie. Chats organiques, 100% locaux et kasher.</p>
+
+    <strong>Votre commande du <%= @order.created_at.strftime("%d/%m/%Y") %></strong><br><br>
+
+    <% @order.items.each do |item| %>
+        <%= item.title %> <br>
+        <%= item.image_url %> <br><br><br>
+    <% end %> 
+
+<br><br>
+<hr>
+
+​<img alt="" src="https://gallery.mailchimp.com/3c0a779137f56340e446ed667/images/53f1cd64-20ed-491e-8d33-ed9df8d2d1f4.jpg" width="264" style="max-width:500px;" class="mcnImage">
+
+​<p>Toutes les actualités sur <a href="http://www.pussycat-shop.herokuapp.com/" target="_blank">http://www.pussycat-shop.herokuapp.com/</a></p>
+<br>
+
+<p>À bientôt !</p>
+
+<hr> 
+
+<em>Copyright © 2018 THP MONTPELLIER, All rights reserved.</em><br>
+<p><strong>Contact :</strong> team.montpellier.thp@gmail.com</p>  
+

@@ -4,7 +4,31 @@ class Item < ApplicationRecord
   validates :description, length: { in: 0..500 }
   validates :price, numericality: true
   validates :price, numericality: { greater_than: 0}
-  has_and_belongs_to_many :carts
-  has_and_belongs_to_many :orders
+  
+  has_many :cart_lists
+  has_many :carts, through: :cart_lists
+
+  has_many :order_lists
+  has_many :orders, through: :order_lists
+
+  def get_quantity(cart)
+    list = self.cart_lists.find_by(cart: cart, item: self)
+    return list.quantity
+  end
+
+  def set_quantity(cart, num)
+    list = self.cart_lists.find_by(cart: cart, item: self)
+    list.quantity = num
+    list.save
+  end
+
+  def to_param
+    title
+  end
+
+  def self.find(input)
+    find_by_title(input)
+  end
+
 
 end
