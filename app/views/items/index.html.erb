@@ -98,7 +98,7 @@
                             </div>
                             <div class="card-body pt-0 text-center">
                                 <a href="shop-product.html" class="card-title"><%=item.title%></a>
-                                <span class="card-price"><%=item.price%> €</span>
+                                <span class="card-price"><%= sprintf('%.2f', item.price) %> €</span>
                                 <%if user_signed_in?%>
                                 <a href="<%= item_cart_path(current_user.cart, item)%> " class="btn btn-primary btn-sm btn-circle" id="button-index">Ajouter au panier</a><br>
                                 <%if current_user.admin%>
@@ -120,7 +120,7 @@
 
     </section>
 
-    <section class="slice slice-lg bg-gradient-danger">
+    <section class="slice slice-lg bg-gradient-warning">
         <div class="position-absolute bottom-0 col-lg-6 col-xl-5 d-none d-lg-block">
             <%= image_tag "catPNG.png", alt: "black cat", class: "img-fluid", style: "height: 600px;" %>
         </div>
@@ -135,6 +135,6 @@
             </div>
             <br>
         </div>
-        <%= image_tag("img/backgrounds/" + "clouds-bottom.png", alt: "clouds", style: "margin-bottom: -110px") %>
+        <%= image_tag("img/backgrounds/" + "clouds-bottom.png", alt: "clouds", style: "margin-bottom: -110px; width: 100%") %>
     </section>
 </main>

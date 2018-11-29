@@ -18,7 +18,7 @@
                 <form class="pl-lg-4">
 
                     <!-- Product title -->
-                    <h1>Hi, I'm
+                    <h1>Hey, je m'appelle 
                         <%=@item.title%> !</h1>
 
                     <!-- Product description -->
@@ -66,7 +66,8 @@
                             <h3 class="d-block font-weight-bold text-dark mb-2" style="margin-top: 10px; margin-right: 10px;">
                                 <%=@item.price%> €</h3>
                             <%if user_signed_in?%>
-                            <%= link_to "Ajout au panier", item_cart_path(current_user.cart, @item), class: "btn btn-primary ml-3"%>
+                            <%= link_to "Ajout au panier", item_cart_path(current_user.cart, @item), class: "btn btn-primary ml-3"%> <br>
+                            <%= link_to "Lui acheter à manger", "https://fish-store.herokuapp.com/", class: "btn btn-light ml-3"%>
                             <%end%>
                         </div>
                     </div>
@@ -76,18 +77,16 @@
             </div>
         </div>
         <div>
-            <small class="d-block font-weight-bold text-dark">Maintaining</small>
+            <small class="d-block font-weight-bold text-dark">Entretien</small>
             <ul class="list-unstyled list-icon">
                 <li class="text-sm py-1">
-                    <i class="fas fa-tshirt mr-3"></i>Natural fur, quality guarenteed since 1875
+                    <i class="fas fa-tshirt mr-3"></i>Fourrure 100% naturelle, qualité garantie depuis 1875
                 </li>
                 <li class="text-sm py-1">
-                    <i class="fas fa-air-freshener mr-3"></i>Machine wash up to 30&deg;/86&deg;F gentle cycle (no for
-                    real, don't wash your cat dude)
+                    <i class="fas fa-air-freshener mr-3"></i>Lavable en machine à 30&deg;/40&deg;C (nan mais en vrai, lave pas ton chat mec !)
                 </li>
                 <li class="text-sm py-1">
-                    <i class="fas fa-charging-station mr-3"></i>Iron up to 110&deg;C/230&deg;F (but you can iron it up
-                    hahaha)
+                    <i class="fas fa-charging-station mr-3"></i>Teméprature de repassage conseillée : entre 110&deg;C/230&deg;C
                 </li>
             </ul>
         </div>
@@ -99,9 +98,9 @@
 <section>
     <div class="container">
         <div class="mb-md text-center">
-            <h5>Suggested products</h5>
+            <h5>Suggestion de produits</h5>
             <div class="fluid-paragraph text-center mt-2">
-                <p class="lead lh-180">Check out these special cats that we think you might like</p>
+                <p class="lead lh-180">N'attendez plus pour découvrir nos images exceptionnelles !</p>
             </div>
         </div>
 
