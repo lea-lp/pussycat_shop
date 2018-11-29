@@ -55,7 +55,7 @@
                                                         <small class="text-dark font-weight-bold mb-0"><%=item.title%></small>
                                                     </div>
                                                     <small class="text-muted"><%= item.get_quantity(@cart) %> x</small>
-                                                    <small class="text-muted"><%= sprintf('%.2f', itemprice.to_i) %> €</small>
+                                                    <small class="text-muted"><%= sprintf('%.2f', item.price.to_i) %> €</small>
                                                 </div>
                                             </div>
                                         </div>

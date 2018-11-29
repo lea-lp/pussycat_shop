@@ -11,7 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
-  *= require_tree .
+ *= require_tree .
 
  *= require all.min
  *= require swiper.min
@@ -61,7 +61,6 @@ a:hover {
   width: 150px;
   background-color: #2E294E;
   opacity: 0.6;
-  box-shadow: inset 0px 0px 183px 26px rgba(255,255,255,0.97);
 }
 
 #button-index:hover {
