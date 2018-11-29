@@ -90,3 +90,8 @@ footer {
 footer a {
   color: grey
 }
+
+#section-index-background {
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  z-index: 100;
+}
