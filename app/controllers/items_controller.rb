@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.save
     redirect_to(@item)
+    return
   end
 
   def edit
@@ -20,6 +21,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(item_params)
     redirect_to(@item)
+    return
   end
 
   def index
