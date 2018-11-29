@@ -8,7 +8,9 @@
                 <!-- Product gallery -->
                 <div class="mb-5">
                     <a href="">
-                        <img src="<%= @item.image_url %>" style="max-width: 550px; max-height: 400px;" class="img-fluid rounded shadow shadow-lg--hover">
+                        <%if @item.image.attached?%>
+                            <%= image_tag @item.image.variant(resize: "550x400"), class: "img-fluid rounded shadow shadow-lg--hover"%>
+                        <%end%>
                     </a>
                 </div>
             </div>
@@ -62,13 +64,11 @@
                         <br>
                         <div class="d-flex">
                             <h3 class="d-block font-weight-bold text-dark mb-2" style="margin-top: 10px; margin-right: 10px;">
-                                <%=@item.price.to_i%>,00€</h3>
-                            <!-- AJOUT DE LA FONCTIONNALITE D'AJOUT AU PANIER  -->
+                                <%=@item.price%> €</h3>
                             <%if user_signed_in?%>
                             <%= link_to "Ajout au panier", item_cart_path(current_user.cart, @item), class: "btn btn-primary ml-3"%> <br>
                             <%= link_to "Lui acheter à manger", "https://fish-store.herokuapp.com/", class: "btn btn-light ml-3"%>
                             <%end%>
-                            <!-- (FIN) AJOUT DE LA FONCTIONNALITE D'AJOUT AU PANIER  -->
                         </div>
                     </div>
 
@@ -112,8 +112,11 @@
                 <div class="card card-product no-border shadow shadow--hover">
                     <div class="card-image">
                         <a href="<%= item_path(item) %>">
-                            <img src="<%= item.image_url %>" alt="<%= item.title %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
-                        </a>
+                            <%if item.image.attached?%>
+                                <%= image_tag item.image.variant(resize: "210x145"), class: "img-center img-index"%>
+                            <%end%>
+
+                            </a>
 
                         <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
 
@@ -123,7 +126,7 @@
                         <a href="shop-product.html" class="card-title">
                             <%=item.title%></a>
                         <span class="card-price">
-                            <%=item.price.to_i%>,00€</span>
+                            <%=item.price%> €</span>
                         <%= link_to "détails", item_path(item)%>
                     </div>
                 </div>
