@@ -96,7 +96,7 @@ Rails.application.configure do
   # Maildev test, needed only for some tests.
   
 #Added per active admin install instructions
-config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+config.action_mailer.default_url_options = { :host => 'https://pussycat-shop-bg.herokuapp.com/' }
 
 
 #These settings are for the sending out email for active admin and consequently the   devise mailer
