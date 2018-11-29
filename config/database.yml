@@ -80,6 +80,11 @@ test:
 #
 production:
   <<: *default
-  database: pussycat_shop_production
-  username: pussycat_shop
-  password: <%= ENV['PUSSYCAT_SHOP_DATABASE_PASSWORD'] %>
+  database: pussycat_shop_development
+
+
+# production:
+#   <<: *default
+#   database: pussycat_shop_production
+#   username: pussycat_shop
+#   password: <%= ENV['PUSSYCAT_SHOP_DATABASE_PASSWORD'] %>

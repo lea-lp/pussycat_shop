@@ -105,5 +105,10 @@ footer a {
 }
 
 .registers a {
-  color: rgba(92, 85, 85, 0.514)
+  color: rgba(92, 85, 85, 0.514);
+  margin-bottom: -200px
+}
+
+.registers{
+  height: 650px;
 }
