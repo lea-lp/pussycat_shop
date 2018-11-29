@@ -1,13 +1,18 @@
 class ItemsController < ApplicationController
   
-  def new
-    @item = Item.new
+  def edit
+    puts params[:id]
+    @item = Item.find(params[:id])
+    puts @item
+    puts "$"*70
   end
 
-  def create 
-    @item = Item.new(item_params)
-    @item.save
-    redirect_to(root_path)
+  def update 
+    @item = Item.find(params[:id])
+    puts "$"*50
+    @item.update(item_params)
+    puts "$"*50
+    redirect_to(@item)
   end
 
   def index
@@ -27,9 +32,6 @@ class ItemsController < ApplicationController
       random_cat = Item.find_by_id(rand_array_cat[i])
       @sug_items << random_cat
     end 
-  end
-
-  def edit
   end
 
   private

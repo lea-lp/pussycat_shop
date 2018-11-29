@@ -8,7 +8,9 @@
                 <!-- Product gallery -->
                 <div class="mb-5">
                     <a href="">
-                        <img src="<%= @item.image_url %>" style="max-width: 550px; max-height: 400px;" class="img-fluid rounded shadow shadow-lg--hover">
+                        <%if @item.image.attached?%>
+                            <%= image_tag @item.image.variant(resize: "550x400"), class: "img-fluid rounded shadow shadow-lg--hover"%>
+                        <%end%>
                     </a>
                 </div>
             </div>
@@ -111,7 +113,9 @@
                 <div class="card card-product no-border shadow shadow--hover">
                     <div class="card-image">
                         <a href="<%= item_path(item) %>">
-                            <%= image_tag item.image.variant(resize: "210x145"), class: "img-center img-index"%>
+                            <%if item.image.attached?%>
+                                <%= image_tag item.image.variant(resize: "210x145"), class: "img-center img-index"%>
+                            <%end%>
 
                             </a>
 

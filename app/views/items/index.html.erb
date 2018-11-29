@@ -90,7 +90,9 @@
                         <div class="card card-product no-border shadow shadow--hover">
                             <div class="card-image">
                                 <a href="<%= item_path(item) %>">
-                                    <%= image_tag item.image.variant(resize: "210x145"), class: "img-center img-index"%>
+                                    <%if item.image.attached?%>
+                                        <%= image_tag item.image.variant(resize: "210x145"), class: "img-center img-index"%>
+                                    <%end%>
                                 </a>
                                 <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
                             </div>
@@ -100,7 +102,9 @@
                                 <%if user_signed_in?%>
                                 <a href="<%= item_cart_path(current_user.cart, item)%> " class="btn btn-primary btn-sm btn-circle" id="button-index">Ajouter au panier</a><br>
                                 <%end%> 
-                                <a href="<%= item_path(item) %>">Détails</a>
+                                <a href="<%= item_path(item) %>">Détails</a><br>
+                                <a href="<%= edit_item_path(item) %>">Modif</a>
+
                             </div>
                         </div>
                     </div>
