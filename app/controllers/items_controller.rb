@@ -1,5 +1,15 @@
 class ItemsController < ApplicationController
   
+  def new
+    @item = Item.new
+  end
+
+  def create 
+    @item = Item.new(item_params)
+    @item.save
+    redirect_to(root_path)
+  end
+
   def index
     @items = Item.all.order("created_at asc")
     if user_signed_in?
@@ -20,5 +30,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:title, :description, :price, :image)
   end
 end

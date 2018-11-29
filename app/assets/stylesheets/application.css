@@ -112,3 +112,8 @@ footer a {
 .registers{
   height: 650px;
 }
+
+.img-index{
+  display: flex;
+  justify-items: center;
+}
