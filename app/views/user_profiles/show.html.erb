@@ -9,10 +9,10 @@
                     <div data-toggle="sticky" data-sticky-offset="100" data-negative-margin=".card-profile-cover">
                         <div class="card card-profile border-0 shadow  text-center">
                             <div class="card-profile-cover">
-                                    <%= image_tag "cat_2.jpg", class: "card-img-top", style: "filter: blur(0.6rem); height: 258px;" %>
+                                    <%= image_tag "cat_2.jpg", alt: "avatar w/ blur", class: "card-img-top", style: "filter: blur(0.6rem); height: 258px;" %>
                             </div>
                             <a href="#">
-                                    <%= image_tag "cat_2.jpg", class: "card-profile-image avatar shadow"%>
+                                    <%= image_tag "cat_2.jpg", alt: "avatar", class: "card-profile-image avatar shadow"%>
                             </a>
                             <div class="card-body">
                                 <div class="mb-3">
@@ -72,7 +72,7 @@
                                     <%end%>
                                 </div>
                                 <a class="media d-flex align-items-center mr-lg-5 mb-3 mb-lg-0" style=" float: right">
-                                    <%= image_tag( "img/icons/dusk/svg/" + "in-progress.svg", :alt => "Image placeholder", style: "width: 36px;") -%>
+                                    <%= image_tag( "img/icons/dusk/svg/" + "in-progress.svg", :alt => "in progress icon", style: "width: 36px;") -%>
                                     <div class="media-body pl-2">
                                         <span class="h6"><%= @orders.count %> Commande(s) au total</span>
                                     </div>
@@ -113,7 +113,7 @@
                                             <div class="card bg-secondary shadow-sm border-0">
                                                 <div class="media align-items-center p-3">
                                                     <a href="#" class="avatar rounded-circle mr-2">
-                                                        <img alt="Image placeholder " style="width: 50px; height: 50px;" src="<%= item.image_url %>">
+                                                        <img alt="<%= item.title %>" style="width: 50px; height: 50px;" src="<%= item.image_url %>">
                                                     </a>
                                                     <div class="media-body" >
                                                         <h6 class="text-sm mb-0"><%= item.title %></h6>

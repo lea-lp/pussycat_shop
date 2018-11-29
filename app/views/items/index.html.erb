@@ -2,7 +2,7 @@
 <main>
     <section class="slice slice-lg bg-gradient-warning">
         <div class="position-absolute bottom-0 col-md-9 col-lg-9 col-xl-8 d-none d-md-block">
-            <%= image_tag "catPNG.png", alt: "Image placeholder", class: "img-fluid" %>
+            <%= image_tag "catPNG.png", alt: "black cat land-page", class: "img-fluid" %>
         </div>
         <div class="container pt-lg">
             <div class="row justify-content-end">
@@ -90,7 +90,7 @@
                         <div class="card card-product no-border shadow shadow--hover">
                             <div class="card-image">
                                 <a href="<%= item_path(item) %>">
-                                <img src="<%= item.image_url %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
+                                <img src="<%= item.image_url %>" alt="<%= item.title %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
                                 </a>
                                 <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
                             </div>
@@ -126,7 +126,7 @@
 
     <section class="slice slice-lg bg-gradient-warning">
         <div class="position-absolute bottom-0 col-lg-6 col-xl-5 d-none d-lg-block">
-            <%= image_tag "catPNG.png", alt: "Image placeholder", class: "img-fluid" %>
+            <%= image_tag "catPNG.png", alt: "black cat footer", class: "img-fluid" %>
         </div>
         <div class="container">
             <div class="row justify-content-end">
