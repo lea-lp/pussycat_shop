@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2018_11_29_164112) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-<<<<<<< HEAD
   create_table "cart_lists", force: :cascade do |t|
     t.bigint "cart_id"
     t.bigint "item_id"
@@ -47,8 +46,6 @@ ActiveRecord::Schema.define(version: 2018_11_29_164112) do
     t.index ["item_id"], name: "index_cart_lists_on_item_id"
   end
 
-=======
->>>>>>> c0a062c1c7ec94aab212a181f0bc7f13d574b7ab
   create_table "carts", force: :cascade do |t|
     t.bigint "user_id"
     t.datetime "created_at", null: false

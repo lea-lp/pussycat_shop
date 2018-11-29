@@ -101,7 +101,7 @@
 
                                 
                                 <%@orders.each_with_index do |order,i|%>
-                                    <p>Commande <strong>n°<%= order.id %></strong> de <strong><%= sprintf('%.2f', order.total_price.to_i) %> €</strong>, effectuée le <strong><%= order.created_at.strftime("%d/%m/%Y") %></strong> </p>
+                                    <p>Commande <strong>n°<%= order.id %></strong> de <strong><%= sprintf('%.2f', order.total_price) %> €</strong>, effectuée le <strong><%= order.created_at.strftime("%d/%m/%Y") %></strong> </p>
                                     <div class="timeline timeline-one-side" data-timeline-content="axis">
                                         <div class="timeline-block">
                                             <% order.items.each do |item| %>
