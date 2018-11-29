@@ -55,7 +55,7 @@
                                                         <small class="text-dark font-weight-bold mb-0"><%=item.title%></small>
                                                     </div>
                                                     <small class="text-muted"><%= item.get_quantity(@cart) %> x</small>
-                                                    <small class="text-muted"><%= sprintf('%.2f', item.price.to_i) %> €</small>
+                                                    <small class="text-muted"><%= sprintf('%.2f', item.price) %> €</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -72,7 +72,7 @@
                                             <small class="text-uppercase text-dark font-weight-bold">Total:</small>
                                         </div>
                                         <div class="col-4 text-right">
-                                            <span class="text-sm text-dark font-weight-bold"> <%= sprintf('%.2f', @total_price.to_i) %> €</span>
+                                            <span class="text-sm text-dark font-weight-bold"> <%= sprintf('%.2f', @total_price) %> €</span>
                                         </div>
                                     </div>
 
@@ -98,7 +98,7 @@
                         <h3 class="font-weight-400 text-white">
                          <span class="font-weight-700">    
                                 <label class="text-black amount">
-                                  <span>Montant à payer:  <%= sprintf('%.2f', @total_price.to_i) %> €</span>
+                                  <span>Montant à payer:  <%= sprintf('%.2f', @total_price) %> €</span>
                                 </label></h3>
                         <div class="mt-5">
                             <%= form_tag charges_path do %>   

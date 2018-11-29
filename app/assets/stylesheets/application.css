@@ -115,7 +115,11 @@ footer a {
   background-image: url('img/backgrounds/clouds-bottom.png');
   background-repeat: no-repeat;
   background-size: cover;
+}
 
+.img-index{
+  display: flex;
+  justify-items: center;
 }
 
 #pass-new {

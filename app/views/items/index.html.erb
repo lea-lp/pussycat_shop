@@ -90,15 +90,20 @@
                         <div class="card card-product no-border shadow shadow--hover">
                             <div class="card-image">
                                 <a href="<%= item_path(item) %>">
-                                <img src="<%= item.image_url %>" alt="<%= item.title %>" class="img-center" style="width: 210px; height: 145px; display: flex; justify-items: center">
+                                    <%if item.image.attached?%>
+                                        <%= image_tag item.image.variant(resize: "210x145"), class: "img-center img-index"%>
+                                    <%end%>
                                 </a>
                                 <span class="ribbon ribbon-right ribbon-primary rounded-circle">New</span>
                             </div>
                             <div class="card-body pt-0 text-center">
                                 <a href="shop-product.html" class="card-title"><%=item.title%></a>
-                                <span class="card-price"><%= sprintf('%.2f', item.price.to_i) %> €</span>
+                                <span class="card-price"><%= sprintf('%.2f', item.price) %> €</span>
                                 <%if user_signed_in?%>
                                 <a href="<%= item_cart_path(current_user.cart, item)%> " class="btn btn-primary btn-sm btn-circle" id="button-index">Ajouter au panier</a><br>
+                                <%if current_user.admin%>
+                                    <a href="<%= edit_item_path(item) %>" class="btn btn-danger my-2 btn-sm btn-circle" style="padding: 2px; color: white;">Modifier l'objet</a><br>
+                                <%end%>
                                 <%end%> 
                                 <a href="<%= item_path(item) %>">Détails</a>
                             </div>
