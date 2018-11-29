@@ -60,6 +60,7 @@ a:hover {
   width: 150px;
   background-color: #2E294E;
   opacity: 0.6;
+  box-shadow: inset 0px 0px 183px 26px rgba(255,255,255,0.97);
 }
 
 #button-index:hover {
@@ -111,9 +112,26 @@ footer a {
 
 .registers{
   height: 650px;
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 }
 
 .img-index{
   display: flex;
   justify-items: center;
+}
+
+#pass-new {
+  height: 375px;
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#cat-logo {
+  background-image: url(cat-logo-dark.png);
+  height: 60px;
 }
