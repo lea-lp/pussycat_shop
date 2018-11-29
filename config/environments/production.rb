@@ -96,14 +96,14 @@ Rails.application.configure do
   # Maildev test, needed only for some tests.
   
 #Added per active admin install instructions
-# config.action_mailer.default_url_options = { :host => 'https://pussycat-shop-bg.herokuapp.com' }
- config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
+ config.action_mailer.default_url_options = { :host => 'https://pussycat-shop-bg.herokuapp.com' }
+  config.action_mailer.perform_deliveries = true
 
 #These settings are for the sending out email for active admin and consequently the   devise mailer
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.perform_deliveries = true
 ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.default :charset => "utf-8"
 ActionMailer::Base.smtp_settings = 
 {
 
