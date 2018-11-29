@@ -196,8 +196,9 @@
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
                         
                             <% @order.items.each do |item| %>
-                                <%= item.title %> <br>
-                                <%= item.image_url %> <br><br><br>
+                                <h3 class="text-center"> <%= item.title %> </h3>
+                                <a href=" <%= url_for(item.image) %> ">Télécharger votre photo</a><br>
+                                
                             <% end %> 
                         </td>
                     </tr>
