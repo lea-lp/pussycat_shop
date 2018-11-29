@@ -37,6 +37,20 @@
 
                                     </div>
                                 </div>
+                                <% if current_user.admin%>
+                                    <div class="pt-4 mt-4 delimiter-top">
+                                        <div class="btn-group shadow rounded-circle">
+                                            <button class="btn btn-sm btn-danger btn-circle btn-icon">
+                                                <a id="button-link" href="<%= new_item_path %>">
+                                                    <span class="btn-inner--text">Créer un chat</span>
+                                                </a>
+                                            </button>
+
+
+
+                                        </div>
+                                    </div>
+                                <%end%>
                             </div>
                         </div>
 

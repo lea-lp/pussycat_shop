@@ -1,17 +1,24 @@
 class ItemsController < ApplicationController
   
+  def new
+    filter_admin
+    @item = Item.new
+  end
+
+  def create
+    @item = Item.new(item_params)
+    @item.save
+    redirect_to(@item)
+  end
+
   def edit
-    puts params[:id]
+    filter_admin
     @item = Item.find(params[:id])
-    puts @item
-    puts "$"*70
   end
 
   def update 
     @item = Item.find(params[:id])
-    puts "$"*50
     @item.update(item_params)
-    puts "$"*50
     redirect_to(@item)
   end
 
@@ -39,4 +46,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:title, :description, :price, :image)
   end
+
 end

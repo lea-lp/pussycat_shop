@@ -101,10 +101,11 @@
                                 <span class="card-price"><%=item.price%> €</span>
                                 <%if user_signed_in?%>
                                 <a href="<%= item_cart_path(current_user.cart, item)%> " class="btn btn-primary btn-sm btn-circle" id="button-index">Ajouter au panier</a><br>
+                                <%if current_user.admin%>
+                                    <a href="<%= edit_item_path(item) %>" class="btn btn-danger my-2 btn-sm btn-circle" style="padding: 2px; color: white;">Modifier l'objet</a><br>
+                                <%end%>
                                 <%end%> 
-                                <a href="<%= item_path(item) %>">Détails</a><br>
-                                <a href="<%= edit_item_path(item) %>">Modif</a>
-
+                                <a href="<%= item_path(item) %>">Détails</a>
                             </div>
                         </div>
                     </div>
