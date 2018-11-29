@@ -1,10 +1,11 @@
 # PUSSYCAT SHOP
 
-> Done in Montpellier by Lea Leipp, Arthur Vouloir, theirry DElongueville & Clément Baldy
+> Done in Montpellier by Lea Leipp, Arthur Vouloir, Thierry Delongueville & Clément Baldy
 
 ## Liens Heroku  
-- l'application "staging": https://pussycat-staging.herokuapp.com/
-- l'application "PROD": https://pussycat-shop-bg.herokuapp.com/
+l'application "PROD": https://pussycat-shop-bg.herokuapp.com/
+
+(in case of emergency, brake the glass and click here: https://pussycat-staging.herokuapp.com/)
 
 
 ## Utilisation du site
