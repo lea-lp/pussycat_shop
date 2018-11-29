@@ -71,7 +71,7 @@
                               <span class="font-weight-bold text-dark"><%= total_per_line = item.get_quantity(@cart)*item.price%> €</span>
                           </td>
                           <td class="text-right">
-                              <a href="<%= item_cart_path(@cart, item) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE">
+                              <a href="<%= item_cart_path(@cart, item) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
                                   <i class="fas fa-trash-alt"></i>
                               </a>
                           </td>
