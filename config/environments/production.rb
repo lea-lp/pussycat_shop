@@ -102,7 +102,7 @@ config.action_mailer.smtp_settings = {
   :domain             => 'gmail.com', #you can also use google.com
   :authentication     => :plain,
   :user_name          => Rails.application.credentials.MAILER_user_name,
-  :password           => Rails.application.credentials.MAILER_password
+  :password           => Rails.application.credentials.MAILER_password,
   :enable_starttls_auto => false
 }
 config.action_mailer.raise_delivery_errors = true
