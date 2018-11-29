@@ -3,13 +3,14 @@
 
     <section id="payment-done" class="slice slice-lg bg-cover bg-lg-cover bg-size--contain"> 
         <div class="container pt-lg-sm">
-            <h2 class="text-center">Confirmation de paiement : commande n°<%=@order.id%></h2>
+            <h2 class="text-center" style="color: white">Confirmation de paiement : commande n°<%=@order.id%></h2>
             <div class="row row-grid justify-content-center mt-lg">
                 <div class="col-lg-9">
                     <div class="card-deck flex-column flex-md-row">
                         <div class="card card-pricing zoom-in box-shadow-4 px-4 mx-0 mb-4">
                             <div class="card-header py-md text-center border-0">
-                                <h4 class="mb-4">Merci ! Vous avez payé <strong><%=@order.total_price%>€</strong></h4>
+                                    
+                                <h4 class="mb-4">Merci ! Vous avez payé <strong><%= sprintf('%.2f', @order.total_price) %> €</strong></h4>
                                 <p class="text-muted">Vous receverez un récapitulatif de votre commande par mail très prochainement.<br> J'vous aime putain ! <em>Amour et chocolat !</em></p>
                                 <%= link_to "Retour à l'accueil", root_path, class: "btn btn-primary btn-icon mt-4"%>
                             </div>

@@ -24,7 +24,7 @@ class ChargesController < ApplicationController
     )
 
     #création d'un order une fois le paiement effectué
-    @order = Order.create(user_id: current_user.id, total_price: @amount/100)
+    @order = Order.create(user_id: current_user.id, total_price: @amount.to_f/100)
     @order.items << @cart.items
 
     # transfert des quantités vers les orders
@@ -34,7 +34,7 @@ class ChargesController < ApplicationController
     end
 
     #envoi des emails une fois la commande créée
-    # ContactMailer.order_confirmation(@order).deliver_later
+    ContactMailer.order_confirmation(@order).deliver_later
     # ContactMailer.info_order('kasskq@gmail.com', @order).deliver_later
     # ContactMailer.info_order('clemoun@yahoo.fr', @order).deliver_later
 

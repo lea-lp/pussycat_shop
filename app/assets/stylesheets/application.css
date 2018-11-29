@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require_self
+ *= require_tree .
 
  *= require all.min
  *= require swiper.min
@@ -18,8 +20,7 @@
  *= require theme
  *= require font-awesome
 
- *= require_tree .
- *= require_self
+
  */
 
 .fa-user-circle {
@@ -75,7 +76,8 @@ a:hover {
 }
 
 #payment-done {
-   background-image: url('img/backgrounds/img-bg-circles.svg');
+   background-image: url('img/backgrounds/intro-left-orange.png');
+   margin-top: -75px;
 
 }
 
@@ -94,4 +96,40 @@ footer a {
 #section-index-background {
   background-image: url('img/backgrounds/clouds-bottom.png');
   z-index: 100;
+}
+
+#cart-empty {
+  background-image: url(cat_8.jpg); 
+  background-position: center center; 
+  height: 520px; 
+  box-shadow: inset 0px 0px 40px 7px #000000;
+}
+
+.registers a {
+  color: rgba(92, 85, 85, 0.514);
+  margin-bottom: -200px
+}
+
+.registers{
+  height: 650px;
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-index{
+  display: flex;
+  justify-items: center;
+}
+
+#pass-new {
+  height: 375px;
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#cat-logo {
+  background-image: url(cat-logo-dark.png);
+  height: 60px;
 }

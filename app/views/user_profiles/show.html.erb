@@ -37,6 +37,20 @@
 
                                     </div>
                                 </div>
+                                <% if current_user.admin%>
+                                    <div class="pt-4 mt-4 delimiter-top">
+                                        <div class="btn-group shadow rounded-circle">
+                                            <button class="btn btn-sm btn-danger btn-circle btn-icon">
+                                                <a id="button-link" href="<%= new_item_path %>">
+                                                    <span class="btn-inner--text">Créer un chat</span>
+                                                </a>
+                                            </button>
+
+
+
+                                        </div>
+                                    </div>
+                                <%end%>
                             </div>
                         </div>
 
@@ -66,7 +80,7 @@
                                 <div class="avatar-content">
                                     <h6 class="mb-0">Historique des achats</h6>
                                     <%if @last_order%>
-                                        <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>Dernière commande le <%= @last_order.created_at.strftime("%d/%m/%Y") %> à <%= @last_order.created_at.strftime("%H:%M") %> </small> 
+                                        <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>Dernière commande le <%= @last_order.created_at.strftime("%d/%m/%Y") %> à <%= @last_order.created_at.strftime("%H:%M") %> (UTC) </small> 
                                     <%else%>
                                         <small class="d-block text-muted"><i class="fas fa-clock mr-2"></i>aucune commande (pour le moment! :) )</small> 
                                     <%end%>
@@ -85,8 +99,9 @@
                                 <h5><i class="fas fa-user mr-2 mb-4"></i>Timeline de vos commandes</h5>
                                 <% if @orders.count >0%>
 
-                                    <%@orders.each_with_index do |order,i|%>
-                                    <p>Commande <strong>n°<%= order.id %></strong> de <strong><%=order.total_price%> €</strong>, effectuée le <strong><%= order.created_at.strftime("%d/%m/%Y") %></strong> </p>
+                                
+                                <%@orders.each_with_index do |order,i|%>
+                                    <p>Commande <strong>n°<%= order.id %></strong> de <strong><%= sprintf('%.2f', order.total_price) %> €</strong>, effectuée le <strong><%= order.created_at.strftime("%d/%m/%Y") %></strong> </p>
                                     <div class="timeline timeline-one-side" data-timeline-content="axis">
                                         <div class="timeline-block">
                                             <% order.items.each do |item| %>
@@ -160,8 +175,8 @@
                 <div class="col-lg-8 text-center">
                     <h3 class="font-weight-400 text-white">Merci de nous faire confiance !</h3>
                     <div class="mt-5">
-                        <a href="<%= root_path %>" class="btn btn-white btn-circle btn-translate--hover px-4">Tous nos chats</a>
-                        <a href="<%= new_charge_path %>" class="btn btn-link text-white">Mon panier</a>
+                        <a href="<%= root_path+'#sct-products' %>" class="btn btn-white btn-circle btn-translate--hover px-4">Tous nos chats</a>
+                        <a href="<%= cart_show_path %>" class="btn btn-link text-white">Mon panier</a>
                     </div>
                 </div>
             </div>

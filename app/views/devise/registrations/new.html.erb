@@ -1,14 +1,16 @@
+<br><br><br>
+<br><br>
 
-<main>
+<main class="registers">
 
-    <div class="container h-100vh d-flex align-items-center">
+    <div class="container d-flex align-items-center">
         <div class="col">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
 
                     <div class="text-center mb-5">
-                        <h6 class="h3">Create account</h6>
-                        <p class="text-muted mb-0">It's free and easy</p>
+                        <h6 class="h3">Créer un compte</h6>
+                        <p class="text-muted mb-0">Rapide, simple et efficace</p>
                     </div>
                     <span class="clearfix"></span>
 
@@ -16,17 +18,17 @@
                     <%= devise_error_messages! %>
 
                         <div class="form-group">
-                            <label class="form-control-label">Email address</label>
+                            <label class="form-control-label">Adresse email</label>
                             <div class="input-group input-group-transparent">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email", placeholder: "example@gmail.com" %>
+                                <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email", placeholder: "exemple@gmail.com" %>
                             </div>
                         </div>
 
                         <div class="form-group mb-4">
-                            <label class="form-control-label">Password</label>
+                            <label class="form-control-label">Mot de passe</label>
                             <% if @minimum_password_length %>
                             <em>(<%= @minimum_password_length %> characters minimum)</em>
                             <% end %><br />
@@ -39,7 +41,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-control-label">Confirm password</label>
+                            <label class="form-control-label">Confirmer le mot de passe</label>
                             <div class="input-group input-group-transparent">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -50,21 +52,23 @@
 
                         <div class="row align-items-center">
                             <div class="col-sm-7">
-                                <div><%= f.submit "Create account", class: "btn btn-primary mb-3 mb-sm-0" %></div>
+                                <div><%= f.submit "Créer un compte", class: "btn btn-primary mb-3 mb-sm-0" %></div>
                             </div>
                             <div class="col-sm-5 text-sm-right">
-                                <span class="small d-sm-block d-md-inline">Already registered?</span>
+                                <span class="small d-sm-block d-md-inline">Déjà inscrit ?</span>
                                 <%= render "devise/shared/links" %>
                             </div>
 
                         </div>
                       <% end %>
                       <br><br>
-                      <%= link_to "<< Home page", root_path %>
+                      <%= link_to "<< Page d'accueil", root_path %>
                 </div>
             </div>
 
         </div>
     </div>
+    <!-- <%= image_tag("img/backgrounds/" + "clouds-bottom.png", alt: "clouds") %> -->
+
 
 </main>

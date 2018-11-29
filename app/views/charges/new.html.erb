@@ -13,7 +13,7 @@
                         <div class="d-flex">
                             <div class="btn-group btn-group-nav shadow" role="group" aria-label="Basic example">
                                 <div class="btn-group" role="group">
-                                    <a href="shop-checkout-payment.html" class="btn btn-secondary btn-icon active">
+                                    <a href="<%= new_charge_path %>" class="btn btn-secondary btn-icon active">
                                         <span class="btn-inner--icon"><i class="fas fa-credit-card"></i></span>
                                         <span class="btn-inner--text d-none d-md-inline-block">Paiement</span>
                                     </a>
@@ -55,12 +55,13 @@
                                                         <small class="text-dark font-weight-bold mb-0"><%=item.title%></small>
                                                     </div>
                                                     <small class="text-muted"><%= item.get_quantity(@cart) %> x</small>
-                                                    <small class="text-muted"><%= item.price %> €</small>
+                                                    <small class="text-muted"><%= sprintf('%.2f', item.price) %> €</small>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-4 text-right lh-100">
-                                            <small class="text-dark"><%=item.get_quantity(@cart)*item.price%> €</small>
+                                               
+                                            <small class="text-dark"><%= sprintf('%.2f', item.get_quantity(@cart)*item.price) %> €</small>
                                         </div>
                                     </div>
                                     <%end%>
@@ -71,7 +72,7 @@
                                             <small class="text-uppercase text-dark font-weight-bold">Total:</small>
                                         </div>
                                         <div class="col-4 text-right">
-                                            <span class="text-sm text-dark font-weight-bold"><%= @total_price %> €</span>
+                                            <span class="text-sm text-dark font-weight-bold"> <%= sprintf('%.2f', @total_price) %> €</span>
                                         </div>
                                     </div>
 
@@ -97,7 +98,7 @@
                         <h3 class="font-weight-400 text-white">
                          <span class="font-weight-700">    
                                 <label class="text-black amount">
-                                  <span>Montant à payer: <%=@total_price%> €</span>
+                                  <span>Montant à payer:  <%= sprintf('%.2f', @total_price) %> €</span>
                                 </label></h3>
                         <div class="mt-5">
                             <%= form_tag charges_path do %>   
@@ -108,6 +109,7 @@
                             <% end %>
                             <script 
                                 src="https://checkout.stripe.com/checkout.js" class= "stripe-button"
+                                style="box-shadow: 0px 0px 40px 7px #000000;"
                                 data-description="Payer mon panier"
                                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                                 data-amount="<%=@total_price*100%>"

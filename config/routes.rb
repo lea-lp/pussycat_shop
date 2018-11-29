@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post "/carts/:cart_id/items/:item_id", to: "carts#change_quantity", as: :item_quantity
   delete "/carts/:cart_id/items/:item_id", to: "carts#destroy"
 
-  resources :items, except: [:create, :new]
+  resources :items
   get "payment", to: 'charges#new', as: :new_charge
   post "confirmation", to: 'charges#create', as: :charges
 
