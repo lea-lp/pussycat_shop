@@ -8,6 +8,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def new
+    @item = Item.new
+  end
+
+  def create
+    @items = Item.all
+    @item = Item.new(item_params)
+
+    @item.save
+    redirect_to root_path
+  end
+
   def show
     @item = Item.find(params[:id])
 
@@ -18,6 +30,10 @@ class ItemsController < ApplicationController
       @sug_items << random_cat
     end 
   end
+
+    def item_params
+      params.require(:item).permit(:title, :description, :price, :image)
+    end
 
   def edit
   end

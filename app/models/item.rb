@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
   validates :title, presence: true, uniqueness: true
-  validates :image_url, uniqueness: true
   validates :description, length: { in: 0..500 }
   validates :price, numericality: true
   validates :price, numericality: { greater_than: 0}
@@ -11,6 +10,7 @@ class Item < ApplicationRecord
   has_many :order_lists
   has_many :orders, through: :order_lists
 
+  has_one_attached :image
   def get_quantity(cart)
     list = self.cart_lists.find_by(cart: cart, item: self)
     return list.quantity
@@ -22,9 +22,6 @@ class Item < ApplicationRecord
     list.save
   end
 
-  def to_param
-    title
-  end
 
   def self.find(input)
     find_by_title(input)
