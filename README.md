@@ -1,4 +1,4 @@
-# PUSSYCAT SHOP ![Cat](https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
+# PUSSYCAT SHOP
 
 > Done in Montpellier by Lea Leipp, Arthur Vouloir, theirry DElongueville & Clément Baldy
 
@@ -31,5 +31,3 @@
 - Un visiteur, peut login, et signup
 - Un visiteur, peut aller sur la page d'un produit
 - Un visiteur, peut parcourir les produits
-
-![Strange](https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
