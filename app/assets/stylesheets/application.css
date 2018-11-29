@@ -49,7 +49,7 @@ nav a, a, .btn-group a {
 }
 
 nav a:hover, .nav-link:hover {
-    color: black;
+    color: rgba(0, 0, 0, 0.664);
 }
 
 a:hover {
@@ -61,6 +61,7 @@ a:hover {
   width: 150px;
   background-color: #2E294E;
   opacity: 0.6;
+  box-shadow: inset 0px 0px 183px 26px rgba(255,255,255,0.97);
 }
 
 #button-index:hover {
@@ -73,4 +74,59 @@ a:hover {
 
 #button-link {
   color: white;
+}
+
+#payment-done {
+   background-image: url('img/backgrounds/intro-left-orange.png');
+   margin-top: -75px;
+
+}
+
+.position-absolute {
+  margin-bottom: -7px !important;
+}
+
+footer {
+  margin-top: -40px;
+}
+
+footer a {
+  color: grey
+}
+
+#section-index-background {
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  z-index: 100;
+}
+
+#cart-empty {
+  background-image: url(cat_8.jpg); 
+  background-position: center center; 
+  height: 520px; 
+  box-shadow: inset 0px 0px 40px 7px #000000;
+}
+
+.registers a {
+  color: rgba(92, 85, 85, 0.514);
+  margin-bottom: -200px
+}
+
+.registers{
+  height: 650px;
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#pass-new {
+  height: 375px;
+  background-image: url('img/backgrounds/clouds-bottom.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#cat-logo {
+  background-image: url(cat-logo-dark.png);
+  height: 60px;
 }

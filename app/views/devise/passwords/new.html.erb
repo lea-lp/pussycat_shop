@@ -1,15 +1,17 @@
+<br><br><br>
+<br><br>
 
-<main>
+<main id="pass-new">
 
-    <div class="container h-100vh d-flex align-items-center">
+    <div class="container d-flex align-items-center">
 
         <div class="col">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
 
                     <div class="text-center mb-5">
-                        <h6 class="h3">New password</h6>
-                        <p class="text-muted mb-0">"CatsAreCute" is a good one</p>
+                        <h6 class="h3">Nouveau mot de passe</h6>
+                        <p class="text-muted mb-0">Si t'as pas d'idées, "CatsAreCute" marche bien !</p>
                     </div>
                     <span class="clearfix"></span>
 
@@ -17,24 +19,24 @@
                     <%= devise_error_messages! %>
 
                         <div class="form-group">
-                            <label class="form-control-label">Email address</label>
+                            <label class="form-control-label">Adresse email</label>
                             <div class="input-group input-group-transparent">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email", placeholder: "example@gmail.com" %>
+                                <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email", placeholder: "exemple@gmail.com" %>
                             </div>
                         </div>
 
                         <div class="row align-items-center">
                             <div class="col-sm-7">
-                                <div><%= f.submit "Send me reset password instructions", class: "btn btn-primary mb-3 mb-sm-0" %></div>
+                                <div><%= f.submit "Envoyer la demande de réinitialisation", class: "btn btn-primary mb-3 mb-sm-0" %></div>
                             </div>
 
                         </div>
                       <% end %>
-                      <br><br>
-                    <%= link_to "<< Home page", root_path %>
+                      <br>
+                    <%= link_to "<< Page d'accueil", root_path %>
 
                 </div>
 
@@ -44,6 +46,6 @@
         </div>
 
     </div>
-
+    <!-- <%= image_tag("img/backgrounds/" + "clouds-bottom.png", alt: "clouds") %> -->
 
 </main>

@@ -1,43 +1,179 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<main>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <header class="header-account-page bg-gradient-cart d-flex align-items-end" style="height: 250px">
+        <div class="container">
+            <div class="row">
+                <div class=" col-lg-12">
+                    <!-- Salute + Small stats -->
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <span class="h2 mb-0 text-white d-block">Éditer mon compte</span>
+                        </div>
+                        <div class="col-auto flex-fill">
+                            <ul class="list-inline row justify-content-lg-end mb-0">
+                                <li class="list-inline-item col-sm-4 col-md-auto px-3 my-2 mx-0">
+                                    <span class="badge badge-dot text-white">
+                                <i class="bg-green"></i>Achat effectués
+                                <a class="d-sm-block h5 text-white font-weight-bold pl-2" href="<%= profile_path %>">
+                                        <%= current_user.orders.count %>
+                                        <small class="far fa-angle-up text-primary"></small>
+                                    </a>
+                            </span>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Account navigation -->
+                    <div class="d-flex">
+                        <a href="<%= profile_path %>" class="btn btn-icon btn-group-nav shadow btn-secondary active">
+                            <span class="btn-inner--icon"><i class="fas fa-user"></i></span>
+                            <span class="btn-inner--text d-none d-md-inline-block">Profil</span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+    <section class="slice">
+        <div class="container" style="margin-left: 250px">
+            <div class="row row-grid">
+                <div class="col-lg-9" style=" box-shadow: 0px 0px 61px 0px rgba(0,0,0,0.65); ">
+                    <!-- Change avatar -->
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+                    <div class="card bg-gradient-warning border-0 shadow mb-4">
+                        <div class="card-body py-3 bg-gradient-primary" style="padding: 60px; margin-left: -20px;  margin-right: -20px; box-shadow: -1px 10px 61px -4px rgba(0,0,0,0.75);" >
+                            <div class="row row-grid align-items-center">
+                                <div class="col-lg-8">
+                                    <div class="media align-items-center">
+                                        <a href="#" class="avatar avatar-lg rounded-circle mr-3">
+                                            <%= image_tag "cat_2.jpg"%>
+                                        </a>
+                                        <div class="media-body">
+                                            <h5 class="text-white mb-0"><%= current_user.email %></h5>
+                                            <div>
+                                                <form>
+                                                    <input type="file" name="file-1[]" id="file-1" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple />
+                                                    <label for="file-1">
+                                                        <span class="text-white">Changer l'avatar</span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto flex-fill mt-4 mt-sm-0 text-sm-right d-none d-lg-block">
+                                    <a href="<%= root_path %>" class="btn btn-sm btn-white btn-circle btn-icon shadow">
+                                        <span class="btn-inner--icon"><i class="fas fa-fire"></i></span>
+                                        <span class="btn-inner--text">Tous nos chats</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-<h3>Cancel my account</h3>
+                    <form>
+                        <!-- General -->
+                        <br>
+                        <div class="page-inner-header mb-4">
+                            <h5 class="mb-1">Modifier vos informations</h5>
+                        </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+                        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                        <%= devise_error_messages! %>
+    
+                            <div class="form-group">
+                                <label class="form-control-label">Adresse email</label>
+                                <div class="input-group input-group-transparent">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email" %>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label class="form-control-label">Mot de passe actuel</label>
+                              <div class="input-group input-group-transparent">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", id: "input-password-confirm", placeholder: "********"%>
+                              </div>
+    
+                            <br>
+                            <div class="form-group mb-4">
+                                <% if @minimum_password_length %>
+                                <label class="form-control-label">Nouveau mot de passe</label>
+                                <em class="form-control-label font-weight-light">(<%= @minimum_password_length %> caractères minimum)</em>
+                                <% end %>
+                                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                                <% end %><br />
+                                <div class="input-group input-group-transparent">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <%= f.password_field :password, class: "form-control", id: "input-password", autocomplete: "new-password", placeholder: "********" %>
+                                    <br />
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <label class="form-control-label">Confirmer le mot de passe</label>
+                                <div class="input-group input-group-transparent">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <%= f.password_field :password_confirmation, class: "form-control", id: "input-password-confirm", autocomplete: "new-password", placeholder: "********" %>
+                                </div>
+                            </div>
+                            <br>
+    
+                            <div class="row align-items-center">
+                                <div class="col-sm-7">
+                                    <div><%= f.submit "Mettre à jour", class: "btn btn-primary mb-3 mb-sm-0" %></div>
+                                </div>
+    
+                            </div>
+                          <% end %>
+                            <br><br>
+                          
+                      <h3>Supprimer mon compte</h3>
+                      
+                      <p>Vous n'êtes pas satisfait ?  <%= button_to "Supprimer mon compte", registration_path(resource_name), class: "btn btn-danger mb-3 mb-sm-0", data: { confirm: "Are you sure?" }, method: :delete %></p>
+                      
+                      <%= link_to "Back", :back %>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+
+    <section class="slice slice-lg bg-primary">
+
+        <span class="tongue tongue-top tongue-secondary"><i class="fas fa-angle-up"></i></span>
+
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-8 text-center">
+                    <h3 class="font-weight-400 text-white">Merci de nous faire confiance !</h3>
+                    <div class="mt-5">
+                        <a href="<%= root_path %>" class="btn btn-white btn-circle btn-translate--hover px-4">Tous nos chats</a>
+                        <a href="<%= profile_path %>" class="btn btn-link text-white">Mon profil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</main>

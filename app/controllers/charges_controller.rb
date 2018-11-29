@@ -35,8 +35,8 @@ class ChargesController < ApplicationController
 
     #envoi des emails une fois la commande créée
     ContactMailer.order_confirmation(@order).deliver_later
-    ContactMailer.info_order('kasskq@gmail.com', @order).deliver_later
-    ContactMailer.info_order('clemoun@yahoo.fr', @order).deliver_later
+    # ContactMailer.info_order('kasskq@gmail.com', @order).deliver_later
+    # ContactMailer.info_order('clemoun@yahoo.fr', @order).deliver_later
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

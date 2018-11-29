@@ -5,7 +5,7 @@
         <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent sticky" id="navbar-main">
             <div class="container">
                 <a class="navbar-brand mr-lg-5" href="<%= root_path %>">
-                    <%= image_tag "cat-logo.png", alt: "Image placeholder", style: "height: 60px" %> Pussy Cat Shop
+                    <%= image_tag "cat-logo.png", alt: "cat-logo", style: "height: 60px" %> Pussy Cat Shop
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,25 +22,29 @@
                                 <li class="nav-item mr-0 px-2">
                                   <a href="<%= cart_show_path %>" class="btn btn-sm btn-dark btn-circle">
                                     <i class="fas fa-shopping-cart"></i>
+                                    <% if current_user.cart.items.count == 0 %>
                                     <span class="btn-inner--text">Panier</span>
+                                    <% else %>
+                                    <span class="btn-inner--text">Panier <strong>(<%= current_user.cart.items.count %>)</strong></span>
+                                    <% end %>
                                   </a>
                                 </li>
                                 
                                 <li class="nav-item dropdown dropdown-animate " data-toggle="hover">
-                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow">
+                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle align-items-center" style="color: white"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-arrow" style="width: 170px">
                                         <div class="list-group">
                                             <a href="<%= profile_path %>" class="list-group-item list-group-item-action">
                                                 <div class="media d-flex align-items-center">
                                                     <div class="media-body ml-3">
-                                                        <h6 class="mb-1">Profile</h6>
+                                                        <h6 class="mb-1">Profil</h6>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="<%= destroy_user_session_path %>" class="list-group-item list-group-item-action" data-method="DELETE">
                                                 <div class="media d-flex align-items-center">
                                                     <div class="media-body ml-3">
-                                                        <h6 class="mb-1"><strong>Log out</strong></h6>
+                                                        <h6 class="mb-1"><strong>Déconnexion</strong></h6>
                                                     </div>
                                                 </div>
                                             </a>
@@ -62,12 +66,12 @@
                                 <li class="nav-item"><%= link_to "Mot de passe oublié ?", new_user_password_path, class: "nav-link" %>
                                 </li>
 
-                                <li class="nav-item"><%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+                                <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
                                 </li>
 
-                                <li class="nav-item mr-0"><%= link_to "Sign up", new_user_registration_path, class: "nav-link d-lg-none" %>
+                                <li class="nav-item mr-0"><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link d-lg-none" %>
                                      <a href="<%= new_user_registration_path %>" class="btn btn-sm btn-white btn-circle btn-icon d-none d-lg-inline-flex">
-                                        <span class="btn-inner--text">Sign Up</span>
+                                        <span class="btn-inner--text">S'inscrire</span>
                                     </a>
                                 </li>
 

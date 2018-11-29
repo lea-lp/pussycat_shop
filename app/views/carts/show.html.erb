@@ -25,6 +25,9 @@
         </div>
     </header>
 
+    <% if @items.count > 0 %>
+
+
     <section class="slice slice-lg">
         <div class="container">
             <!-- Shopping cart -->
@@ -55,20 +58,21 @@
                             </div>
                           </td>
                           <td>
-                            <span class="font-weight-bold"><%=item.price%> €</span>
+                            <span class="font-weight-bold"><%= sprintf('%.2f', item.price.to_i) %> €</span>
                           </td>
                           <td>
                             <form action=<%=item_quantity_url(@cart, item)%> method="post" style="display: flex;">
                               <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
                               <input type="number" name="quantity" class="form-control form-control-sm text-center" style="width: 80px;" value="<%=item.get_quantity(@cart)%>">
-                              <input type="submit" name="commit" value="rafraîchir" class="btn btn-primary" style="padding: 1px;">
+                              <button type="submit" name="commit" value="&#f01e" class="btn btn-primary" style="padding: 6px;"><i class="fas fa-redo"></i></button>
+                              
                             </form>
                           </td>
                           <td>
-                              <span class="font-weight-bold text-dark"><%= total_per_line = item.get_quantity(@cart)*item.price%> €</span>
+                              <span class="font-weight-bold text-dark"><%= sprintf('%.2f', total_per_line = item.get_quantity(@cart)*item.price) %> €</span>
                           </td>
                           <td class="text-right">
-                              <a href="<%= item_cart_path(@cart, item) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE">
+                              <a href="<%= item_cart_path(@cart, item) %>" class="text-light" data-toggle="tooltip" data-original-title="Remove item" data-method="DELETE" data-confirm="Are you sure?" >
                                   <i class="fas fa-trash-alt"></i>
                               </a>
                           </td>
@@ -95,7 +99,45 @@
 </span>
         <div class="container text-center">
             <h6 class="text-white">N'hésitez pas à retourner sur notre site pour acheter nos merveilleux chats</h6>
-            <a href="<%= new_charge_path %>" class="btn btn-white btn-circle mt-4 method="POST">Validation avant paiement</a>
+            <a href="<%= new_charge_path %>" class="btn btn-white btn-circle mt-4" method="POST">Validation avant paiement</a>
         </div>
     </section>
+
+    <% else %>
+
+    <section class="bg-darker">
+            <div class="spotlight overflow-hidden bg-cover bg-size--cover" id="cart-empty" data-spotlight="fullscreen" data-separator-orientation="bottom">
+                <span class="mask bg-gradient-dark opacity-5"></span>
+                <div class="spotlight-holder">
+                    <div class="container py-xl d-flex align-items-center">
+                        <div class="col pt-md pt-lg-0">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 text-center">
+                                    <h6 class="font-weight-700 text-uppercase text-white ls-2 mb-md">Votre panier est vide !</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+
+
+    <section class="slice bg-gradient-primary">
+        <span class="tongue tongue-top">
+    <i class="fas fa-angle-up"></i>
+</span>
+        <div class="container text-center">
+            <h6 class="text-white">Des images exclusives en HD, n'attendez plus !</h6>
+            <a href="<%= root_path+'#sct-products' %>" class="btn btn-white btn-circle mt-4">Tous les chats</a>
+        </div>
+    </section>
+
+
+
+
+    <% end %>
+
 </main>
