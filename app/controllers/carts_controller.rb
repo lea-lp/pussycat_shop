@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
-  before_action :get_cart_item
   before_action :filter_signed_in
+  before_action :get_cart_item
 
   def show
     @items = @cart.items
@@ -8,7 +8,6 @@ class CartsController < ApplicationController
   end
 
   def add
-
     # Cas où l'objet existe déjà dans le panier => on incrémente la quantité
     if @cart.items.include?(@item)
       @item.set_quantity(@cart, @item.get_quantity(@cart)+1)

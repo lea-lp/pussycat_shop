@@ -7,6 +7,9 @@
                 <a class="navbar-brand mr-lg-5" href="<%= root_path %>">
                     <%= image_tag "cat-logo.png", alt: "cat-logo", style: "height: 60px" %> Pussy Cat Shop
                 </a>
+                <% flash.each do |type, msg| %>
+                    <%= content_tag :div, msg, class: build_alert_classes(type) %>
+                <% end %>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
